@@ -1,0 +1,23 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+%------------------------- IMMAGINE TIKZ
+\begin{tikzpicture}
+\begin{axis}[
+  width=\textwidth,
+  height=6cm,
+  axis x line=center,
+  axis y line=center,
+    domain=0:24*360,
+    samples=4*360,
+    ytick=\empty,
+    xtick=\empty,
+    %ymin=0,
+    %enlarge x limits=false
+]
+
+\addplot [thick] {(sin(x))+(sin(0.9230*x))};
+%\addplot [very thick] {1-1/(3*180)*mod(x+90,180)};
+\end{axis}
+\end{tikzpicture}
+%------------------------- IMMAGINE TIKZ

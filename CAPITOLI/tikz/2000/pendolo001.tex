@@ -1,0 +1,30 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%!TEX root = ../../../LSSN.tex
+
+%------------------------- IMMAGINE TIKZ
+\begin{tikzpicture}[scale=.99]
+  \draw[dashed] (0,-0.5) -- (0,0.5);
+  \draw[->] (-0.5,0) -- (12,0);
+       %\draw[thick] (0,0) circle (2);
+       \draw[thick, ->] (45:2)arc(45:-45:2);
+       \coordinate (origin) at (0:0);
+       \coordinate (A) at (45:2);
+       \coordinate (B) at (-45:2);
+       \coordinate (0) at (0:2);
+       \coordinate (1) at (7.071,1.414);
+       \coordinate (-1) at (4.242,-1.414);
+  \filldraw (A) circle (2pt) node[above right] {};
+  \filldraw (0) circle (2pt) node[above right] {0};
+  \filldraw (A) circle (5pt) node[above right] {};
+  \draw (B) circle (5pt) node[above right] {};
+  \draw[-] (origin) -- (A);
+  \draw[dashed] (origin) -- (B);
+  \draw[dashed] (B) -- (-1);
+  \draw[dashed] (A) -- (1);
+  \filldraw (1) circle (2pt) node[above] {};
+  \filldraw (-1) circle (2pt) node[below] {};
+
+  \draw[thick] (A) cos (2.828,0) sin (4.242,-1.414) cos (5.656, 0) sin (7.071,1.414) cos (8.485,0) sin (9.899,-1.414) cos (11.313,0);
+\end{tikzpicture}
+%------------------------- IMMAGINE TIKZ

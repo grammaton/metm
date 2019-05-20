@@ -1,0 +1,182 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[
+	12pt,
+	twoside,
+	openright
+	]{book}
+
+\usepackage[
+	top=1in,
+	bottom=1in,
+	inner=1in,
+	%margin=1.23in,
+	textwidth=13cm,
+	%right=7cm
+	%showframe
+	]{geometry}
+
+\geometry{a4paper}
+
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{amssymb}
+
+\usepackage{titlesec}
+\usepackage{titling}
+
+\newcommand{\hsp}{\hspace{19pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries\sffamily}{\thechapter\hsp•\hsp}{0pt}{\Huge\bfseries\sffamily}
+
+\usepackage{listings}
+
+\usepackage{
+	fontspec,
+	xltxtra,
+	xunicode
+	}
+
+\usepackage{
+	xfrac,
+	unicode-math}
+
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont[
+	Mapping=tex-text
+	]{Rubik Light}
+\setsansfont[
+	Scale=MatchLowercase,
+	Mapping=tex-text
+	]{Open Sans}
+\setmonofont[
+	Scale=MatchLowercase
+	]{Andale Mono}
+\setmathfont[
+	Scale=MatchLowercase
+	]{Libertinus Math}
+
+\newfontfamily\quotefont[
+		Scale=MatchLowercase,
+		Mapping=tex-text,
+		LetterSpace=5.0,
+		%Scale=1.123,
+		]{Open Sans Light}%{Fira Sans Light}
+
+\usepackage{etoolbox}
+\AtBeginEnvironment{quote}{\quotefont\small}
+
+\usepackage[
+	autostyle,
+	italian=guillemets,
+	% altre opzioni
+	]{csquotes}
+
+\usepackage[
+	english,
+	italian
+	]{babel}
+
+\usepackage{imakeidx}
+\makeindex[title=Indice dei nomi]
+
+\usepackage{tabularx}
+\usepackage{array}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\usepackage{longtable}
+\usepackage{multirow}
+\usepackage{booktabs}
+
+\usepackage{paralist}
+
+\usepackage{tikz}
+\usetikzlibrary{
+  angles,
+  quotes,
+  decorations.pathmorphing,
+  decorations.markings}
+\usepackage{pgfplots}
+
+\usepackage{wrapfig}
+
+\usepackage{url}
+
+\linespread{1.1}
+
+\renewcommand{\arraystretch}{1.6}
+
+\newfontfamily\csdb[Ligatures=TeX]{Alegreya}
+
+\usepackage{changepage}
+
+\usepackage{ragged2e}
+
+\usepackage[
+	% altre opzioni,
+	style=authoryear,
+	%backend=biber
+]{biblatex}
+
+\addbibresource{../_bib/musebib/nono-luigi.bib}
+\addbibresource{../_bib/musebib/novecento.bib}
+%\addbibresource{musebib/partiture/milestone.bib}
+
+% ----------------------------------------------------
+% ----------------------------------------------------
+% ----------------------------------------------------
+
+\begin{document}
+
+\input{CAPITOLI/tikz/COMANDOBASE}
+
+\input{CAPITOLI/_COPERTINA}
+
+\clearpage
+
+\tableofcontents
+
+\raggedright
+
+\input{CAPITOLI/0000-MANIFESTO}
+
+\input{CAPITOLI/0001-COC}
+
+\input{CAPITOLI/1001-FENOMI}
+
+\input{CAPITOLI/2001-SUONO}
+
+\input{CAPITOLI/3001-SPETTROMORFOLOGIA}
+
+\input{CAPITOLI/4001-PAESAGGIO-SONORO}
+
+\input{CAPITOLI/5001-DSP}
+
+\input{CAPITOLI/6001-ANALISI}
+
+\input{CAPITOLI/7001-SINTESI}
+
+\input{CAPITOLI/8001-REPERTORIO}
+
+\input{CAPITOLI/9001-FIGURE}
+
+%\appendix
+
+%\chapter{PROGRAMMAZIONE V}
+
+%\clearpage
+
+%\input{APPENDICI/PROGRAMMAZIONE-V}
+
+\clearpage
+
+\printbibliography
+
+\clearpage
+
+\printindex
+
+\end{document}

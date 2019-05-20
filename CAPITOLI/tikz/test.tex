@@ -1,0 +1,56 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{ifthen}
+\usepackage[xetex]{animate}
+\usetikzlibrary{calc}
+\begin{document}
+\newcounter{angle}
+\setcounter{angle}{1}
+\begin{animateinline}[loop, poster = first, controls]{30}
+
+\whiledo{\theangle<359}{
+%
+    \begin{tikzpicture}
+    % Axis
+    \draw[thick,-stealth,black] (-3,0)--(4,0) coordinate (A) node[below] {$x$}; % x axis
+    \draw[thick,-stealth,black] (0,-3)--(0,3) node[left] {$y$}; % y axis
+    \draw[black,thin] (0,0) circle (2.5cm);
+    \node[black,below] at (2.7,0) {1};
+    \node[black,above] at (0.2,-3.2) {1};
+%
+    \draw[ultra thick,orange] (0,0) -- (\theangle:2.5cm |- 0,0) node[midway,below] {$\cos \alpha$}; % UpOn y axis
+    %
+    \draw (1,0) arc (0:\theangle:1) node at ($(\theangle/2:0.7)$) {$\alpha$};
+    \draw[ultra thick, cyan  ] (\theangle:2.5cm) -- (\theangle:2.5cm |- 0,0) node[midway,right] {$\sin \alpha$}; % vertical line
+
+    \draw[ultra thick,red,-stealth,rotate=\theangle] (0,0) -- (2.5,0) coordinate (B); 
+
+    \begin{scope}
+    \begin{axis}[
+        thick,
+        y=2.5cm,
+        axis lines=center,
+        xmin=0, xmax=360,
+        ymin=-1, ymax=1,
+        anchor=origin, at=(A),
+        xshift=3ex,
+        enlarge y limits,
+        enlarge x limits=upper,
+        samples=90,
+        xtick={0,90,...,360}]
+        \addplot[domain=0:\theangle,ultra thick, no markers,cyan] {sin(x)} coordinate (C);
+        \addplot[domain=0:\theangle,ultra thick, no markers,orange] {cos(x)};
+    \end{axis}
+    \draw [densely dashed,cyan, thick] (B) -- (C);
+    \end{scope}
+    \end{tikzpicture}
+%
+    \stepcounter{angle}
+    \ifthenelse{\theangle<359}{
+        \newframe
+    }{
+    }
+}
+ \end{animateinline}
+\end{document}
