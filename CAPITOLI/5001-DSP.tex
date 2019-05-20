@@ -3,3 +3,92 @@
 % !TEX root = ../metm.tex
 
 \chapter{DIGITAL SIGNAL PROCESSING}
+
+\section{Segnale}
+
+Partendo dall'etimologia latina del termine \emph{signale}, sostantivo di
+\emph{signalis} derivato da \emph{signum}, \emph{segno}, definiamo genericamente
+un'indicazione sensoriale convenzionale, stabilita d'intesa, per dare una comunicazione,
+un avvertimento, un ordine. Esempi ne sono le espressioni: \emph{dare il segnale},
+\emph{attendere il segnale} oppure le innumerevoli indicazioni dei segnali stradali.
+
+Una comunicazione, quindi, di cui se ne condividano le modalità e se ne
+comprendano i contenuti.
+
+Oltre la portata sensoriale, direttamente percepita dai sensi, definiamo
+una comunicazione a distanza \emph{tele-comunicazione}, dall'etimologia greca
+del termine \emph{têle}, \emph{lontano}.
+
+Nelle telecomunicazioni definiamo segnale la variazione in funzione del tempo
+di una grandezza fisica utilizzata per convogliare informazioni o dello stato
+fisico di un sistema.
+
+Il segnale in questione può essere
+
+\begin{description}
+  \item[segnale analogico], segnale a tempo continuo e ad ampiezza continua in
+       cui la grandezza caratteristica che trasporta
+       informazioni può assumere in ogni istante un qualsivoglia valore
+       all'interno di un intervallo continuo
+  \item[segnale digitale] segnale a tempo discreto e ad ampiezza quantizzata
+\end{description}
+
+Un segnale può anche essere periodico o non periodico, si dice periodico quando
+una parte di questo si ripete nel tempo ugualmente. L'intervallo di tempo in cui
+si ripete la parte è detto periodo.
+
+Nelle telecomunicazioni, dal punto di vista del tipo di informazione trasportata
+fino all'utente si può distinguere essenzialmente tra:
+
+\begin{description}
+\item[segnale audio]
+\item[segnale video]
+\item[segnale dati]
+\end{description}
+
+ciascuno con caratteristiche diverse in termine di banda di trasmissione richiesta.
+
+Dal punto di vista della tipologia fisica del segnale si ha:
+
+\begin{description}
+\item[segnale elettrico]
+\item[segnale elettromagnetico]
+\item[segnale acustico]
+\end{description}
+
+% In elettronica un segnale viene dunque studiato attraverso un modello matematico
+% o funzione in cui il tempo (o il suo inverso, la frequenza) è considerato
+% variabile indipendente.
+%
+% La teoria dei segnali studia la rappresentazione dei segnali in modo da poter poi
+% manipolarli e trattarli matematicamente.
+
+\section{Teorema del campionamento}
+
+Il teorema del campionamento di Nyquist-Shannon o semplicemente teorema del campionamento,
+il cui nome si deve a Harry Nyquist e Claude Shannon, definisce la minima frequenza,
+detta frequenza di Nyquist (o anche cadenza di Nyquist), necessaria per campionare
+un segnale analogico senza perdere informazioni, e per poter quindi ricostruire
+il segnale analogico tempo continuo originario. In particolare, il teorema afferma
+che, data una funzione la cui trasformata di Fourier sia nulla al di fuori di un
+certo intervallo di frequenze (ovvero un segnale a banda limitata), nella sua
+conversione analogico-digitale la minima frequenza di campionamento necessaria per
+evitare aliasing e perdita di informazione nella ricostruzione del segnale analogico
+originario (ovvero nella riconversione digitale-analogica) deve essere maggiore
+del doppio della sua frequenza massima.
+Il teorema, comparso per la prima volta nel 1949 in un articolo di C. E. Shannon,
+dovrebbe chiamarsi Whittaker-Nyquist-Kotelnikov-Shannon (WNKS), secondo l'ordine
+cronologico di chi ne dimostrò versioni via via più generalizzate.
+
+Il campionamento è il primo passo del processo di conversione analogico-digitale
+di un segnale. Consiste nel prelievo di campioni (in inglese \emph{samples}) da
+un segnale analogico e continuo nel tempo ad intervallo di tempo regolare.
+Tale intervallo può essere indicato con un valore di valore $\Delta t$ è denominato
+\emph{intervallo di campionamento}. La \emph{frequenza di campionamento} è descrivibile quindi
+con il reciproco di $\Delta t$: $fc = \frac{1}{\Delta t}$\footnote{fc ed fs sono equivalenti, indicando rispettivmente frequenza di camionamento e sampling frequency}.
+Il risultato del campionamento è un segnale analogico in tempo discreto, che viene
+misurato, quantizzato, codificato e reso accessibile digitalmente.
+
+Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilisce che,
+dato un segnale analogico definito nel tempo $s(t)$ la cui banda di frequenze sia limitata da una frequenza massima $fmax$
+il segnale $s(t)$ può essere descritto da campioni presi a frequenza $fc > 2fmax$.
