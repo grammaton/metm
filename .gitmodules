@@ -1,0 +1,3 @@
+[submodule "musebib"]
+	path = musebib
+	url = https://github.com/grammaton/musebib.git
