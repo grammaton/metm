@@ -84,11 +84,21 @@ Il campionamento è il primo passo del processo di conversione analogico-digital
 di un segnale. Consiste nel prelievo di campioni (in inglese \emph{samples}) da
 un segnale analogico e continuo nel tempo ad intervallo di tempo regolare.
 Tale intervallo può essere indicato con un valore di valore $\Delta t$ è denominato
-\emph{intervallo di campionamento}. La \emph{frequenza di campionamento} è descrivibile quindi
-con il reciproco di $\Delta t$: $fc = \frac{1}{\Delta t}$\footnote{fc ed fs sono equivalenti, indicando rispettivmente frequenza di camionamento e sampling frequency}.
+\emph{intervallo di campionamento}. La \emph{frequenza di campionamento} è
+descrivibile quindi con il reciproco di
+$\Delta t$: $fc = \frac{1}{\Delta t}$\footnote{fc ed fs sono equivalenti,
+indicando rispettivmente frequenza di camionamento e sampling frequency}.
 Il risultato del campionamento è un segnale analogico in tempo discreto, che viene
 misurato, quantizzato, codificato e reso accessibile digitalmente.
 
 Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilisce che,
 dato un segnale analogico definito nel tempo $s(t)$ la cui banda di frequenze sia limitata da una frequenza massima $fmax$
 il segnale $s(t)$ può essere descritto da campioni presi a frequenza $fc > 2fmax$.
+
+\section{Filtri Digitali}
+
+% dal computer music tutorial
+
+\emph{Un filtro digitale è un processo di calcolo o un algoritmo attraverso il quale un
+segnale digitale o una sequenza di numeri (la sequenza di entrata) è trasformata in
+una seconda sequenza di numeri denominata segnale digitale di uscita.} (Rabiner 1972)
