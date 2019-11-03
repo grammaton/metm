@@ -8,9 +8,10 @@
 
 Partendo dall'etimologia latina del termine \emph{signale}, sostantivo di
 \emph{signalis} derivato da \emph{signum}, \emph{segno}, definiamo genericamente
-un'indicazione sensoriale convenzionale, stabilita d'intesa, per dare una comunicazione,
-un avvertimento, un ordine. Esempi ne sono le espressioni: \emph{dare il segnale},
-\emph{attendere il segnale} oppure le innumerevoli indicazioni dei segnali stradali.
+un'indicazione sensoriale convenzionale, stabilita d'intesa, per dare una
+comunicazione, un avvertimento, un ordine. Esempi ne sono le espressioni:
+\emph{dare il segnale}, \emph{attendere il segnale} oppure le innumerevoli
+indicazioni dei segnali stradali.
 
 Una comunicazione, quindi, di cui se ne condividano le modalità e se ne
 comprendano i contenuti.
@@ -65,20 +66,21 @@ Dal punto di vista della tipologia fisica del segnale si ha:
 
 \section{Teorema del campionamento}
 
-Il teorema del campionamento di Nyquist-Shannon o semplicemente teorema del campionamento,
-il cui nome si deve a Harry Nyquist e Claude Shannon, definisce la minima frequenza,
-detta frequenza di Nyquist (o anche cadenza di Nyquist), necessaria per campionare
-un segnale analogico senza perdere informazioni, e per poter quindi ricostruire
-il segnale analogico tempo continuo originario. In particolare, il teorema afferma
-che, data una funzione la cui trasformata di Fourier sia nulla al di fuori di un
-certo intervallo di frequenze (ovvero un segnale a banda limitata), nella sua
-conversione analogico-digitale la minima frequenza di campionamento necessaria per
-evitare aliasing e perdita di informazione nella ricostruzione del segnale analogico
-originario (ovvero nella riconversione digitale-analogica) deve essere maggiore
-del doppio della sua frequenza massima.
-Il teorema, comparso per la prima volta nel 1949 in un articolo di C. E. Shannon,
-dovrebbe chiamarsi Whittaker-Nyquist-Kotelnikov-Shannon (WNKS), secondo l'ordine
-cronologico di chi ne dimostrò versioni via via più generalizzate.
+Il teorema del campionamento di Nyquist-Shannon o semplicemente teorema del
+campionamento, il cui nome si deve a Harry Nyquist e Claude Shannon, definisce
+la minima frequenza, detta frequenza di Nyquist (o anche cadenza di Nyquist),
+necessaria per campionare un segnale analogico senza perdere informazioni, e per
+poter quindi ricostruire il segnale analogico tempo continuo originario. In
+particolare, il teorema afferma che, data una funzione la cui trasformata di
+Fourier sia nulla al di fuori di un certo intervallo di frequenze (ovvero un
+segnale a banda limitata), nella sua conversione analogico-digitale la minima
+frequenza di campionamento necessaria per evitare aliasing e perdita di
+informazione nella ricostruzione del segnale analogico originario (ovvero nella
+riconversione digitale-analogica) deve essere maggiore del doppio della sua
+frequenza massima. Il teorema, comparso per la prima volta nel 1949 in un
+articolo di C. E. Shannon, dovrebbe chiamarsi Whittaker-Nyquist-Kotelnikov-Shannon
+(WNKS), secondo l'ordine cronologico di chi ne dimostrò versioni via via più
+generalizzate.
 
 Il campionamento è il primo passo del processo di conversione analogico-digitale
 di un segnale. Consiste nel prelievo di campioni (in inglese \emph{samples}) da
@@ -88,17 +90,63 @@ Tale intervallo può essere indicato con un valore di valore $\Delta t$ è denom
 descrivibile quindi con il reciproco di
 $\Delta t$: $fc = \frac{1}{\Delta t}$\footnote{fc ed fs sono equivalenti,
 indicando rispettivmente frequenza di camionamento e sampling frequency}.
-Il risultato del campionamento è un segnale analogico in tempo discreto, che viene
-misurato, quantizzato, codificato e reso accessibile digitalmente.
+Il risultato del campionamento è un segnale analogico in tempo discreto,
+che viene misurato, quantizzato, codificato e reso accessibile digitalmente.
 
-Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilisce che,
-dato un segnale analogico definito nel tempo $s(t)$ la cui banda di frequenze sia limitata da una frequenza massima $fmax$
-il segnale $s(t)$ può essere descritto da campioni presi a frequenza $fc > 2fmax$.
+Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilisce
+che, dato un segnale analogico definito nel tempo $s(t)$ la cui banda di frequenze
+sia limitata da una frequenza massima $fmax$ il segnale $s(t)$ può essere descritto
+da campioni presi a frequenza $fc > 2fmax$.
 
 \section{Filtri Digitali}
 
 % dal computer music tutorial
+Gli esperimenti sull'implementazione digitale dei filtri risalgono ai primi anni 50.
+Diverse fasi di sviluppo matematico e concettuale hanno permesso solo dagli anni 60
+una vera teorizzazione e semplice implementazione. Solo dagli anni 80 sono stati
+possibili implementazioni in tempo reale per un utilizzo musicale.
 
-\emph{Un filtro digitale è un processo di calcolo o un algoritmo attraverso il quale un
-segnale digitale o una sequenza di numeri (la sequenza di entrata) è trasformata in
-una seconda sequenza di numeri denominata segnale digitale di uscita.} (Rabiner 1972)
+\begin{quote}
+  Un filtro digitale è un processo di calcolo o un algoritmo attraverso il quale
+  un segnale digitale o una sequenza di numeri (la sequenza di entrata) è
+  trasformata in una seconda sequenza di numeri denominata segnale digitale di
+  uscita.\footnote{Rabiner 1972.}
+\end{quote}
+
+In questo senso quindi ogni strumento digitale con un'entrata ed un'uscita è un
+filtro digitale. Comunemente l'uso del termine \emph{filtro} descrive un dispositivo
+in grado di amplificare o attenuare porzioni di spettro. Ma anche riverberi e linee
+di ritardo sono filtri, questo dovrebbe suggerirci l'idea che un filtro può
+modificare lo spettro di un segnale entrante, ma anche la sua struttura temporale,
+sia su una scala molto piccola che su una molto ampia e che quindi struttura
+spettrale e struttura temporale di un segnale sono in relazione diretta tra loro.
+
+Un'equazione di un filtro digitale non necessariamente rivela le sue caratteristiche
+audio. In letteratura un filtro è rappresentato attraverso la \tz.
+La \tz~ mappa gli effetti dei ritardi del campione in un'immagine
+bidimensionale del dominio della frequenza denominato \emph{piano complesso zeta}.
+Su questo piano vengono rappresenntati \emph{poli} per i picchi di risonanza e
+\emph{zeri} per i punti di ampiezza nulla dell'uscita del filtro. Un \emph{filtro
+a due poli}, per esempio, indica due picchi di risonanza.
+
+esempio due poli
+
+La \tz è un concetto importante per lo sviluppo di un filtro in quanto rappresentazione
+matematica di passaggio tra le caratteristiche del filtro ed i suoi parametri di
+implementazione. Rimane però un'applicazione astratta con relazioni solo indirette
+con i parametri fisici del filtro.
+
+Nella rappresentazione software di un filtro si opera in processi applicati
+ai campioni audio, in termini di operazioni matematiche e ritardi a questi applicati.
+Generalmente quindi si descrive un filtro con diagrammi di flusso che ne dichiarino
+il percorso, rispopste all'impulso e risposte in frequenza.
+
+\subsection{Risposte all'impulso, in frequenza e in fase.}
+
+Si può osservare l'effetto di un filtro sia nel dominio del tempo che in quello
+della frequenza. Un'immagine \emph{prima} ed una \emph{dopo} l'applicazione, possono mostrare l'effetto del filtro. Senza dubbio alcune tipologie di segnali d'entrata
+possono mostrare l'effetto del filtro più chiaramente di altre. Per testare un
+filtro abbiamo bisogno di un segnale di entrata contenente tutte le frequenze necessarie.
+
+Il \rb, che contiene tutte le frequenze ci indica come un filtro risponde nel dominio
+della frequenza. 
