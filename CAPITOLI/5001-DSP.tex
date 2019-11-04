@@ -85,18 +85,18 @@ generalizzate.
 Il campionamento è il primo passo del processo di conversione analogico-digitale
 di un segnale. Consiste nel prelievo di campioni (in inglese \emph{samples}) da
 un segnale analogico e continuo nel tempo ad intervallo di tempo regolare.
-Tale intervallo può essere indicato con un valore di valore $\Delta t$ è denominato
+Tale intervallo può essere indicato con un valore di valore $ \Delta t $ è denominato
 \emph{intervallo di campionamento}. La \emph{frequenza di campionamento} è
 descrivibile quindi con il reciproco di
-$\Delta t$: $fc = \frac{1}{\Delta t}$\footnote{fc ed fs sono equivalenti,
+$ \Delta t $: $ fc = \frac{1}{\Delta t} $\footnote{fc ed fs sono equivalenti,
 indicando rispettivmente frequenza di camionamento e sampling frequency}.
 Il risultato del campionamento è un segnale analogico in tempo discreto,
 che viene misurato, quantizzato, codificato e reso accessibile digitalmente.
 
 Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilisce
-che, dato un segnale analogico definito nel tempo $s(t)$ la cui banda di frequenze
-sia limitata da una frequenza massima $fmax$ il segnale $s(t)$ può essere descritto
-da campioni presi a frequenza $fc > 2fmax$.
+che, dato un segnale analogico definito nel tempo $ s(t) $ la cui banda di frequenze
+sia limitata da una frequenza massima $fmax$ il segnale $ s(t) $ può essere descritto
+da campioni presi a frequenza $ fc > 2fmax $.
 
 \section{Filtri Digitali}
 
@@ -131,7 +131,7 @@ a due poli}, per esempio, indica due picchi di risonanza.
 
 esempio due poli
 
-La \tz è un concetto importante per lo sviluppo di un filtro in quanto rappresentazione
+La \tz~è un concetto importante per lo sviluppo di un filtro in quanto rappresentazione
 matematica di passaggio tra le caratteristiche del filtro ed i suoi parametri di
 implementazione. Rimane però un'applicazione astratta con relazioni solo indirette
 con i parametri fisici del filtro.
@@ -149,4 +149,101 @@ possono mostrare l'effetto del filtro più chiaramente di altre. Per testare un
 filtro abbiamo bisogno di un segnale di entrata contenente tutte le frequenze necessarie.
 
 Il \rb, che contiene tutte le frequenze ci indica come un filtro risponde nel dominio
-della frequenza. 
+della frequenza. Ma una visione completa dell'azione del filtro deve contemplare
+un'analisi anche nel dominio del tempo, nella sua risposta ad i transienti temporali.
+
+Esiste una relazione inversa tra durata e contenuto spettrale di un segnale. Un'oscillazione
+sinusoidale di infinita durata contiene una sola frequenza, un impulso ha uno spettro
+allargato.
+
+Nei sistemi digitali il segnale più breve possibile è di un solo campione. Questo
+segnale continee energia su tutto lo spettro di frequenze ad una data frequenza
+di campionamento.
+
+Una via generalizzata di caratterizzare un filtro è appunto quella di descriverne
+il comportamento temporale in risposta ad un impulso unitario, di un solo campione.
+La sua uscita, la risposta all'impulso, descrive il comportamento in ampiezza nel
+tempo in uscita dal filtro, in perfetta coerennza con quanto descrivibile nel dominio
+della frequenza. Lo stesso segnale di uscita descritto in domini diversi.
+
+In linea generale un IR lungo corrisponde ad una banda molto stretta in frequenza,
+mentre un impulso corto ad una risposta larga in frequenza.
+
+Un'ulteriore caratteristica dei filtri è l'eventuale effetto sulla fase di un
+segnale sinusoidale in entrata. La risposta in fase di un filtro può essere descritta
+in termini di rotazione di fase espressa in radianti oppure in termini di ritardo
+di fase, che ne indica lo slittamento temporale in secondi.
+
+\subsection{Filtri come equazioni}
+
+Un filtro digitale può essere espresso anche mediante un'equazione che metta in
+relaizone il segnale d'entrata con quello d'uscita. Il segnale d'uscita può essere
+descritto come risultato del lavoro di somme, sottrazioni e moltiplicazioni del
+campione corrente o di quelli precedentemete transitati.
+% Questo tipo di equazioni si chiama \emph{equazione differenziale lineare}.
+
+In letteratura sul \emph{signal processing} il segnale in entrata ad un filtro si
+chiama $ x $ mentre la sua uscita si chiama $ y $. I campioni in entrata, processati
+ed in uscita dal filtro vengono convenzionalmente numerati, indicizzati ed indicati
+($ x[0] $ è il campione zero del segnale entrante, $ x[1] $ il suo successivo
+$ n+1 $ mentre $ y[1] $ è lo stesso campione in uscita).
+
+\subsection{Simple Lowpass Filter}
+
+Un semplice filtro passa basso opera una media tra il campione attuale ed il suo
+precedente in entrata. In altri termini, opera una somma tra il campione attuale
+ed il precedente e poi divide per due. Osservandolo matematicamente, un filtro di
+questo tipo potrebbe essere denominato interpolatore, o mediatore, di due
+campioni adiacenti. Dato che una rapida variazione d'ampiezza tra due campioni
+adiacenti è osservabile solo in presenza di alte frequenze, un filtro interpolatore
+come quello appena descritto tenderà a ridurre le differenze tra i campioni, interpolando,
+e quindi attenuando le ocmponenti ad alta frequenza in uscita.
+
+L'equazione di un filtro di questo tipo è la sequente:
+
+\begin{equation}
+  y[n] = (0.5 \times x[n]) + (0.5 \times x[n-1])
+\end{equation}
+
+L'equazione trascritta in linguaggio Faust:
+
+\lstinputlisting{CAPITOLI/CODES/5000/lowpass.dsp}
+
+produce il diagramma di flusso:
+
+\includegraphics{CAPITOLI/DIAGRAMS/5000/lowpass.pdf}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+e
