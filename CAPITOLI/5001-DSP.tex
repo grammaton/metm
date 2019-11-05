@@ -64,6 +64,8 @@ Dal punto di vista della tipologia fisica del segnale si ha:
 % La teoria dei segnali studia la rappresentazione dei segnali in modo da poter poi
 % manipolarli e trattarli matematicamente.
 
+\clearpage
+
 \section{Teorema del campionamento}
 
 Il teorema del campionamento di Nyquist-Shannon o semplicemente teorema del
@@ -97,6 +99,8 @@ Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilis
 che, dato un segnale analogico definito nel tempo $ s(t) $ la cui banda di frequenze
 sia limitata da una frequenza massima $fmax$ il segnale $ s(t) $ può essere descritto
 da campioni presi a frequenza $ fc > 2fmax $.
+
+\clearpage
 
 \section{Filtri Digitali}
 
@@ -144,7 +148,8 @@ il percorso, rispopste all'impulso e risposte in frequenza.
 \subsection{Risposte all'impulso, in frequenza e in fase.}
 
 Si può osservare l'effetto di un filtro sia nel dominio del tempo che in quello
-della frequenza. Un'immagine \emph{prima} ed una \emph{dopo} l'applicazione, possono mostrare l'effetto del filtro. Senza dubbio alcune tipologie di segnali d'entrata
+della frequenza. Un'immagine \emph{prima} ed una \emph{dopo} l'applicazione, possono
+mostrare l'effetto del filtro. Senza dubbio alcune tipologie di segnali d'entrata
 possono mostrare l'effetto del filtro più chiaramente di altre. Per testare un
 filtro abbiamo bisogno di un segnale di entrata contenente tutte le frequenze necessarie.
 
@@ -152,9 +157,9 @@ Il \rb, che contiene tutte le frequenze ci indica come un filtro risponde nel do
 della frequenza. Ma una visione completa dell'azione del filtro deve contemplare
 un'analisi anche nel dominio del tempo, nella sua risposta ad i transienti temporali.
 
-Esiste una relazione inversa tra durata e contenuto spettrale di un segnale. Un'oscillazione
-sinusoidale di infinita durata contiene una sola frequenza, un impulso ha uno spettro
-allargato.
+Esiste una relazione inversa tra durata e contenuto spettrale di un segnale.
+Un'oscillazione sinusoidale di infinita durata contiene una sola frequenza, un
+impulso ha uno spettro allargato.
 
 Nei sistemi digitali il segnale più breve possibile è di un solo campione. Questo
 segnale continee energia su tutto lo spettro di frequenze ad una data frequenza
@@ -196,14 +201,28 @@ ed il precedente e poi divide per due. Osservandolo matematicamente, un filtro d
 questo tipo potrebbe essere denominato interpolatore, o mediatore, di due
 campioni adiacenti. Dato che una rapida variazione d'ampiezza tra due campioni
 adiacenti è osservabile solo in presenza di alte frequenze, un filtro interpolatore
-come quello appena descritto tenderà a ridurre le differenze tra i campioni, interpolando,
-e quindi attenuando le ocmponenti ad alta frequenza in uscita.
+come quello appena descritto tenderà a ridurre le differenze tra i campioni,
+interpolando, e quindi attenuando le componenti ad alta frequenza in uscita.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\textwidth]{CAPITOLI/IMAGES/5000/CT_Lowpass.pdf}
+  \caption{Lowpass. Computer Music Tutorial.}
+  \label{CT-Lowpass}
+\end{figure}
 
 L'equazione di un filtro di questo tipo è la sequente:
 
 \begin{equation}
+  \label{lowpass}
   y[n] = (0.5 \times x[n]) + (0.5 \times x[n-1])
 \end{equation}
+
+dove $y[n]$ è il segnale d'uscita, $(0.5 \times x[n])$ è la metà del campione in
+entrata e $(0.5 \times x[n-1])$ è la metà del campione precedente.
+
+La costante di riscalamento ($0.5$) nell'espressione è denominata \emph{coefficiente
+del filtro}.
 
 L'equazione trascritta in linguaggio Faust:
 
@@ -211,39 +230,13 @@ L'equazione trascritta in linguaggio Faust:
 
 produce il diagramma di flusso:
 
-\includegraphics{CAPITOLI/DIAGRAMS/5000/lowpass.pdf}
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.98\textwidth]{CAPITOLI/CODES/5000/lowpass-svg/process}
+  \caption{Lowpass. Faust Diagram.}
+  \label{fdlowpass}
+\end{figure}
 
+Questa la risposta all'impulso:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-e
+\lstinputlisting{CAPITOLI/CODES/5000/lowpass.ir}
