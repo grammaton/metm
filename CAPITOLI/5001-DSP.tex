@@ -68,37 +68,40 @@ Dal punto di vista della tipologia fisica del segnale si ha:
 
 \section{Teorema del campionamento}
 
-Il teorema del campionamento di Nyquist-Shannon o semplicemente teorema del
-campionamento, il cui nome si deve a Harry Nyquist e Claude Shannon, definisce
-la minima frequenza, detta frequenza di Nyquist (o anche cadenza di Nyquist),
-necessaria per campionare un segnale analogico senza perdere informazioni, e per
-poter quindi ricostruire il segnale analogico tempo continuo originario. In
-particolare, il teorema afferma che, data una funzione la cui trasformata di
-Fourier sia nulla al di fuori di un certo intervallo di frequenze (ovvero un
-segnale a banda limitata), nella sua conversione analogico-digitale la minima
-frequenza di campionamento necessaria per evitare aliasing e perdita di
+Il teorema del campionamento di \emph{Nyquist-Shannon} o semplicemente teorema del
+campionamento, il cui nome si deve a Harry Nyquist\index{Nyquist, Harry} e
+Claude Shannon\index{Shannon, Claude}, definisce la minima frequenza, detta
+frequenza di Nyquist (o anche cadenza di Nyquist), necessaria per campionare un
+segnale analogico senza perdere informazioni, e per poter quindi ricostruire il
+segnale analogico, tempo-continuo, originario.
+In particolare il teorema afferma che,
+%data una funzione la cui trasformata di
+%Fourier sia nulla al di fuori di un certo intervallo di frequenze (ovvero un
+%segnale a banda limitata), nella sua conversione analogico-digitale
+la minima frequenza di campionamento necessaria per evitare difetti e perdita di
 informazione nella ricostruzione del segnale analogico originario (ovvero nella
 riconversione digitale-analogica) deve essere maggiore del doppio della sua
-frequenza massima. Il teorema, comparso per la prima volta nel 1949 in un
-articolo di C. E. Shannon, dovrebbe chiamarsi Whittaker-Nyquist-Kotelnikov-Shannon
-(WNKS), secondo l'ordine cronologico di chi ne dimostrò versioni via via più
-generalizzate.
+frequenza massima.
+% Il teorema, comparso per la prima volta nel 1949 in un
+% articolo di C. E. Shannon, dovrebbe chiamarsi Whittaker-Nyquist-Kotelnikov-Shannon
+% (WNKS), secondo l'ordine cronologico di chi ne dimostrò versioni via via più
+% generalizzate.
 
 Il campionamento è il primo passo del processo di conversione analogico-digitale
 di un segnale. Consiste nel prelievo di campioni (in inglese \emph{samples}) da
 un segnale analogico e continuo nel tempo ad intervallo di tempo regolare.
-Tale intervallo può essere indicato con un valore di valore $ \Delta t $ è denominato
+Tale intervallo può essere indicato con un valore di valore $\Delta t$ è denominato
 \emph{intervallo di campionamento}. La \emph{frequenza di campionamento} è
 descrivibile quindi con il reciproco di
 $ \Delta t $: $ fc = \frac{1}{\Delta t} $\footnote{fc ed fs sono equivalenti,
-indicando rispettivmente frequenza di camionamento e sampling frequency}.
-Il risultato del campionamento è un segnale analogico in tempo discreto,
-che viene misurato, quantizzato, codificato e reso accessibile digitalmente.
+indicando rispettivmente \emph{frequenza di camionamento} e s\emph{ampling frequency}}.
+Il risultato del campionamento è un segnale digitale in tempo discreto,
+misurato, quantizzato, codificato e reso accessibile digitalmente.
 
 Il teorema di Nyquist-Shannon (o teorema del campionamento dei segnali) stabilisce
-che, dato un segnale analogico definito nel tempo $ s(t) $ la cui banda di frequenze
-sia limitata da una frequenza massima $fmax$ il segnale $ s(t) $ può essere descritto
-da campioni presi a frequenza $ fc > 2fmax $.
+che, dato un segnale analogico definito nel tempo $s(t)$ la cui banda di frequenze
+sia limitata da una frequenza massima $fmax$ il segnale $s(t)$ può essere descritto
+da campioni presi a frequenza $fc > 2fmax$.
 
 \clearpage
 
