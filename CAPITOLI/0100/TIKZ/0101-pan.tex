@@ -1,0 +1,19 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+%------------------------- IMMAGINE TIKZ
+\begin{tikzpicture}[scale=.99]
+  \draw[->] (0,-2.5) -- (0,2.5);
+  \draw[->] (-2.5,0) -- (2.5,0);
+       \draw[
+         postaction={
+         decorate,decoration={
+         markings,
+         mark=at position 0.19 with {\arrow[line width=1mm]{>}}}},
+         thick
+       ] (0,0) circle (2);
+       \coordinate (A) at (2,0);
+       \filldraw (A) circle (2pt) node[above right] {00'};
+       \filldraw (A) circle (2pt) node[below right] {30'};
+\end{tikzpicture}
+%------------------------- IMMAGINE TIKZ

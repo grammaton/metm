@@ -1,0 +1,219 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%!TEX root = ../../metm.tex
+
+\section{Oscillazioni}
+
+Osservando, anche ad occhi chiusi, una ruota panoramica potremmo dire che
+completa una rotazione ogni 30 minuti. Osservando ancora il comportamento di
+questa ruota panoramica notiamo che questa compie un giro ogni 30 minuti,
+ovvero completa un ciclo di rotazione tornando al punto di partenza e poi
+ripete questa rivoluzione più volte. Questo è un esempio di funzione periodica,
+perché la ruota panoramica ripete la sua rivoluzione, o ciclo, ogni 30 minuti
+e quindi diciamo che ha un periodo di 30 minuti.
+
+\input{CAPITOLI/0100/TIKZ/0101-pan}
+
+Osservate ancora la ruota panoramica, si muove in senso antiorario. C'è una
+sola cabina occupata, seguiamola. Volendo prendere nota dell'altezza di quella
+cabina durante i trenta minuti che impiega a tornare al punto di partenza,
+seguendola disegneremmo una linea, probabilmente verticale, che va dall'altezza
+minima all'altezza massima.
+
+\input{CAPITOLI/0100/TIKZ/0102-pan}
+
+Se decidessimo che il nostro foglio avesse non una, come nella descrizione
+precedente, ma due dimensioni di rappresentazione, l'altezza ed il tempo, e
+quindi seguissimo con lo sguardo la cabina ed annotando l'altezza spostassimo
+simultaneamente ed a velocità costante il foglio, simulando lo scorrimento del
+tempo, il disegno finale dovrebbe apparire come un'onda.
+
+\input{CAPITOLI/0100/TIKZ/0103-pan}
+
+Con la rappresentazione dell'onda descriviamo un'oscillazione, ovvero un moto
+periodico attorno alla posizione di equilibrio.
+
+Un altro fenomeno oscillatorio estremamente esemplificativo è quello del pendolo.
+
+Da un punto di quiete il pendolo si muoverà nel tempo fino al suo massimo
+spostamento per poi tornare al punto di partenza e ripetere un uguale movimento
+in senso opposto.
+
+Considerando un pendolo che si sposti da una parte all'altra rispetto alla sua
+posizione di equilibrio anche il suo movimento oscillatorio nel tempo può essere
+rappresentato come un'oscillazione.
+
+\input{CAPITOLI/0100/TIKZ/0104-pendolo}
+
+L'oscillazione rappresentata da un moto di questo tipo è definita moto armonico
+semplice o sinusoidale.
+
+Definiamo una quantità in oscillazione quando il suo valore si muove con
+continuità passando tra un massimo ad un minimo.
+
+\clearpage
+
+\section{Le grandezze di un'oscillazione}
+
+La rappresentazione di un fenomeno oscillatorio ci permette di descrivere
+quali siano le grandezze principali:
+
+\begin{compactitem}
+	\item ampiezza
+	\item frequenza
+	\item periodo
+	\item fase (da spiegare)
+	\item lunghezza d'onda (da spiegare)
+	%\item pulsazione
+\end{compactitem}
+
+Definiamo \textbf{ampiezza} di un'oscillazione il massimo valore raggiunto
+dal suo valore di equilibrio.
+
+Facendo riferimento al movimento del pendolo, diciamo che la distanza massima
+raggiunta nel suo movimento da una parte all'altra rispetto alla posizione di
+equilibrio definisce la sua ampiezza di oscillazione.
+
+\input{CAPITOLI/0100/TIKZ/0105-amp}
+
+Definiamo \textbf{frequenza} il numero di ripetizioni nell'unità di tempo. La
+frequenza di oscillazione di un pendolo corrisponde al numero di volte che questo
+torna alla posizione di partenza dopo aver percorso l'intero tragitto ondulatorio.
+Nell'immagine della ruota panoramica la frequenza descrive quanti giri essa realizza
+nell'unità di tempo prestabilita.
+
+Descriviamo quindi con il valore di \textbf{frequenza} di un'oscillazione il
+\emph{numero di cicli per secondo (cps)}. L'unità di misura della frequenza è
+\emph{Hertz (Hz)}.
+
+\input{CAPITOLI/0100/TIKZ/0106-freq}
+
+Il \emph{ciclo} o \textbf{periodo} di un'oscillazione rappresenta la durata di
+una singola oscillazione alla frequenza data.
+Il legame tra frequenza e periodo è tale che all'aumentare della frequenza
+diminuisce la durata, e quindi il periodo, nel rapporto di $T = 1/f$ dove
+$T$ è la durata del periodo espressa in secondi.
+
+Considerando quindi il \emph{secondo} un intero divisibile in parti uguali,
+definiamo con $f$ la \emph{frequenza}, ovvero il numero di parti e con $T$
+il \emph{periodo} ovvero la durata di una singola parte. La durata della
+singola parte moltiplicata per il numero delle parti ri-compone l'intero \emph{secondo}.
+
+\bigskip
+
+%------------------------- APPROFONDIMENTO
+		\begin{tabular}{L{.969\textwidth}}%
+		\toprule
+			\textbf{Hertz}\\
+		\midrule
+			Unità di misura della frequenza dei fenomeni periodici; un fenomeno ha
+			frequenza 1 \emph{Hertz} se un suo periodo dura 1 secondo; simbolo
+			\emph{Hz}.\\
+
+			DATA 1937.\\
+
+			ETIMOLOGIA Dal nome del fisico tedesco Heinrich Rudolf Hertz (1857–94),
+			Fisico tedesco e pioniere della comunicazione radio. Ha proseguito il
+			lavoro di Maxwell sulle onde elettromagnetiche e fu il primo a trasmettere
+			e ricevere onde radio. Hertz ha anche dimostrato che la luce ed il calore
+			radiante hanno natura elettromagnetica. \\
+		\bottomrule
+		\end{tabular}
+%------------------------- APPROFONDIMENTO
+
+\clearpage
+
+\section{Oscillazione Sinusoidale}
+
+%------------------------- APPROFONDIMENTO
+		\begin{tabular}{L{.969\textwidth}}%
+		\toprule
+			\textbf{Sinusoide} \\
+		\midrule
+			In geometria: curva sinusoide (o la sinusoide s.f.), la curva che, in
+			coordinate cartesiane ortogonali, rappresenta il diagramma della funzione
+			seno, tipico dei fenomeni periodici senza smorzamento. \\
+
+			DATA 1895.\\
+
+			ETIMOLOGIA Der. del lat. \emph{sinus -us} ‘seno’, col suff. \emph{-oide}.\\
+		\bottomrule
+		\end{tabular}
+%------------------------- APPROFONDIMENTO
+
+% \input{CAPITOLI/0100/TIKZ/0107-cos}
+%
+% Potremmo rapidamente intuire la connessione  con il cerchio unitario, poiché
+% l'altezza della cabina corrisponderebbe al valore $ y $ di un punto sul cerchio.
+% Possiamo determinare il valore di $ y $ usando la funzione seno. Per avere
+% un'idea migliore del comportamento di questa funzione, possiamo creare una
+% tabella di valori che conosciamo e usarli per tracciare un grafico delle
+% funzioni seno e coseno.
+%
+% \input{CAPITOLI/0100/TIKZ/0108-cos}
+%
+% \input{CAPITOLI/0100/TIKZ/0109-sincos}
+%
+% 		\begin{tabularx}{.81\textwidth}{XXXXXXXXXX}%
+% 		\toprule
+% 			$\theta$ & $0$ & {$\frac{\pi}{6}$} & {$\frac{\pi}{4}$} & {$\frac{\pi}{6}$} & {$\frac{\pi}{2}$} &
+% 				{$\frac{2\pi}{3}$} & {$\frac{3\pi}{4}$} & {$\frac{5\pi}{6}$} & $\pi$ \\
+% 		\midrule
+% 			$\cos$ & $1$ & {$\frac{\sqrt{3}}{2}$} & {$\frac{\sqrt{2}}{2}$} & {$\frac{1}{2}$} & $0$ &
+% 				{$-\frac{1}{2}$} & {$-\frac{\sqrt{2}}{2}$} & {$-\frac{\sqrt{3}}{2}$} & $-1$\\
+% 		\midrule
+% 			$\sin$ & $0$ & {$\frac{1}{2}$} & {$\frac{\sqrt{2}}{2}$} & {$\frac{\sqrt{3}}{2}$} & $1$ & {$\frac{\sqrt{3}}{2}$} &
+% 				{$\frac{\sqrt{2}}{2}$} & {$\frac{1}{2}$} & $0$ \\
+% 		\bottomrule
+% 		\end{tabularx}
+%
+% %------------------------- APPROFONDIMENTO
+% 		\begin{tabular}{L{1\textwidth}}%
+% 		\toprule
+% 			\textbf{Funzione Periodica} \\
+% 		\midrule
+% 			Una funzione periodica è una funzione che ripete il proprio comportamento
+% 			su tutto il proprio campo d'appartenenza.
+%
+% 			È la funzione per cui uno spostamento orizzontale $ P $ risulta nella
+% 			funzione $ f (x + P) = f (x) $ per tutti i valori di $ x $.
+%
+% 			Quando ciò si verifica indichiamo il più piccolo spostamento orizzontale
+% 			di questo tipo, con $ P > 0 $, il
+% 			periodo della funzione. \\
+% 		\bottomrule
+% 		\end{tabular}
+% %------------------------- APPROFONDIMENTO
+%
+% \lstinputlisting
+% [%style      = SuperCollider-IDE,
+%   basicstyle = \ttfamily\footnotesize,
+%   caption    = {CSOUND - Onda sinusoidale 440Hz}
+% ]{CAPITOLI/CODES/2000/sinusoide.csd}
+%
+% %------------------------- APPROFONDIMENTO
+% 		\begin{tabular}{L{1\textwidth}}%
+% 		\toprule
+% 			\textbf{Oscillatore}\\
+% 		\midrule
+% 		Apparecchio atto a provocare variazioni periodiche (oscillazioni) di una o
+% 		più grandezze fisiche
+%
+% 		Oscillatore elettrico, che provoca variazioni periodiche di grandezze
+% 		elettriche (correnti o tensioni); secondo la forma delle oscillazioni
+% 		(segnali) prodotte può essere sinusoidale, a onda rettangolare, ecc.,
+% 		secondo la frequenza a bassa, a media, ad alta frequenza, oppure a microonde,
+% 		secondo il principio di funzionamento a triodo, a reazione, a cavità risonante,
+% 		piezoelettrico, ecc.
+%
+% 		Oscillatore meccanico, che induce deformazioni o spostamenti periodici di
+% 		grandezze meccaniche (part. : o. armonico, se le oscillazioni sono
+% 		sinusoidali, come quelle provocate da una forza di richiamo proporzionale
+% 		allo spostamento e di segno opposto).\\
+%
+% 		DATA 1897 \\
+% 		\bottomrule
+% 		\end{tabular}
+% %------------------------- APPROFONDIMENTO
+
+\clearpage

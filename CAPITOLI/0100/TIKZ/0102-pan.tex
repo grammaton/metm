@@ -1,0 +1,44 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+%------------------------- IMMAGINE TIKZ
+\begin{tikzpicture}[scale=.99]
+  \draw[->] (0,-2.5) -- (0,2.5);
+  \draw[->] (-2.5,0) -- (2.5,0);
+
+\draw[
+  postaction={
+    decorate,decoration={
+      markings,
+      mark=at position 0.19 with {\arrow[line width=1mm]{>}},
+      mark=at position 0.69 with {\arrow[line width=1mm]{>}}}},
+    thick
+] (0,0) circle (2);
+
+\coordinate (A) at (2,0);
+
+\filldraw (A) circle (2pt) node[above right] {00'};
+\filldraw (A) circle (2pt) node[below right] {30'};
+
+\coordinate (B) at (90 : 2);
+
+\filldraw (B) circle (2pt) node[above left] {Cabina};
+
+\draw (4,-2) -- (4,2);
+
+\coordinate (C) at (4,0);
+\coordinate (D) at (4,2);
+\coordinate (F) at (4,-2);
+
+\filldraw (C) circle (2pt) node[above right] {0};
+\filldraw (D) circle (2pt) node[above right] {altezza massima};
+\filldraw (F) circle (2pt) node[below right] {altezza minima};
+
+\coordinate (E) at (270 : 2);
+
+\filldraw (E) circle (2pt) node[below right] {Cabina};
+
+\draw[dashed] (0,2) -- (4,2);
+\draw[dashed] (0,-2) -- (4,-2);
+\end{tikzpicture}
+%------------------------- IMMAGINE TIKZ
