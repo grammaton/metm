@@ -5,10 +5,10 @@ bcf = METM.bcf
 PDF = METM.pdf
 
 buildclean :
-	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src) && rm *.aux *.log *.toc *.run.xml *.bbl *.blg *.bcf *.fdb_latexmk *.fls *.idx *.ilg *.ind && open $(PDF)
+	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src) && $(TEX) $(src) && rm *.aux *.log *.toc *.run.xml *.bbl *.blg *.bcf *.fdb_latexmk *.fls *.idx *.ilg *.ind && open $(PDF)
 
 build :
-	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src)
+	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src) && $(TEX) $(src) 
 
 rebuild :
 	$(TEX) $(src)
