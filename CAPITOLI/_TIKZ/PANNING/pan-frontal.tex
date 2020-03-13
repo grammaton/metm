@@ -1,0 +1,59 @@
+%
+% tkzfctpreamble (juin 2011)
+%
+% Coding (utf8) Creator (TeX) Producer (pdfeTeX) 
+% Copyright (C) 2010 Alain Matthes
+%
+\documentclass{scrartcl}
+\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage{amsmath,tkz-euclide}
+\usetkzobj{all}
+
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+
+\definecolor{bistre}{rgb}{.75,.50,.30}
+\definecolor{Maroon}{rgb}{0.5,0.0,0.0}
+\definecolor{fondpaille}{cmyk}{0,0,0.1,0}
+\pagecolor{fondpaille}
+\color{Maroon}
+\tkzSetUpColors[background=fondpaille,text=Maroon]
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1]
+\tkzInit[xmin=-4.1,xmax=5.2,ymin=-4.1,ymax=8]
+\tkzClip[space=.5]
+
+%%%%%%%%%%%%%%%%%%%%%%%% GIUSEPPE
+% TESTA
+\tkzDefPoint(0,0){C}
+\tkzDefPoint(0,4){R}
+\tkzDrawCircle(C,R)
+
+% ORECCHIE
+\tkzDefPoint(180:4){LEFT}
+\tkzDrawPoint[fill=black,color=black](LEFT)
+\tkzDefPoint(0:4){RIGHT}
+\tkzDrawPoint[fill=black,color=black](RIGHT)
+
+\tkzDefPoint(90:8){A}
+%\tkzDefPoint(50:8){B}
+\tkzTangent[from = A](C,R)
+\tkzGetPoints{D}{E}
+
+
+%\tkzTangent[from = B](C,R)
+%\tkzGetPoints{F}{G}
+\tkzDrawSector[fill=blue!80!black,opacity=0.5](A,D)(E)
+%\tkzFillSector[color=red!80!black,opacity=0.5](B,F)(G)
+%\tkzInterCC(A,D)(B,F)
+%\tkzGetSecondPoint{I}
+%\tkzDrawPoint[color=black](I)
+
+
+\end{tikzpicture}
+
+\end{document}
