@@ -26,7 +26,7 @@ multi dimensionale, intera.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LE RADICI
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{LE RADICI}
+\section{Le Radici}
 
 Indispensabile alla comprensione del mondo sonoro elettracustico, nelle sue
 radici, è anche la descrizione di \emph{mono}, nomignolo di \emph{monofonico},
@@ -217,7 +217,7 @@ Sì! converremo infine, questa esperienza di ascolto rispetta queste qualità.
 \begin{center}
   \includegraphics[width=.48\linewidth]{CAPITOLI/1000/IMG/figb.png}
 %\caption{}
-\label{ee:figa}
+\label{ee:figb}
 \end{center}
 \end{figure}
 
@@ -248,7 +248,7 @@ fatto stesso che è rumore.
 \begin{center}
   \includegraphics[width=.48\linewidth]{CAPITOLI/1000/IMG/figc.png}
 %\caption{}
-\label{ee:figa}
+\label{ee:figc}
 \end{center}
 \end{figure}
 
@@ -273,7 +273,7 @@ costituirebbe un ascolto stereofonico della sorgente originale? No, non lo sareb
 \begin{center}
   \includegraphics[width=.98\linewidth]{CAPITOLI/1000/IMG/figd1d2.png}
 %\caption{}
-\label{ee:figa}
+\label{ee:figd1d2}
 \end{center}
 \end{figure}
 
@@ -338,7 +338,7 @@ quality.\cite{mg92pdmsss}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION FOUR
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{RAMIFICAZIONI}
+\section{Ramificazioni}
 
 Con la profonda conoscenza del significato del tempo tra noi e Blumlein,
 possiamo esporre il significato degli altoparlanti meglio di lui. Per l'era
@@ -500,7 +500,7 @@ sdmx = _,_ <: nsum, ndif;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION SIX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{MID-SIDE PANNER}
+\section{Mid-Side Panner}
 \label{sec:mspanner}
 
 Prima di inoltrarsi nella stesura di quello che può essere il progetto di un
@@ -533,7 +533,7 @@ ndp = 1(x)
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/omni}
 \caption{non-directional}
-\label{fig:mspan}
+\label{polar:omni}
 \end{figure}
 
 %Il disegno nella parte sinistra di fig. 8 rappresenta la struttura di un tipico microfono a pressione (pressure microphone) omnidirezionale, mentre nella parte destra è rappresentata la sua curva polare, dove vediamo che la direzionalità del suono inizia ad essere percepita dal microfono a partire da circa 5 KHz in su, mentre le frequenze gravi non sono indicate in quanto assimilabili a quella rilevata a 1 KHz, cioè con attenuazione zero per qualsiasi angolo di provenienza del suono.
@@ -554,7 +554,7 @@ bpg = x\cos\theta
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/fig8}
 \caption{Figure-8}
-\label{fig:mspan}
+\label{polar:fig8}
 \end{figure}
 
 La prima differenza rilevante tra un'equazione del modello polare non
@@ -575,7 +575,7 @@ cpg = 0.5(x) + 0.5(x\cos\theta)
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/cardioid}
 \caption{Cardioid}
-\label{fig:mspan}
+\label{polar:cardioid}
 \end{figure}
 
 Cardioidi e altri schemi più comuni del primo ordine sono prodotti con il
@@ -599,7 +599,7 @@ Bidirectional   & $ 1(x\cos\theta) $ \\
 \emph{gradiente di pressione bidirezionale} per la descrizione dei modelli
 polari del primo ordine. Dove $ x $ è il segnale di input, l'angolo di incidenza
 della prospettiva $\theta$}
-\label{tab:example}
+\label{tab:polarcoef}
 \end{table}
 
 Quindi dai primitivi schemi polari del primo ordine, non direzionali e
@@ -622,7 +622,7 @@ Il componente Side è la formula dritta bipolare di figura 8 che punta a sinistr
 
 \begin{equation}
 s(x,\theta) = x*(sin(\theta))
-\label{eq:mid}
+\label{eq:side}
 \end{equation}
 
 Il codice Faust per un panner Mid-Side è veramente auto-spiegato: le equazioni
@@ -662,7 +662,7 @@ degli altoparlanti dalle differenze di fasi.
 mspan_lr(x,p,rad) = mspan(x,p,rad) : sdmx;
 \end{lstlisting}
 
-\section{MS-PAN Live usage}
+\subsection{Utilizzi}
 
 Il panner Mid-Side qui proposto non è solo un oggetto tecnico, utile o no,
 comparabile o no, relativo ad altri tipi di pan. Il panner Mid-Side qui proposto
@@ -764,7 +764,7 @@ aumenteranno almeno quadraticamente [fig. \ref{fig:lrpanfb1}, \ref{fig:lrpanfb2}
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/mspanlrfb_diagram}
 \caption{\textbf{Block diagram of the infinite feedback}.}
-\label{fig:mspan}
+\label{fig:mspanlrfbdiag}
 \end{figure}
 
 D'altra parte, nella stessa situazione di feedback, con la stessa provenienza
