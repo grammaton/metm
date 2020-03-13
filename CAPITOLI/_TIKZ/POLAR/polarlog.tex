@@ -1,0 +1,121 @@
+%POLAR COORDINATES
+%The print template for A4 paper (portrait)
+%Author: Zoran Nikolic
+\documentclass[12pt]{article}
+\usepackage[margin=0.5in,paper=a4paper]{geometry} %Shrinking margins to 0.5in
+\usepackage[x11names]{xcolor}                     %Additional colors
+\usepackage{tikz}
+
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+
+\usepackage{euler}
+\usepackage{pgfplots}
+\usepgfplotslibrary{polar}
+
+\begin{document}
+\thispagestyle{empty}
+
+\begin{center}
+\begin{tikzpicture}
+%Circles
+\foreach \r in {1, 2,...,10} \draw[rotate=90,SteelBlue3, thick] (0,0) circle (\r);
+\foreach \r in {0.5, 1.5,...,10} \draw[rotate=90,Azure4, thin] (0,0) circle (\r);
+%1° Rays
+\foreach \a in {0, 1,...,359} \draw[rotate=90,Azure4] (\a:10.7) -- (\a:11);
+%5° Rays
+\foreach \a in {0, 5,...,359} \draw[rotate=90,Azure4] (\a:10.5) -- (\a:11);
+%15° Rays
+\foreach \a in {0, 15,...,359} \draw[rotate=90,thick,Azure4] (\a:1) -- (\a:11);
+%30° Rays
+\foreach \a in {0, 30,...,359} \draw[rotate=90,thick,Azure4] (0, 0) -- (\a:11);
+%Main rays
+\foreach \a in {0, 90,...,359} \draw[rotate=90,very thick] (0, 0) -- (\a:11);
+%Angle labels
+\foreach \a in {0, -15,...,-179} \draw[rotate=90,yscale=-1,xscale=1] (\a: 11.5) node {$\a^\circ$};
+\foreach \a in {15, 30,...,180} \draw[rotate=90,yscale=-1,xscale=1] (\a: 11.5) node {$\a^\circ$};
+%Central point
+\draw[fill=red] (0,0) circle(0.7mm);
+% Now the additional plot:
+\begin{polaraxis}[rotate=90,hide axis,anchor=origin,disabledatascaling,at={(0pt,0pt)},x=1cm,y=1cm]
+\addplot+[mark=none,domain=0:720,samples=600,thick] {20*log10(abs(cos(\r x)))};
+\end{polaraxis}
+\end{tikzpicture}
+\end{center}
+
+\end{document}
+
+
+
+%\documentclass[border=5mm]{standalone}
+%\usepackage{pgfplots} 
+%\usepgfplotslibrary{polar}
+%
+%\begin{document}
+%\pgfplotsset{mypolarplot/.style={%
+%    domain=0:360, % plot full cycle
+%    samples=180, % number of samples; can be locally adjusted
+%    grid=both, % display major and minor grids
+%    major grid style={black}, 
+%    minor x tick num=3, % 3 minor x ticks between majors
+%    minor y tick num=1, % 1 minor y tick between majors
+%    xtick={0,45,...,360}, % set xticks (degrees)
+%    yticklabel style={anchor=north east}, % move label position
+%    xticklabel=$\pgfmathprintnumber{\tick}^\circ$,
+%    every axis plot/.style={ultra thick},
+%    ymin=-30, ymax=0
+% }}
+%\begin{tikzpicture}
+%\begin{polaraxis}[mypolarplot,
+%    % shift y-coordinates by +40 (-40 for reverse direction)
+%    y coord trafo/.code=\pgfmathparse{#1+40},
+%    y coord inv trafo/.code=\pgfmathparse{#1-40}]
+%\addplot[blue]{20*log10(abs(cos(x)))};        
+%\end{polaraxis}
+%\end{tikzpicture}
+%\end{document}
+
+
+%\documentclass[tikz]{standalone}
+%\begin{document}
+%\begin{tikzpicture}[>=latex]
+%
+%% Draw the lines at multiples of pi/12
+%\foreach \ang in {0,...,31} {
+%  \draw [lightgray] (0,0) -- (\ang * 180 / 16:4);
+%}
+%
+%% Concentric circles and radius labels
+%\foreach \s in {0, 1, 2, 3} {
+%  \draw [lightgray] (0,0) circle (\s + 0.5);
+%  \draw (0,0) circle (\s);
+%  \node [fill=white] at (\s, 0) [below] {\scriptsize $\s$};
+%}
+%
+%% Add the labels at multiples of pi/4
+%\foreach \ang/\lab/\dir in {
+%  0/0/right,
+%  1/{\pi/4}/{above right},
+%  2/{\pi/2}/above,
+%  3/{3\pi/4}/{above left},
+%  4/{\pi}/left,
+%  5/{5\pi/4}/{below left},
+%  7/{7\pi/4}/{below right},
+%  6/{3\pi/2}/below} {
+%  \draw (0,0) -- (\ang * 180 / 4:4.1);
+%  \node [fill=white] at (\ang * 180 / 4:4.2) [\dir] {\scriptsize $\lab$};
+%}
+%
+%% The double-lined circle around the whole diagram
+%\draw [style=double] (0,0) circle (4);
+%
+%\fill [fill=red!50!black, opacity=0.5] plot [domain=-pi/2:pi/2]
+%  (xy polar cs:angle=\x r, radius= {2-2*sin(\x r)});
+%\draw [thick, color=red, domain=0:2*pi, samples=200, smooth]
+%  plot (xy polar cs:angle=\x r, radius={2-2*sin(\x r)});
+%\node [fill=white] at (2,1) {$r=2-2\sin\theta$};
+%
+%\end{tikzpicture} 
+%\end{document}
