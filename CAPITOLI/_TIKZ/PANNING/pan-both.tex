@@ -37,36 +37,45 @@
 % TESTA
 \tkzDefPoint(0,0){C}
 \tkzDefPoint(0,4){R}
+\tkzDefPoint(8,0){R2}
 \tkzDrawCircle(C,R)
+\tkzDefPoint(180:8){Z}
+\tkzDrawArc[rotate,opacity=0.5](C,R2)(180)
 \tkzDefPoint(90:4){CENTER}
 \tkzDrawPoint[fill=black,color=black](CENTER)
-\tkzLabelPoint[anchor=north](CENTER){C}
+\tkzLabelPoint[anchor=south](CENTER){C}
+
+
 
 % ORECCHIE
 \tkzDefPoint(180:4){LEFT}
 \tkzDrawPoint[fill=black,color=black](LEFT)
-\tkzLabelPoint[anchor=south east](LEFT){L}
+\tkzLabelPoint[anchor=north east](LEFT){L}
 \tkzDefPoint(0:4){RIGHT}
 \tkzDrawPoint[fill=black,color=black](RIGHT)
-\tkzLabelPoint[anchor=south west](RIGHT){R}
+\tkzLabelPoint[anchor=north west](RIGHT){R}
 
-\tkzDefPoint(90:8){A}
-%\tkzDefPoint(50:8){B}
+\tkzDefPoint(120:8){A}
 \tkzTangent[from = A](C,R)
 \tkzGetPoints{D}{E}
+
+\tkzDefPoint(30:8){B}
+\tkzTangent[from = B](C,R)
+\tkzGetPoints{F}{G}
 
 
 %\tkzTangent[from = B](C,R)
 %\tkzGetPoints{F}{G}
 \tkzDrawSector[fill=blue!80!black,opacity=0.5](A,D)(E)
-%\tkzFillSector[color=red!80!black,opacity=0.5](B,F)(G)
+\tkzFillSector[color=red!80!black,opacity=0.5](B,F)(G)
 %\tkzInterCC(A,D)(B,F)
 %\tkzGetSecondPoint{I}
 %\tkzDrawPoint[color=black](I)
 
-\tkzDefPoint(3,0){RE}
-\tkzDefPoint(-3,0){LE}
+\tkzDefPoint(6,0){RE}
+\tkzDefPoint(-6,0){LE}
 \tkzDrawLines[](LE,RE)
+
 \end{tikzpicture}
 
 \end{document}

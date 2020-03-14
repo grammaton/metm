@@ -106,88 +106,10 @@ ndif = 0.5*(_-_);
 sdmx = _,_ <: nsum, ndif;
 \end{lstlisting}
 
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION SIX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Sul concetto di \emph{PanPot}}
-\label{sec:panpot}
-
-L'oggetto \emph{panner} è rappresentato da un potenziometro di controllo
-(hardware o software, in entrambi i casi a controllo analogico o digitale) che
-regola la distribuzione di un segnale su più canali componenti un campo sonoro
-stereo o multicanale. Ogni mixer ha un \emph{panpot} (abbreviazione di
-\emph{potenziometro di panoramica}), per ciascun canale sorgente in ingresso,
-che regola l'azione del \emph{panner}.
-
-%L'ultima precisazione riguarda il movimento panoramico. La distribuzione dell'energia
-%o la condizione della coppia di segnali che regola il movimento panoramico troppo
-%spesso sono descritti come la possibilità di muovere gli oggetti attorno alla posizione
-%dell'ascoltatore.
-
-Generalmente il \emph{panpot} viene descritto come un pomello che permette di
-muovere i suoni tra la sinistra e la destra del panorama di diffusione, il che è parzialmente vero e potenzialmente pericoloso in termini di immaginazione
-acustica.
-
-Soffermandosi ad analizzare il fenomeno acustico di un suono prodotto da un
-oggetto in movimento tra la destra e la sinistra di un campo percettivo emergono
-diversi problemi.
-
-Il primo riguarda l'\emph{effetto doppler}. Siamo seduti su una panchina al
-margine di una strada che si estende infinita agli estremi della nostra vista
-periferica. Un mezzo di soccorso, con la sirena accesa, si avvicina percorrendo
-la strada davanti al nostro viso, da sinistra verso destra: percepiamo
-una variazione in frequenza al passaggio della sirena, in funzione della
-velocità. L'\emph{effetto doppler} ci descrive come nel percorso di
-avvicinamento a noi la frequenza sale lentamente fino al massimo ottenuto nel
-momento in cui ci raggiunge per poi diminuire rapidamente in coincidenza con l'allontanamento.
-
-Ora siamo dei \emph{sound designer}, siamo seduti di fronte alla nostra console
-analogica e dobbiamo replicare l'effetto sopra descritto. Applicando un
-movimento da sinistra a destra, azionando il \emph{panpot} su un suono di sirena statico, registrato fermo ad un metro di distanza, pur ruotando velocemente il potenziometro non
-otteniamo variazioni in frequenza. Il suono si muove tra la sinistra e la destra
-del sistema d'ascolto senza produrre il movimento nello spazio, solo lo
-spostamento della posizione relativa al nostro punto di ascolto. Ne deriva una
-prima conslusione: il \emph{panpot} regola una posizione relativa, non stabilisce
-criteri di movimento.
-
-Un altro problema emergente del pensare il \emph{panning} come un movimento
-scaturisce dalla relazione della sorgente con l'ambiente circostante. Che
-movimento può esserci senza tenere conto del luogo in cui il suono si trova?
-
-Un avvocato pronuncia la sua arringa in tribunale parlando ad alta voce,
-camminando, rimbalzando tra destra e sinistra. La voce si propaga nello spazio
-ed è inevitabile che se ne percepisca la variazione topologica, morfologica in
-relazione con le caratteristiche architettoniche: a sinistra della stanza c'è
-una parete di finestre, a destra un muro in cemento. Pur non avendo velocità
-sufficiente ad innescare
-l'effetto doppler, la sua continua variazione di posizione corrisponde ad una
-continua variazione di rapporto con l'ambiente che lo circonda, in relazione
-ad ogni infinto punto di ascolto all'interno della stanza. In altre parole, quel
-movimento assume significati diversi relativi al punto di ascolto.
-
-Dovendo simulare lo stesso effetto mediante l'azione sul panpot, otterremmo la variazione di posizione della voce nello spazio, ma non la sua relazione con lo
-spazio.
-
-Il \emph{panpot}, nella sua capacità di descrizione della relazione tra i canali
-che ricevono i suoi segnali, non muove la sorgente nello spazio, ma regola la
-posizione della sorgente stessa in relazione al nostro punto di ascolto. In
-altri termini il \emph{panner} non regola il movimento della sorgente, ma la rotazione
-della testa in relazione ad una sorgente fissa. Il \emph{panner}, muove langolo di
-incidenza del suono, ruota la testa, nei confronti della sorgente immobile.
-
-Ogni \emph{panner} ha un'architettura interna che determina la quantità e la condizione
-del segnale sorgente per ogni canale di destinazione. I più semplici suddividono
-i segnali audio nei due canali sinistro e destro, attraverso un opportuno
-controllo di guadagno (volume) discreto. La distribuzione dell'energia tra i due
-canali è chiamata legge ed è descrivibile con una funzione matematica.
-
-Come descritto da Blumlein, la sola variazione di ampiezza nella
-rappresentazione del panorama stereofonico è solo una parte verso la complessa
-soddisfazione della percezione binaurale. Per questo motivo, prima di descrivere
-i sistemi di panning di ampiezza, che sono universalmente implementati su tutti
-i mixer del pianeta, è più opportuno riprendere da dove egli stesso è partito.
-La visione di Blumlein fu ripresa in seguito da Gerzon per descrivere la tecnologia  \emph{ambisonic}, che resta un atto di descrizione del mondo sonoro percepito e
-riprodotto completamente diverso da quello che commercialmente si è diffuso ed imposto.
-
 \section{Mid-Side \emph{panner}}
 \label{sec:mspanner}
 
@@ -195,36 +117,7 @@ Prima di inoltrarsi nella stesura di quello che può essere il progetto di un
 panner basato sulle equazioni che descrivono la stereofonia MID-SIDE, è
 necessario comprendere il significato dela forma polare di un segnale.
 
-Il diagramma polare (o curva polare) è invece un grafico a disegno circolare
-dove i parametri sono dati dall’ampiezza e dall’angolo d’incidenza, mentre le
-frequenze sono rappresentate da famiglie di curve. In presenza di un’unica curva,
-si intende che questa è riferita ad una frequenza di $1KHz$. %piero
 
-Un singolo segnale, nella sua oscillazione, espressa nella variazione di ampiezza
-attorno allo zero, potrebbe essere derivato da qualsiasi tipo di microfono senza
-un significato particolare. Potrebbe essere generato elettricamente da un
-microfono con modello polare particolare o da una fonte sintetica senza
-alcuna rilevanza specifica. La provenienza polare, la forma che assume la fase
-del segnale, diventa rilevante nel confronto tra segnali.
-
-Il diagramma polare di un microfono che, per caratteristiche costruttive, non
-percepisce variazioni di angolo di incidenza del segnale, quindi non-direzionale,
-è definito comunemente come omnidirezionale, la sua equazione contiene solo
-variazioni di ampiezza, derivate della variazione di pressione dell'aria
-
-\begin{equation}
-ndp = 1(x)
-\label{eq:omni}
-\end{equation}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/omni}
-\caption{non-directional}
-\label{polar:omni}
-\end{figure}
-
-%Il disegno nella parte sinistra di fig. 8 rappresenta la struttura di un tipico microfono a pressione (pressure microphone) omnidirezionale, mentre nella parte destra è rappresentata la sua curva polare, dove vediamo che la direzionalità del suono inizia ad essere percepita dal microfono a partire da circa 5 KHz in su, mentre le frequenze gravi non sono indicate in quanto assimilabili a quella rilevata a 1 KHz, cioè con attenuazione zero per qualsiasi angolo di provenienza del suono.
 
 Dalla descrizione di Blumlein di \emph{Mid-Side}, abbiamo un canale frontale
 \emph{Mid} comunemente descritto da un microfono cardioide. Il microfono

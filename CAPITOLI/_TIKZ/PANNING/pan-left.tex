@@ -29,7 +29,7 @@
 \begin{document}
 \thispagestyle{empty}
 
-\begin{tikzpicture}[scale=1]
+\begin{tikzpicture}[scale=1,rotate=-30]
 %\tkzInit[xmin=-4.1,xmax=5.2,ymin=-4.1,ymax=8]
 %\tkzClip[space=.5]
 
@@ -40,17 +40,17 @@
 \tkzDrawCircle(C,R)
 \tkzDefPoint(90:4){CENTER}
 \tkzDrawPoint[fill=black,color=black](CENTER)
-\tkzLabelPoint[anchor=north](CENTER){C}
+\tkzLabelPoint[anchor=south](CENTER){C}
 
 % ORECCHIE
 \tkzDefPoint(180:4){LEFT}
 \tkzDrawPoint[fill=black,color=black](LEFT)
-\tkzLabelPoint[anchor=south east](LEFT){L}
+\tkzLabelPoint[anchor=south](LEFT){L}
 \tkzDefPoint(0:4){RIGHT}
 \tkzDrawPoint[fill=black,color=black](RIGHT)
-\tkzLabelPoint[anchor=south west](RIGHT){R}
+\tkzLabelPoint[anchor=south](RIGHT){R}
 
-\tkzDefPoint(90:8){A}
+\tkzDefPoint(120:8){A}
 %\tkzDefPoint(50:8){B}
 \tkzTangent[from = A](C,R)
 \tkzGetPoints{D}{E}
