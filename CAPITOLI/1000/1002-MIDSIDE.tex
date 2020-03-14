@@ -108,37 +108,88 @@ sdmx = _,_ <: nsum, ndif;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION SIX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Mid-Side Panner}
-\label{sec:mspanner}
+\section{Sul concetto di \emph{PanPot}}
+\label{sec:panpot}
 
 L'oggetto \emph{panner} è rappresentato da un potenziometro di controllo
-(hardware o software, in entrambi i casi a controllo analogico o digitale). Tale
-controllo regola la distribuzione di un segnale sonoro in un campo sonoro stereo o multicanale. Ogni tipica console di registrazione ha un \emph{panpot} per
-ciascun canale sorgente in ingresso (abbreviazione di “potenziometro di
-panoramica”).
+(hardware o software, in entrambi i casi a controllo analogico o digitale) che
+regola la distribuzione di un segnale su più canali componenti un campo sonoro
+stereo o multicanale. Ogni mixer ha un \emph{panpot} (abbreviazione di
+\emph{potenziometro di panoramica}), per ciascun canale sorgente in ingresso,
+che regola l'azione del \emph{panner}.
 
-Ogni panner ha un'architettura interna che determina la quantità e la condizione
-del segnale sorgente per ogni bus di destinazione. I più semplici suddividono i
-segnali audio in canali sinistro e destro, ciascuno dotato di un proprio
+%L'ultima precisazione riguarda il movimento panoramico. La distribuzione dell'energia
+%o la condizione della coppia di segnali che regola il movimento panoramico troppo
+%spesso sono descritti come la possibilità di muovere gli oggetti attorno alla posizione
+%dell'ascoltatore.
+
+Generalmente il \emph{panpot} viene descritto come un pomello che permette di
+muovere i suoni tra la sinistra e la destra del panorama di diffusione, il che è parzialmente vero e potenzialmente pericoloso in termini di immaginazione
+acustica.
+
+Soffermandosi ad analizzare il fenomeno acustico di un suono prodotto da un
+oggetto in movimento tra la destra e la sinistra di un campo percettivo emergono
+diversi problemi.
+
+Il primo riguarda l'\emph{effetto doppler}. Siamo seduti su una panchina al
+margine di una strada che si estende infinita agli estremi della nostra vista
+periferica. Un mezzo di soccorso, con la sirena accesa, si avvicina percorrendo
+la strada davanti al nostro viso, da sinistra verso destra: percepiamo
+una variazione in frequenza al passaggio della sirena, in funzione della
+velocità. L'\emph{effetto doppler} ci descrive come nel percorso di
+avvicinamento a noi la frequenza sale lentamente fino al massimo ottenuto nel
+momento in cui ci raggiunge per poi diminuire rapidamente in coincidenza con l'allontanamento.
+
+Ora siamo dei \emph{sound designer}, siamo seduti di fronte alla nostra console
+analogica e dobbiamo replicare l'effetto sopra descritto. Applicando un
+movimento da sinistra a destra, azionando il \emph{panpot} su un suono di sirena statico, registrato fermo ad un metro di distanza, pur ruotando velocemente il potenziometro non
+otteniamo variazioni in frequenza. Il suono si muove tra la sinistra e la destra
+del sistema d'ascolto senza produrre il movimento nello spazio, solo lo
+spostamento della posizione relativa al nostro punto di ascolto. Ne deriva una
+prima conslusione: il \emph{panpot} regola una posizione relativa, non stabilisce
+criteri di movimento.
+
+Un altro problema emergente del pensare il \emph{panning} come un movimento
+scaturisce dalla relazione della sorgente con l'ambiente circostante. Che
+movimento può esserci senza tenere conto del luogo in cui il suono si trova?
+
+Un avvocato pronuncia la sua arringa in tribunale parlando ad alta voce,
+camminando, rimbalzando tra destra e sinistra. La voce si propaga nello spazio
+ed è inevitabile che se ne percepisca la variazione topologica, morfologica in
+relazione con le caratteristiche architettoniche: a sinistra della stanza c'è
+una parete di finestre, a destra un muro in cemento. Pur non avendo velocità
+sufficiente ad innescare
+l'effetto doppler, la sua continua variazione di posizione corrisponde ad una
+continua variazione di rapporto con l'ambiente che lo circonda, in relazione
+ad ogni infinto punto di ascolto all'interno della stanza. In altre parole, quel
+movimento assume significati diversi relativi al punto di ascolto.
+
+Dovendo simulare lo stesso effetto mediante l'azione sul panpot, otterremmo la variazione di posizione della voce nello spazio, ma non la sua relazione con lo
+spazio.
+
+Il \emph{panpot}, nella sua capacità di descrizione della relazione tra i canali
+che ricevono i suoi segnali, non muove la sorgente nello spazio, ma regola la
+posizione della sorgente stessa in relazione al nostro punto di ascolto. In
+altri termini il \emph{panner} non regola il movimento della sorgente, ma la rotazione
+della testa in relazione ad una sorgente fissa. Il \emph{panner}, muove langolo di
+incidenza del suono, ruota la testa, nei confronti della sorgente immobile.
+
+Ogni \emph{panner} ha un'architettura interna che determina la quantità e la condizione
+del segnale sorgente per ogni canale di destinazione. I più semplici suddividono
+i segnali audio nei due canali sinistro e destro, attraverso un opportuno
 controllo di guadagno (volume) discreto. La distribuzione dell'energia tra i due
 canali è chiamata legge ed è descrivibile con una funzione matematica.
 
-Come descritto da Blumlein, la sola variazione di ampiezza nella rappresentazione
-del panorama stereofonico è solo una parte della complessa percezione binaurale.
-Per questo motivo, prima di arrivare a quelli che sono i modelli universalmente
-implementati su tutti i mixer del pianeta, è più opportuno riprendere da dove
-egli stesso è partito. Ci sono diverse motivazioni per non seguire le mode, la
-più affascinante è quella di scoprire che ci sono delle alternative che si possono
-rivelari inevitabilmente migliori. La visione di Blumlein fu quella ripresa in
-seguito da Gerzon per descrivere il mondo ambisonic, che resta un modo di
-descrivere il mondo sonoro percepito e riprodotto in un modo completamente diverso.
+Come descritto da Blumlein, la sola variazione di ampiezza nella
+rappresentazione del panorama stereofonico è solo una parte verso la complessa
+soddisfazione della percezione binaurale. Per questo motivo, prima di descrivere
+i sistemi di panning di ampiezza, che sono universalmente implementati su tutti
+i mixer del pianeta, è più opportuno riprendere da dove egli stesso è partito.
+La visione di Blumlein fu ripresa in seguito da Gerzon per descrivere la tecnologia  \emph{ambisonic}, che resta un atto di descrizione del mondo sonoro percepito e
+riprodotto completamente diverso da quello che commercialmente si è diffuso ed imposto.
 
-L'ultima precisazione riguarda il movimento panoramico. La distribuzione dell'energia
-o la condizione della coppia di segnali che regola il movimento panoramico troppo
-spesso sono descritti come la possibilità di muovere gli oggetti attorno alla posizione
-dell'ascoltatore. Generalmente il panner viene descritto come un pomello che
-permette di muovere i suoni da destra a sinistra nel panorama. Se ci fermiamo però ad analizzare il problema, il movimento del suono prodotto da un oggetto acustico tra destra e sinistra di un eventuale panorama, emergono subito diversi problemi. Il primo riguarda l'effetto doppler: se un mezzo con la sirena accesa percorre la strada davanti al mio viso ne percepisco la variazione in frequenza, tipica, dovuta all'effetto doppler: il suono aumenta la frequenza mentre si avvicina a me e poi la diminuisce allpontanandosi. Se applico un movimento di panning ad un suono di sirena fisso, posso muovermi veloce quanto voglio con il pomello, non ne ottengo variazioni in frequenza. Un altro problema del pensare il panning come un movimento della sorgente è relativo al suo environment. Che movimento è un movimento che non tiene conto del luogo in cui il suono si trova? Se un avvocato pronuncia la sua arringa in tribunale parlando ad alta voce e camminando a destra e a sinistra, è inevitabile che se ne percepisca la varaizione topologica, morfologica. A sinistra ho le finestre, a destra un muro in cemento, ecc.
-Quindi, arrivando al punto, il panpot nella sua descrizone della condizione dei canali che ricevono i suoi suegnali, non muove la sorgente nello spazio, ma regola la posizione della testa in relaizone ad una sorgente fissa. Un panner, muove langolo di incidenza del suono, ruota la testa, nei confronti della sorgente fissa. 
+\section{Mid-Side \emph{panner}}
+\label{sec:mspanner}
 
 Prima di inoltrarsi nella stesura di quello che può essere il progetto di un
 panner basato sulle equazioni che descrivono la stereofonia MID-SIDE, è
@@ -243,7 +294,7 @@ Quindi dai primitivi schemi polari del primo ordine, non direzionali e
 bidirezionali, potremmo derivare, progressivamente, ogni sfumatura di forma tra
 di loro, puntando angolarmente ovunque intorno a 2 $ \ pi $ radianti.
 
-Infine, il componente Mid del panner Mid-Side potrebbe essere espresso dalla
+Infine, il componente Mid del \emph{panner} Mid-Side potrebbe essere espresso dalla
 formula
 
 \begin{equation}
@@ -262,7 +313,7 @@ s(x,\theta) = x*(sin(\theta))
 \label{eq:side}
 \end{equation}
 
-Il codice Faust per un panner Mid-Side è veramente auto-spiegato: le equazioni
+Il codice Faust per un \emph{panner} Mid-Side è veramente auto-spiegato: le equazioni
 diritte per descrivere sia il cardioide che la figura 8 sono i due componenti
 al di fuori del panning.
 
@@ -279,7 +330,7 @@ with{
 \begin{figure}[h]
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/mspan}
-\caption{Mid-Side Panner. Il grafico mostra la risposta del panner ad una
+\caption{Mid-Side \emph{panner}. Il grafico mostra la risposta del \emph{panner} ad una
 variazione di 360 gradi da sinistra (-180 gradi) a destra (180 gradi). La linea
 laterale (rossa) mostra la
 bipolarità del segnale correlata alle informazioni angolari. La linea Mid (blu)
@@ -289,7 +340,7 @@ dove cardioide e figura 8 sono senza ascolto.}
 \label{fig:mspan}
 \end{figure}
 
-Dobbiamo passare il panner attraverso la matrice della differenza di somma per
+Dobbiamo passare il \emph{panner} attraverso la matrice della differenza di somma per
 ottenere ciò che Blumlein descrive come la differenza di ampiezza nei segnali
 degli altoparlanti dalle differenze di fasi.
 
@@ -301,8 +352,8 @@ mspan_lr(x,p,rad) = mspan(x,p,rad) : sdmx;
 
 \subsection{Utilizzi}
 
-Il panner Mid-Side qui proposto non è solo un oggetto tecnico, utile o no,
-comparabile o no, relativo ad altri tipi di pan. Il panner Mid-Side qui proposto
+Il \emph{panner} Mid-Side qui proposto non è solo un oggetto tecnico, utile o no,
+comparabile o no, relativo ad altri tipi di pan. Il \emph{panner} Mid-Side qui proposto
 è un oggetto di pensiero. Usiamo la tecnica Mid-Side, per riflettere la stessa
 stereofonia; perché riteniamo fortemente che alcune circostanze evidenziate
 nelle sezioni precedenti debbano essere affrontate, altre migliorate e molte
@@ -321,9 +372,9 @@ musica di cultura di massa. Senza un \ -a \ -lys \ -ing questi problemi pratici,
 non è davvero comprensibile il motivo per cui la peggiore tecnica di panning sia
 mai la maggior parte dell'hardware implementato.
 
-Il codice per costruire un panner di ampiezza quadratica è piuttosto banale.
+Il codice per costruire un \emph{panner} di ampiezza quadratica è piuttosto banale.
 Il codice più prolisso \ emph {Faust} lo farà in cinque righe. L'eliminazione di
-$sqrt$ dalle seguenti formule diventa il panner di ampiezza lineare tradizionale
+$sqrt$ dalle seguenti formule diventa il \emph{panner} di ampiezza lineare tradizionale
 più semplice.
 
 %--------------------------------------------
@@ -351,7 +402,7 @@ lrpanq(p) = _ <: sqrt(1-p)*_, sqrt(p)*_;
 \begin{figure}[t]
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/lrpanfb_init}
-\caption{\textbf{Risposta feedback panner ampiezza quadratica sinistra-destra}.
+\caption{\textbf{Risposta feedback \emph{panner} ampiezza quadratica sinistra-destra}.
 La trama mostra la risposta del programmatore in un ciclo di scansione da
 sinistra a destra. La trama mostra come l'ampiezza si sposta rapidamente oltre
 150 volte il valore iniziale sul canale “in feedback” e oltre 20 volte sul
@@ -362,7 +413,7 @@ canale “opposto”.}
 \begin{figure}[t]
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/lrpanfbpot2}
-\caption{\textbf{Risposta feedback panner ampiezza quadratica sinistra-destra}.
+\caption{\textbf{Risposta feedback \emph{panner} ampiezza quadratica sinistra-destra}.
 La trama mostra la risposta del programmatore in un ciclo di scansione da
 sinistra a destra. La trama mostra come l'ampiezza si sposta rapidamente oltre
 150 volte il valore iniziale sul canale “in feedback” e oltre 20 volte sul
@@ -372,7 +423,7 @@ canale “opposto”.}
 
 Abbiamo spiegato il percorso del pan Mid-Side, partendo dalle radici. Ora è il
 momento di capire quali sono i possibili utilizzi e quali sono le peculiarità di
-un panner Mid-Side invece dei pannolini di ampiezza \emph{tradizionale}.
+un \emph{panner} Mid-Side invece dei pannolini di ampiezza \emph{tradizionale}.
 
 Il segnale \emph{matrixed} ha la sua complessità come svantaggio. Fermare. In
 realtà richiede conoscenza e fantasia per comprendere un segnale come il
@@ -385,7 +436,7 @@ determinare la scelta migliore, personale.
 
 L'affascinante regno dei segnali \ emph {matrixed} costringe un po 'a lavorare
 con il pensiero. Quindi, per noi, ad esempio, la forza di modulazione di fase
-del panner Mid-Side aveva suggerito, anche prima di un test pratico, una
+del \emph{panner} Mid-Side aveva suggerito, anche prima di un test pratico, una
 migliore stabilità sugli utilizzi dal vivo. Perché? È abbastanza semplice da
 dimostrare.
 
@@ -408,13 +459,13 @@ D'altra parte, nella stessa situazione di feedback, con la stessa provenienza
 del panning angolare applicata al segnale del microfono, il pan Mid-Side
 produrrà fasi diverse e energia diversa per entrambi gli altoparlanti. Le
 differenze, nell'aria, produrranno un modello di feedback più resistivo. In
-altre parole, il panner di Mid-Side agisce “naturalmente” come anti-\emph{Larsen}.
+altre parole, il \emph{panner} di Mid-Side agisce “naturalmente” come anti-\emph{Larsen}.
 
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/mspanlrfbpot}
-\caption{\textbf{Mid-Side to Left-Right panner}. The plot describes the feedback
+\caption{\textbf{Mid-Side to Left-Right \emph{panner}}. The plot describes the feedback
 response with a pan movement through the entire panorama, from -180 to 180
 degrees (yellow line, normalized to -1 and 1). The energy multiplies up to four
 times for the left channel in infinite feedback (blue line). The top of feedback
