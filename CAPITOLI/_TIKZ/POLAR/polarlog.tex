@@ -39,8 +39,18 @@
 %Central point
 \draw[fill=red] (0,0) circle(0.7mm);
 % Now the additional plot:
-\begin{polaraxis}[rotate=90,hide axis,anchor=origin,disabledatascaling,at={(0pt,0pt)},x=1cm,y=1cm]
-\addplot+[mark=none,domain=0:720,samples=600,thick] {20*log10(abs(cos(\r x)))};
+\begin{polaraxis}[
+  rotate=90,
+  hide axis,
+  anchor=origin,
+  disabledatascaling,
+  at={(0pt,0pt)},
+  x=0.5cm,
+  y=0.5cm,
+  y coord trafo/.code=\pgfmathparse{#1+40},
+  y coord inv trafo/.code=\pgfmathparse{#1-40}.
+]
+\addplot+[mark=none,domain=0:720,samples=600,ultra thick] {20*log10(abs(cos(x)))};
 \end{polaraxis}
 \end{tikzpicture}
 \end{center}

@@ -40,10 +40,8 @@
 \draw[fill=red] (0,0) circle(0.7mm);
 % Now the additional plot:
 \begin{polaraxis}[rotate=90,hide axis,anchor=origin,disabledatascaling,at={(0pt,0pt)},x=1cm,y=1cm]
-\addplot+[mark=none,domain=0:720,samples=600,thick] {14.14*(cos(x)+sin(x))};
-\addplot+[mark=none,domain=0:720,samples=600,thick] {14.14*(cos(x)-sin(x))};
-\addplot+[mark=none,domain=0:720,samples=600,thick,color=blue] {-14.14*(cos(x)+sin(x))};
-\addplot+[mark=none,domain=0:720,samples=600,thick,color=red] {-14.14*(cos(x)-sin(x))};
+\addplot+[mark=none,domain=0:720,samples=600,ultra thick] {abs(14.14*(cos(x)+sin(x)))};
+\addplot+[mark=none,domain=0:720,samples=600,ultra thick] {abs(14.14*(cos(x)-sin(x)))};
 \end{polaraxis}
 \end{tikzpicture}
 \end{center}

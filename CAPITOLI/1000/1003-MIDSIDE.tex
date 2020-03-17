@@ -117,75 +117,8 @@ Prima di inoltrarsi nella stesura di quello che può essere il progetto di un
 panner basato sulle equazioni che descrivono la stereofonia MID-SIDE, è
 necessario comprendere il significato dela forma polare di un segnale.
 
-
-
 Dalla descrizione di Blumlein di \emph{Mid-Side}, abbiamo un canale frontale
-\emph{Mid} comunemente descritto da un microfono cardioide. Il microfono
-cardioide del primo ordine potrebbe essere descritto come una somma delle
-variazioni di pressione non direzionale (\emph{ndp})
-
-and bidirectional pressure gradient variations.
-
-\begin{equation}
-bpg = x\cos\theta
-\label{eq:fig8}
-\end{equation}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/fig8}
-\caption{Figure-8}
-\label{polar:fig8}
-\end{figure}
-
-La prima differenza rilevante tra un'equazione del modello polare non
-direzionale (\ ref {eq: omni}) e una direzionale (\ ref {eq: fig8}) è la
-presenza del coefficiente angolare. L'angolo \ emph {theta} nell'equazione
-(\ref{eq:fig8}) descrive la direzione di puntamento del microfono bidirezionale
-espressa in radianti. $ X $ è il segnale relativo alla pressione.
-
-Il microfono cardioide (\ emph {cpg}) che tentiamo di sintetizzare deve puntare
-alla posizione centrale-anteriore che è il riferimento zero radianti.
-
-\begin{equation}
-cpg = 0.5(x) + 0.5(x\cos\theta)
-\label{eq:cardioid}
-\end{equation}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/cardioid}
-\caption{Cardioid}
-\label{polar:cardioid}
-\end{figure}
-
-Cardioidi e altri schemi più comuni del primo ordine sono prodotti con il
-seguente peso tra la pressione non direzionale e il gradiente di pressione
-bidirezionale:
-
-\begin{table}[h]
-\begin{center}
-\begin{tabular}{cc}
-Polar Pattern & Equation \\
-\hline
-Omnidirectional & $ 1(x) $ \\
-Subcardioid     & $ 0.75(x) + 0.25(x\cos\theta) $ \\
-Cardioid        & $ 0.5(x) + 0.5(x\cos\theta) $ \\
-Supercardioid   & $ 0.37(x) + 0.63(x\cos\theta) $ \\
-Hypercardioid   & $ 0.25(x) + 0.75(x\cos\theta) $ \\
-Bidirectional   & $ 1(x\cos\theta) $ \\
-\end{tabular}
-\end{center}
-\caption{coefficiente \emph{pressione non direzionale} e coefficiente
-\emph{gradiente di pressione bidirezionale} per la descrizione dei modelli
-polari del primo ordine. Dove $ x $ è il segnale di input, l'angolo di incidenza
-della prospettiva $\theta$}
-\label{tab:polarcoef}
-\end{table}
-
-Quindi dai primitivi schemi polari del primo ordine, non direzionali e
-bidirezionali, potremmo derivare, progressivamente, ogni sfumatura di forma tra
-di loro, puntando angolarmente ovunque intorno a 2 $ \ pi $ radianti.
+\emph{Mid} comunemente descritto da un microfono cardioide. 
 
 Infine, il componente Mid del \emph{panner} Mid-Side potrebbe essere espresso dalla
 formula

@@ -1,0 +1,27 @@
+\documentclass[border=5mm]{standalone}
+\usepackage{pgfplots} 
+\usepgfplotslibrary{polar}
+
+\begin{document}
+\pgfplotsset{mypolarplot/.style={%
+    domain=0:360, % plot full cycle
+    samples=180, % number of samples; can be locally adjusted
+    grid=both, % display major and minor grids
+    major grid style={black}, 
+    minor x tick num=3, % 3 minor x ticks between majors
+    minor y tick num=1, % 1 minor y tick between majors
+    xtick={0,45,...,360}, % set xticks (degrees)
+    yticklabel style={anchor=north east}, % move label position
+    xticklabel=$\pgfmathprintnumber{\tick}^\circ$,
+    every axis plot/.style={ultra thick},
+    ymin=-40, ymax=0
+ }}
+\begin{tikzpicture}
+\begin{polaraxis}[mypolarplot,
+    % shift y-coordinates by +40 (-40 for reverse direction)
+    y coord trafo/.code=\pgfmathparse{#1+40},
+    y coord inv trafo/.code=\pgfmathparse{#1-40}]
+\addplot[blue]{20*log10(abs(cos(x)))};        
+\end{polaraxis}
+\end{tikzpicture}
+\end{document}
