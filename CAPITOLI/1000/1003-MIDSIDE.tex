@@ -154,9 +154,9 @@ sdmx = _,_ <: nsum, ndif;
 \subsection{Mid-Side \emph{mic}}
 \label{subsec:msmic}
 
-\begin{figure}[h]
+\begin{figure}[b!]
 \centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/_TIKZ/POLAR/midside}
+\includegraphics[width=0.99\columnwidth]{CAPITOLI/_TIKZ/POLAR/midside}
 \caption{Rappresentazione ideale della coppia stereofonica Mid-Side costituita da
 da un microfono direzionale cardioide a gradiente di pressione mediante la sua
 equazione polare: $cpg = 0.5(x) + 0.5(x\cos\theta)$ (\emph{cardioid pressure
@@ -168,36 +168,50 @@ mentre il segnale del microfono bidirezinale viene registrato nel secondo canale
 \label{polar:midsidemic}
 \end{figure}
 
+La produzione di un segnale \emph{Mid-Side} come quello in uscita dalla matrice
+somma e sottrazione può essere ottenuta dal posizionamento diretto di una coppia
+di microfoni aventi caratteristiche polari adeguate. Il segnale \emph{Mid} è
+generalmente prodotto da un microfono direzionale cardioide puntato verso il fronte
+stereofonico, mentre il segnale \emph{Side} è generato da un microfono
+bidirezionale puntato lateralmente, offrendo al fronte il punto di massimo
+annullamento. I due microfoni devono essere allineati verticalmente in modo da
+risultare orizzontalmente coincidenti.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION SIX
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Mid-Side \emph{panner}}
 \label{subsec:mspanner}
 
-Dalla descrizione di Blumlein di \emph{Mid-Side}, abbiamo un canale frontale
-\emph{Mid} comunemente descritto da un microfono cardioide.
+La coppia stereofonica di segnali \emph{Mid-Side} è stata descritta finora come
+risultante della matrice somma e sottrazione applicata ad un segnale stereofonico
+oppure come segnale prodotto da una coppia di microfoni aventi caratteristiche
+oppurtune. Analizziamo ora un terzo sistema in grado di generare una coppia
+\emph{Mid-Side} attraverso un sistema di panning.
 
-Infine, il componente Mid del \emph{panner} Mid-Side potrebbe essere espresso dalla
-formula
+Il canale frontale \emph{Mid} è comunemente descritto da un microfono cardioide.
+Sappiamo che la componente cardioide, come moltre altre figure polari, può
+essere risultante da una combinazine misurata di
+componenti non-direzionale e bidirezionale.
 
 \begin{equation}
 m(x,p,\theta) = (p*x) + ((1-p)*(x\cos\theta)
 \label{eq:mid}
 \end{equation}
 
-Dove $ x $ è il segnale di ingresso, $ p $ è il coefficiente di ampiezza, $0.5$
-per scopi cardioidi, $\theta$ è la direzione di impatto angolare espressa in
-radianti.
+Dove $x$ è il segnale di ingresso, $p$ è il coefficiente di ampiezza che regola
+il rapporto di peso tra le due componenti, $0.5$ per ottenere la figura polare
+cardioide, $\theta$ è la direzione di impatto angolare espressa in radianti.
 
-Il componente Side è la formula dritta bipolare di figura 8 che punta a sinistra.
+La componente \emph{Side} è costituita dalla sola componente bidirezionale.
 
 \begin{equation}
 s(x,\theta) = x*(sin(\theta))
 \label{eq:side}
 \end{equation}
 
-Il codice Faust per un \emph{panner} Mid-Side è veramente auto-spiegato: le equazioni
-diritte per descrivere sia il cardioide che la figura 8 sono i due componenti
-al di fuori del panning.
+Il codice \emph{Faust} per la costruzione di un \emph{Mid-Side Panner} è
+molto simile alle equazioni che descrivono le due figure polari.
 
 %--------------------------------------------
 %----------------larghezza massima del codice
@@ -209,148 +223,55 @@ with{
 };
 \end{lstlisting}
 
-\begin{figure}[h]
+I due segnali in uscita dal panner non possono essere inviati direttamente ad un
+sistema di ascolto basato sui due canali sinistra-destra, devono necessariamente
+passarli attraverso la matrice somma e differenza ottenere ciò che Blumlein
+descrive come la differenza di ampiezza nei segnali degli altoparlanti
+ottenuta dalle differenze di fase.
+
+% %--------------------------------------------
+% %----------------larghezza massima del codice
+% \begin{lstlisting}
+% mspan_lr(x,p,rad) = mspan(x,p,rad) : sdmx;
+% \end{lstlisting}
+
+\begin{figure}[t]
 \centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/mspan}
+\includegraphics[width=0.99\columnwidth]{CAPITOLI/1000/IMG/mspan}
 \caption{Mid-Side \emph{panner}. Il grafico mostra la risposta del \emph{panner} ad una
 variazione di 360 gradi da sinistra (-180 gradi) a destra (180 gradi). La linea
-laterale (rossa) mostra la
-bipolarità del segnale correlata alle informazioni angolari. La linea Mid (blu)
-ha solo energia positiva in relazione alle informazioni angolari. La trama
-mostra l'evidenza del significato zero su entrambi i bordi di -180 e 180 gradi,
-dove cardioide e figura 8 sono senza ascolto.}
+rossa mostra la bipolarità del segnale correlata alle informazioni angolari. La
+linea blu descrive variazioni di ampiezza (sempre con fase positiva) in
+relazione alle informazioni angolari. Il grafico mostra l'evidenza della percezione
+zero su entrambi gli estremi $\pm180$ gradi, dove cardioide e figura-8 si annullano.}
 \label{fig:mspan}
 \end{figure}
 
-Dobbiamo passare il \emph{panner} attraverso la matrice della differenza di somma per
-ottenere ciò che Blumlein descrive come la differenza di ampiezza nei segnali
-degli altoparlanti dalle differenze di fasi.
+% La procedura di costruzione dell'algoritmo del \emph{Mid-Side Panner} è completa.
+% Il seguente codice di \emph{Faust} descrivo il panner completo di interfaccia
+% grafica.
 
-%--------------------------------------------
-%----------------larghezza massima del codice
+%-----------------------------------------------------------
+%-------------------------------larghezza massima del codice
 \begin{lstlisting}
-mspan_lr(x,p,rad) = mspan(x,p,rad) : sdmx;
-\end{lstlisting}
-
-\subsection{Utilizzi}
-
-Il \emph{panner} Mid-Side qui proposto non è solo un oggetto tecnico, utile o no,
-comparabile o no, relativo ad altri tipi di pan. Il \emph{panner} Mid-Side qui proposto
-è un oggetto di pensiero. Usiamo la tecnica Mid-Side, per riflettere la stessa
-stereofonia; perché riteniamo fortemente che alcune circostanze evidenziate
-nelle sezioni precedenti debbano essere affrontate, altre migliorate e molte
-altre uccise.
-
-Pensare al panning deve essere fortemente incoraggiato perché è un oggetto
-semplice troppo spesso usato senza fare domande. La gente può pensare che la
-chiave quadratica sia migliore di quella lineare che solo in virtù della sua
-introduzione più recente. Ma se interrompiamo il suo “utilizzo senza mettere in
-discussione” e, come musicisti, prendiamo il tempo per analizzare l'uso manuale
-dell'uno al posto dell'altro, possiamo sentire una differenza, pratica prima del
-suono.
-
-Conoscendoli possiamo analizzare il mercato del mixer e il ruolo del pan nella
-musica di cultura di massa. Senza un \ -a \ -lys \ -ing questi problemi pratici,
-non è davvero comprensibile il motivo per cui la peggiore tecnica di panning sia
-mai la maggior parte dell'hardware implementato.
-
-Il codice per costruire un \emph{panner} di ampiezza quadratica è piuttosto banale.
-Il codice più prolisso \ emph {Faust} lo farà in cinque righe. L'eliminazione di
-$sqrt$ dalle seguenti formule diventa il \emph{panner} di ampiezza lineare tradizionale
-più semplice.
-
-%--------------------------------------------
-%----------------larghezza massima del codice
-\begin{lstlisting}
-lrpanq(x,p) = l,r
-with{
-  l = sqrt(1-p)*x;
-  r = sqrt(p)*x;
+//----------------------------------- DEGREES TO RADIANS ---
+deg2rad = *(ma.PI/180);
+//----------------------------------------------- PANPOT ---
+rad = vslider("[02]Azimuth[style:knob]", 0,-180,180,0.1) :
+      deg2rad : si.smoo;
+//--------------------------------------------- P FACTOR --–
+p = vslider("[01]P[style:knob]", 0.5, 0, 1, 0.01) : si.smoo;
+//--------------------------------------------- MID-SIDE --–
+midside(x,p,rad) = m,s
+  with{
+    m = (p*x)+((1-p)*(x*cos(rad)));
+    s = x*(sin(-rad));
 };
+//-------------------------------- MS MATRIX DESCRIPTION ---
+nsum = 0.5*(_+_);
+ndif = 0.5*(_-_);
+sdmx = _,_ <: nsum, ndif;
+//----------------------------------------- MS2LR MATRIX ---
+mspan_lr(x,p,rad) = midside(x,p,rad) : sdmx;
+process = os.osc(1000), p, rad : mspan_lr;
 \end{lstlisting}
-
-Dove $ p $ è il coefficiente angolare espresso dal potenziometro, in un
-intervallo tra $ 0 $ la posizione sinistra, $ 0,5 $ la posizione centrale e $1$
-la posizione destra.
-
-Sorridendo, potrebbe essere fatto su una riga:
-
-%--------------------------------------------
-%----------------larghezza massima del codice
-\begin{lstlisting}
-lrpanq(p) = _ <: sqrt(1-p)*_, sqrt(p)*_;
-\end{lstlisting}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/lrpanfb_init}
-\caption{\textbf{Risposta feedback \emph{panner} ampiezza quadratica sinistra-destra}.
-La trama mostra la risposta del programmatore in un ciclo di scansione da
-sinistra a destra. La trama mostra come l'ampiezza si sposta rapidamente oltre
-150 volte il valore iniziale sul canale “in feedback” e oltre 20 volte sul
-canale “opposto”.}
-\label{fig:lrpanfb1}
-\end{figure}
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/lrpanfbpot2}
-\caption{\textbf{Risposta feedback \emph{panner} ampiezza quadratica sinistra-destra}.
-La trama mostra la risposta del programmatore in un ciclo di scansione da
-sinistra a destra. La trama mostra come l'ampiezza si sposta rapidamente oltre
-150 volte il valore iniziale sul canale “in feedback” e oltre 20 volte sul
-canale “opposto”.}
-\label{fig:lrpanfb2}
-\end{figure}
-
-Abbiamo spiegato il percorso del pan Mid-Side, partendo dalle radici. Ora è il
-momento di capire quali sono i possibili utilizzi e quali sono le peculiarità di
-un \emph{panner} Mid-Side invece dei pannolini di ampiezza \emph{tradizionale}.
-
-Il segnale \emph{matrixed} ha la sua complessità come svantaggio. Fermare. In
-realtà richiede conoscenza e fantasia per comprendere un segnale come il
-significato della combinazione di matrici e richiede anche un po 'di lavoro
-complicato più di un segnale diretto.
-
-Come musicisti, anche quando trame e formule appaiono abbastanza chiare, alla
-fine, al momento del giudizio, sono le orecchie e l'usabilità musicale a
-determinare la scelta migliore, personale.
-
-L'affascinante regno dei segnali \ emph {matrixed} costringe un po 'a lavorare
-con il pensiero. Quindi, per noi, ad esempio, la forza di modulazione di fase
-del \emph{panner} Mid-Side aveva suggerito, anche prima di un test pratico, una
-migliore stabilità sugli utilizzi dal vivo. Perché? È abbastanza semplice da
-dimostrare.
-
-Un microfono viene instradato in un canale, con una chiave appuntita a metà
-laterale, supponiamo che 23 gradi a sinistra e inviato agli altoparlanti. Con il
-panner quadratico, entrambi i canali sinistro e destro hanno valori di ampiezza
-diversi con gli stessi valori di fase. Il feedback dei segnali degli
-altoparlanti all'interno del microfono proviene da diverse fonti di energia in
-fase. La ricerca del feedback con le dita sul guadagno produrrà segnali che
-aumenteranno almeno quadraticamente [fig. \ref{fig:lrpanfb1}, \ref{fig:lrpanfb2}].
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/mspanlrfb_diagram}
-\caption{\textbf{Block diagram of the infinite feedback}.}
-\label{fig:mspanlrfbdiag}
-\end{figure}
-
-D'altra parte, nella stessa situazione di feedback, con la stessa provenienza
-del panning angolare applicata al segnale del microfono, il pan Mid-Side
-produrrà fasi diverse e energia diversa per entrambi gli altoparlanti. Le
-differenze, nell'aria, produrranno un modello di feedback più resistivo. In
-altre parole, il \emph{panner} di Mid-Side agisce “naturalmente” come anti-\emph{Larsen}.
-
-
-\begin{figure}[t]
-\centering
-\includegraphics[width=1\columnwidth]{CAPITOLI/1000/IMG/mspanlrfbpot}
-\caption{\textbf{Mid-Side to Left-Right \emph{panner}}. The plot describes the feedback
-response with a pan movement through the entire panorama, from -180 to 180
-degrees (yellow line, normalized to -1 and 1). The energy multiplies up to four
-times for the left channel in infinite feedback (blue line). The top of feedback
-increasing is at 45 degrees position in direction of the channel in feedback.}
-\label{fig:mspanlrfb}
-\end{figure}
