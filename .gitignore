@@ -18,6 +18,7 @@ METM.pdf
 *.cb
 *.cb2
 .*.lb
+*.ptc
 
 ## Intermediate documents:
 *.dvi
