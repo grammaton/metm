@@ -1,0 +1,260 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% !TEX root = ../metm.tex
+
+\chapter{Pensare il tempo}
+
+\begin{flushright}
+\textit{- Alice: How long is forever?\\
+- White Rabbit: Sometimes, just one second.”}\\
+Lewis Carroll, Alice in Wonderland
+\end{flushright}
+
+In questa sezione affronteremo un piccolo esercizio di programmazione che porterà
+alla creazione di un semplice metronomo digitale. Lo scopo di tale esercizio è
+quello di accedere alla programmazione temporizzata degli eventi sonori.
+
+risorse necessarie:\\
+\url{http://faust.grame.fr/ide/}
+
+\startcontents[chapters]
+\printcontents[chapters]{}{1}{}
+
+\section{Scansioni ritmiche}
+
+Prima di inoltrarsi nel pratico della creazione, c'è un minimo di riflessione da
+fare sul come dividiamo il tempo e perché.
+
+\begin{quote}
+Da secoli, \emph{dividiamo} il tempo in giorni. La parola “tempo” deriva da una
+radice inndoeuropea, \emph{di} o \emph{dai}, che indica “dividere”. Da secoli,
+dividiamo il giorno in ore. Per la maggior parte di questi secoli, però, le ore
+oerano più lunghe d'estate e più corte d'inverno, perché le 12 ore scandivano il
+tempo fra alba e tramonto: l'ora prima era l'alba, e l'ora dodicesima il tramonto,
+indipendnetemente dalla stagione. [\ldots] È solo verso il XIII secolo che in Europa
+la vita della gente comincia a essere regolata da orologi meccanici. Città e
+villaggi costruiscono la loro chiesa, accanto alla chiesa il campanile, e sul
+campanile un orologio che dà il ritmo alle funzioni collettive. Inizia l'era del
+tempo regolato da orologi.\footnote{Rovelli - l'ordine del tempo. pg 56-57}
+\end{quote}
+
+L'idea di un tempo fluido, che non ticchetta, che non rintocca, era la consuetudine
+prima degli orologi. Oggi è molto meno comune un pensiero di questo tipo. Siamo
+legati ai ticchettii.
+\begin{quote}
+L'utilità degli orologi è indicare a tutti la stessa ora. Ma anche quest'idea è
+più moderna di quanto possiamo immaginare. Per secoli, finché si viaggiava a
+cavallo, a piedi o in carrozza, non c'era motivo di sincronizzare orologi da un
+luogo all'altro. C'era un ottimo motivo per \emph{non} farlo: mezzodì è per
+definizione quando il sole è più alto nel cielo. [\ldots] Nel XIX secolo arriva
+il telegrafo, i treni diventano comuni e veloci, e il problema di sincronizzare
+bene gli orolgi da una città all'altra si fa importante.
+\end{quote}
+
+Anche il metronomo ha la sua storia. Innanzitutto l'etimologia della parola,
+che compare per la prima volta nel 1815 per opera di Johann Nepomuk M\"{a}lzel
+mediante l'unione di due parole greche: \emph{metron}, misura e \emph{nomos}, regola.
+Seppur sotto il nome di M\"{a}lzel, tanto da trovare idicazioni metronomiche
+con la sigla \emph{MM} (Metronomo M\"{a}lzel), il dispositivo si basa su un
+principio messo a punto da Dietrich Nikolaus Winkel, al quale M\"{a}lzel aggiunse
+il tipico rintocco sonoro. Il musicista analogico sa che M\"{a}lzel e Winkel sono
+rimasti a lungo due marchi importanti di metronomi meccanici.
+
+Il metronomo meccanico si basa sui concetti dell'oscillazione pendolare:
+è infatti costituito da pendolo capovolto, con un'asta graduata fra le 40 scansioni
+e le 208 scansioni al minuto primo. Spostando un peso lungo l'asta graduata
+selezioniamo la quantità di pulsazioni per minuto.
+
+\section{Beat per minuto}
+
+\emph{Quanti secondi ci sono in un minuto?} Sessanta.
+
+\emph{Quanti minuti ci sono in un'ora?} Sessanta.
+
+\emph{Quanti secondi ci sono in un'ora?} Tremilaseicento ($60*60$).
+
+\emph{Quanto tempo passa tra i rintocchi di un metronomo a $104BMP$?}
+
+L'indicazione metronomica \emph{BPM (Beat per minute)} ci indica quanti rintocchi
+vogliamo sentire in un minuto. Ad una quantità di $60BPM$ ascoltiamo un rintocco
+sessanta volte per minuto, una scansione che corrisponde a quella dei secondi.
+Il metronomo impostato a $60BPM$ produce un rintocco ogni secondo, il secondo è
+la distanza che c'è tra un rintocco ed il successivo.
+
+Il minuto è la nostra grandezza di riferimento. La nostra torta intera. Ad una
+scansione di $60sec$ dividiamo, come sull'orologio, la torta in sessanta parti
+uguali, e avanziamo tra una e l'altra di $1/60$ di minuto (ovvero $1sec$).
+Ad una scansione di $108BPM$ (battiti per minuto) stiamo dividendo la torta in
+centootto parti uguali ed avaziamo tra una parte e l'altra di $1/108$ di minuto.
+Volendo individuare la distanza in secondi tra un rintocco ed il successivo non
+ci resta che sostituire il minuto con l'equivalente in secondi, sessanta. La
+distanza che separa un beat dal successivo in una scansione di $108BMP$ può
+essere calcolata quindi facendo $60/108=0,\overline{5}sec$.
+
+\begin{equation}
+\Delta(BPM) = 60/BPM (sec)
+\end{equation}
+
+Volendo aumentare il grado di precisione del calcolo precedente, ci basterà scendere
+ad unità di misura più piccole del secondo, come per esempio il millesimo di secondo.
+
+\emph{Quanti millesimi di secondo ci sono in un minuto?} Sessantamila.
+
+\section{Metronomo}
+
+Il metronomo digitale non può far affidamento su leggi meccaniche e masse in
+movimento. Il tempo dentro il mondo informatico si muove ancora diversamente che
+negli orologi. Per un computer non è troppo difficile portare il tempo anche in
+presenza di tempi diversi, per esempio, un video multimediale può avere una scansione
+di $23.976fps$ (frame per second) e, all'interno dello stesso secondo, un suono
+può avere 48000Hz di sample rate, ovvero essere descritto in un secondo per 48000 punti.
+
+La frequenza di campionamento, \emph{sample rate (sr)}, nel magico mondo dei
+segnali audio digitali, è la divisione del secondo per l'unità più piccola descrivibile,
+il campione (\emph{sample}). Alla frequenza di campionamento di $48000Hz$ un campione
+è grande $1/48000sec$. La torta, il secondo, è divisa in quarantotto mila parti.
+
+\emph{A $SR=48000$ quanti campioni ci sono in un minuto?} Due milioni e ottocentoottantamila.
+
+Le frequenze di campionamento, seppur standardizzate, possono essere molteplici in
+quanto descrivono quanto è accurata la descrizione del suono digitale in questione.
+
+Dovremo riferirci ad una formula che generalizzi il valore della frequenza di campionamento
+e sapere esattamente a che frequenza si esegue il calcolo, per ricavare il numero
+di campioni che occorrono in ogni minuto (\emph{SPM Samples per minute}).
+
+\begin{equation}
+SPM = SR*60
+\end{equation}
+
+Ora che il nostro orologio audio è definito nel numero di campioni che compongono
+il minuto, è piuttosto semplice capire a che distanza, in campioni, avviene un
+rintocco dal successivo alla velocità metronomica di $108BMP$ ad una frequenza
+di campionamento di $48000Hz$, attraverso la formula $48000*60/108=26666,\overline{6}$.
+È indispensabile chiarire immediatamente che per il computer non esiste, nella
+descrizione del segnale audio, la parte decimale del campione, quindi di quella
+dimensione terremo solo la parte intera: un rintocco ogni $26666$ campioni.
+
+Ci sono ora i presupposti concettuali per iniziare a scrivere il codice di programma
+che porterà al metronomo digitale.
+
+%-----------------------------------------------------------
+%-------------------------------larghezza massima del codice
+\begin{lstlisting}
+//-------------------------------------------- METRONOMO ---
+//------------------------------- dichiarazioni iniziali ---
+declare name "METRONOMO";
+import("stdfaust.lib");
+//------------------- numero di campioni per ogni minuto ---
+SPM = (60*ma.SR);
+\end{lstlisting}
+
+Con le prime righe di codice abbiamo iniziato, e dato un nome, al progetto metronomo.
+Il consueto \emph{import} della libreria standard ci permette di utilizzare
+le funzioni standard di Faust. Con la funzione \emph{spm} otteniamo il numero di
+campioni per minuto, chiendendo a Faust di verificare a che frequenza di campionamento
+è impostato il computer prima di effettuare il calcolo, attraverso la funzione
+matematica standard \emph{ma.SR}.
+
+Aggiungiamo al codice precedente il selettore del valore metronomico attraverso
+uno slider orizzontale
+
+\begin{lstlisting}
+//------------------------------- cursore selezione BPM ---
+BPM = hslider("[01]BPM", 60, 40, 240, 0.1);
+\end{lstlisting}
+
+Ora che siamo in grado di introdurre il valore metronomico dovremo inserire
+la formula che mette in relazione il numero di campioni per ogni minuto con la
+quantità di BPM desiderata
+
+\begin{lstlisting}
+//-------------------------------- cursore selezione BPM ---
+//-------------------- init-min--max-step-------------------
+BPM = hslider("[01]BPM", 60, 40, 240, 0.1);
+//------------------- numero di campioni per ogni minuto ---
+SPM = (60*ma.SR);
+//------------- formula di conversione da BPM a campioni ---
+tempo = SPM/BPM : int; // solo la parte intera
+\end{lstlisting}
+
+Il sistema ora è in grado di fornire la distanza tra un rintocco ed il successivo
+al variare dei BPM. Facciamolo suonare.
+
+\begin{lstlisting}
+//-------------------------------------------- METRONOMO ---
+//------------------------------- dichiarazioni iniziali ---
+declare name "METRONOMO";
+import("stdfaust.lib");
+//-------------------------------- cursore selezione BPM ---
+//-------------------- init-min--max-step-------------------
+BPM = hslider("[01]BPM", 60, 40, 240, 0.1);
+//------------------- numero di campioni per ogni minuto ---
+SPM = (60*ma.SR);
+//------------- formula di conversione da BPM a campioni ---
+tempo = SPM/BPM : int; // solo la parte intera
+//--------------------------------- impulso temporizzato ---
+metronomo = ba.pulsen(1, tempo); // (dimensione - distanza)
+//------------------- METRONOMO SUI DUE CANALI DI USCITA ---
+process =   metronomo <: _,_ ;
+\end{lstlisting}
+
+Il sistema funziona, agendo sul controllo BPM otteniamo quello la variazione di
+distanza tra i rintocchi.
+
+L'oggetto \emph{ba.pulsen} produce una pulsazione ad intervalli regolari.
+La pulsazione può essere di grandezza variabile, così come la distanza, entrambe
+le grandezze espresse in campioni. La riga
+
+\begin{lstlisting}
+//--------------------------------- impulso temporizzato ---
+metronomo = ba.pulsen(1, tempo); // (dimensione - distanza)
+\end{lstlisting}
+
+genera un impulso grande un campione alla distanza in campioni espressa da \emph{tempo}
+che sappiamo produrre il numero di campioni in relazione al numero di \emph{BPM} immesso.
+L'impulso grande un campione è un clik unitario, ovvero grande la dimensione
+più piccola possibile in un segnale audio ed è definito impulso.
+Un impulso di questo tipo, se osservato nel dominio della frequenza contiene tutte
+le frequenze dello spettro audio. In questo senso, un segnale contenente ogni
+frequenza della banda audio, sprigionata in un impulso, è il segnale perfetto per
+far risuonare un filtro, esattamente come farebbe una campana colpita da un martello.
+A parità di martello e di energia, più la campana sarà stretta, più sarà lunga la risonanza.
+
+\begin{lstlisting}
+//---------------------------------------------- SINTESI ---
+//------------------------------------- filtro risonante ---
+fireson = fi.highpass(128, 1000) : fi.lowpass(8, 1000);
+\end{lstlisting}
+
+Il primo filtro è un filro passa alto del centoventottesimo ordine, intonato a
+$1000Hz$ e si comporta come una campana intonata a quella frequenza. Il secondo
+filtro è opposto, passa basso, serve a tenere sotto controllo la banda passante nel
+versante superiore ed elimina il suono impulsivo iniziale.
+
+Il metronomo è ora completo, di seguito il codice contenente tutti i passaggi
+precedenti\footnote{Il codice completo può essere compilato online e scaricato
+sul computer o direttamente sul proprio smartphone puntando il QRcode.}.
+
+%-----------------------------------------------------------
+%-------------------------------larghezza massima del codice
+\begin{lstlisting}
+//-------------------------------------------- METRONOMO ---
+//------------------------------- dichiarazioni iniziali ---
+declare name "METRONOMO";
+import("stdfaust.lib");
+//-------------------------------- cursore selezione BPM ---
+//-------------------- init-min--max-step-------------------
+BPM = hslider("[01]BPM", 60, 40, 240, 0.1);
+//------------------- numero di campioni per ogni minuto ---
+SPM = (60*ma.SR);
+//------------- formula di conversione da BPM a campioni ---
+tempo = SPM/BPM : int; // solo la parte intera
+//---------------------------------------------- SINTESI ---
+//------------------------------------- filtro risonante ---
+fireson = fi.highpass(128, 1000) : fi.lowpass(8, 1000);
+//------------------------------------ impulso risonante ---
+metronomo = ba.pulsen(1, tempo) : fireson;
+//-------------------- METRONOMO SU DUE CANALI DI USCITA ---
+process =   metronomo <: _,_ ;
+\end{lstlisting}
