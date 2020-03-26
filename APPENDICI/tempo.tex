@@ -15,7 +15,7 @@ alla creazione di un semplice metronomo digitale. Lo scopo di tale esercizio è
 quello di accedere alla programmazione temporizzata degli eventi sonori.
 
 risorse necessarie:\\
-\url{http://faust.grame.fr/ide/}
+\url{http://faustide.grame.fr/}
 
 \startcontents[chapters]
 \printcontents[chapters]{}{1}{}
@@ -27,15 +27,15 @@ fare sul come dividiamo il tempo e perché.
 
 \begin{quote}
 Da secoli, \emph{dividiamo} il tempo in giorni. La parola “tempo” deriva da una
-radice inndoeuropea, \emph{di} o \emph{dai}, che indica “dividere”. Da secoli,
+radice indoeuropea, \emph{di} o \emph{dai}, che indica “dividere”. Da secoli,
 dividiamo il giorno in ore. Per la maggior parte di questi secoli, però, le ore
-oerano più lunghe d'estate e più corte d'inverno, perché le 12 ore scandivano il
+erano più lunghe d'estate e più corte d'inverno, perché le 12 ore scandivano il
 tempo fra alba e tramonto: l'ora prima era l'alba, e l'ora dodicesima il tramonto,
-indipendnetemente dalla stagione. [\ldots] È solo verso il XIII secolo che in Europa
+indipendentemente dalla stagione. [\ldots] È solo verso il XIII secolo che in Europa
 la vita della gente comincia a essere regolata da orologi meccanici. Città e
 villaggi costruiscono la loro chiesa, accanto alla chiesa il campanile, e sul
 campanile un orologio che dà il ritmo alle funzioni collettive. Inizia l'era del
-tempo regolato da orologi.\footnote{Rovelli - l'ordine del tempo. pg 56-57}
+tempo regolato da orologi\footnote{Rovelli - l'ordine del tempo. pg 56-57}.
 \end{quote}
 
 L'idea di un tempo fluido, che non ticchetta, che non rintocca, era la consuetudine
@@ -48,13 +48,13 @@ cavallo, a piedi o in carrozza, non c'era motivo di sincronizzare orologi da un
 luogo all'altro. C'era un ottimo motivo per \emph{non} farlo: mezzodì è per
 definizione quando il sole è più alto nel cielo. [\ldots] Nel XIX secolo arriva
 il telegrafo, i treni diventano comuni e veloci, e il problema di sincronizzare
-bene gli orolgi da una città all'altra si fa importante.
+bene gli orologi da una città all'altra si fa importante\footnote{Rovelli - l'ordine del tempo}.
 \end{quote}
 
 Anche il metronomo ha la sua storia. Innanzitutto l'etimologia della parola,
 che compare per la prima volta nel 1815 per opera di Johann Nepomuk M\"{a}lzel
 mediante l'unione di due parole greche: \emph{metron}, misura e \emph{nomos}, regola.
-Seppur sotto il nome di M\"{a}lzel, tanto da trovare idicazioni metronomiche
+Seppur sotto il nome di M\"{a}lzel, tanto da trovare indicazioni metronomiche
 con la sigla \emph{MM} (Metronomo M\"{a}lzel), il dispositivo si basa su un
 principio messo a punto da Dietrich Nikolaus Winkel, al quale M\"{a}lzel aggiunse
 il tipico rintocco sonoro. Il musicista analogico sa che M\"{a}lzel e Winkel sono
@@ -73,26 +73,26 @@ selezioniamo la quantità di pulsazioni per minuto.
 
 \emph{Quanti secondi ci sono in un'ora?} Tremilaseicento ($60*60$).
 
-\emph{Quanto tempo passa tra i rintocchi di un metronomo a $104BMP$?}
+\emph{Quanto tempo passa tra i rintocchi di un metronomo a $108bpm$?}
 
-L'indicazione metronomica \emph{BPM (Beat per minute)} ci indica quanti rintocchi
-vogliamo sentire in un minuto. Ad una quantità di $60BPM$ ascoltiamo un rintocco
+L'indicazione metronomica $bpm$ \emph{(Beat per minute)} ci indica quanti rintocchi
+vogliamo sentire in un minuto. Ad una quantità di $60bpm$ ascoltiamo un rintocco
 sessanta volte per minuto, una scansione che corrisponde a quella dei secondi.
-Il metronomo impostato a $60BPM$ produce un rintocco ogni secondo, il secondo è
+Il metronomo impostato a $60bpm$ produce un rintocco ogni secondo, il secondo è
 la distanza che c'è tra un rintocco ed il successivo.
 
 Il minuto è la nostra grandezza di riferimento. La nostra torta intera. Ad una
 scansione di $60sec$ dividiamo, come sull'orologio, la torta in sessanta parti
 uguali, e avanziamo tra una e l'altra di $1/60$ di minuto (ovvero $1sec$).
-Ad una scansione di $108BPM$ (battiti per minuto) stiamo dividendo la torta in
+Ad una scansione di $108bpm$ (battiti per minuto) stiamo dividendo la torta in
 centootto parti uguali ed avaziamo tra una parte e l'altra di $1/108$ di minuto.
 Volendo individuare la distanza in secondi tra un rintocco ed il successivo non
 ci resta che sostituire il minuto con l'equivalente in secondi, sessanta. La
-distanza che separa un beat dal successivo in una scansione di $108BMP$ può
-essere calcolata quindi facendo $60/108=0,\overline{5}sec$.
+distanza che separa un beat dal successivo ($\Delta(bpm)$) in una scansione di $108BMP$ può
+essere calcolata quindi con $60/108=0,\overline{5}sec$.
 
 \begin{equation}
-\Delta(BPM) = 60/BPM (sec)
+\Delta(bpm) = 60/bpm (sec)
 \end{equation}
 
 Volendo aumentare il grado di precisione del calcolo precedente, ci basterà scendere
@@ -103,28 +103,28 @@ ad unità di misura più piccole del secondo, come per esempio il millesimo di s
 \section{Metronomo}
 
 Il metronomo digitale non può far affidamento su leggi meccaniche e masse in
-movimento. Il tempo dentro il mondo informatico si muove ancora diversamente che
-negli orologi. Per un computer non è troppo difficile portare il tempo anche in
+movimento. Il tempo all'interno del mondo informatico si muove diversamente dagli
+orologi. Per un computer non è troppo difficile portare il tempo anche in
 presenza di tempi diversi, per esempio, un video multimediale può avere una scansione
-di $23.976fps$ (frame per second) e, all'interno dello stesso secondo, un suono
-può avere 48000Hz di sample rate, ovvero essere descritto in un secondo per 48000 punti.
+di $23.976fps$ (\emph{frame per second}) e, all'interno dello stesso secondo, un suono
+può avere $48000Hz$ di sample rate, ovvero essere descritto in un secondo per 48000 punti.
 
 La frequenza di campionamento, \emph{sample rate (sr)}, nel magico mondo dei
 segnali audio digitali, è la divisione del secondo per l'unità più piccola descrivibile,
 il campione (\emph{sample}). Alla frequenza di campionamento di $48000Hz$ un campione
-è grande $1/48000sec$. La torta, il secondo, è divisa in quarantotto mila parti.
+è grande $1/48000sec$. La torta, il secondo, è divisa in quarantottomila parti.
 
 \emph{A $SR=48000$ quanti campioni ci sono in un minuto?} Due milioni e ottocentoottantamila.
 
 Le frequenze di campionamento, seppur standardizzate, possono essere molteplici in
-quanto descrivono quanto è accurata la descrizione del suono digitale in questione.
+quanto definiscono quanto è accurata la descrizione del suono digitale nel tempo.
 
 Dovremo riferirci ad una formula che generalizzi il valore della frequenza di campionamento
 e sapere esattamente a che frequenza si esegue il calcolo, per ricavare il numero
-di campioni che occorrono in ogni minuto (\emph{SPM Samples per minute}).
+di campioni che occorrono in ogni minuto, $spm$ (\emph{samples per minute}).
 
 \begin{equation}
-SPM = SR*60
+spm = SR*60
 \end{equation}
 
 Ora che il nostro orologio audio è definito nel numero di campioni che compongono
@@ -179,7 +179,7 @@ tempo = SPM/BPM : int; // solo la parte intera
 \end{lstlisting}
 
 Il sistema ora è in grado di fornire la distanza tra un rintocco ed il successivo
-al variare dei BPM. Facciamolo suonare.
+al variare dei $bpm$. Facciamolo suonare.
 
 \begin{lstlisting}
 //-------------------------------------------- METRONOMO ---
@@ -212,7 +212,7 @@ metronomo = ba.pulsen(1, tempo); // (dimensione - distanza)
 \end{lstlisting}
 
 genera un impulso grande un campione alla distanza in campioni espressa da \emph{tempo}
-che sappiamo produrre il numero di campioni in relazione al numero di \emph{BPM} immesso.
+che sappiamo produrre il numero di campioni in relazione al numero di $bpm$ immesso.
 L'impulso grande un campione è un clik unitario, ovvero grande la dimensione
 più piccola possibile in un segnale audio ed è definito impulso.
 Un impulso di questo tipo, se osservato nel dominio della frequenza contiene tutte
@@ -234,7 +234,7 @@ versante superiore ed elimina il suono impulsivo iniziale.
 
 Il metronomo è ora completo, di seguito il codice contenente tutti i passaggi
 precedenti\footnote{Il codice completo può essere compilato online e scaricato
-sul computer o direttamente sul proprio smartphone puntando il QRcode.}.
+sul computer o direttamente sul proprio smartphone puntando il \emph{QRcode}.}.
 
 %-----------------------------------------------------------
 %-------------------------------larghezza massima del codice
