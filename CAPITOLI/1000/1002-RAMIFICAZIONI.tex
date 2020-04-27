@@ -235,7 +235,7 @@ al microfono stesso.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.99\columnwidth]{CAPITOLI/_TIKZ/POLAR/omni}
+\includegraphics[width=0.99\columnwidth]{microphone-polar-patterns/omni}
 \caption{Rappresentazione ideale del microfono a pressione mediante la sua
 equazione polare: $ndp = 1(x)$ (non-directional pressure). La figura polare
 descrive una risposta in fase lineare per ogni angolo di inncidenza.}
@@ -304,7 +304,7 @@ microfono alla figura polare ideale non-direzionale, come mostrato in figura \re
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.99\columnwidth]{CAPITOLI/_TIKZ/POLAR/fig8}
+\includegraphics[width=0.99\columnwidth]{microphone-polar-patterns/fig8}
 \caption{Rappresentazione ideale del microfono bidirezionale a gradiente di
 pressione mediante la sua equazione polare: $bpg = x\cos\theta$
 (\emph{bidirectional pressure gradient}). La figura polare descrive una risposta
@@ -315,7 +315,7 @@ negativa per angoli di incidenza posteriori ($[(-\pi,-\pi/2),(\pi/2,\pi)]$)}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.99\columnwidth]{CAPITOLI/_TIKZ/POLAR/cardioid}
+\includegraphics[width=0.99\columnwidth]{microphone-polar-patterns/cardioid}
 \caption{Rappresentazione ideale del microfono direzionale cardioide a gradiente
 di pressione mediante la sua equazione polare: $cpg = 0.5(x) + 0.5(x\cos\theta)$
 (\emph{cardioid pressure gradient}). La figura polare descrive una risposta in
@@ -392,37 +392,37 @@ ingresso e $\theta$ l'angolo di incidenza}
 \textbf{Polar Pattern} & \textbf{NDP} & : & \textbf{BPG} &\\
 \hline
 non-direzionale & $1(x)$       &     &                      &
- \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{CAPITOLI/_TIKZ/POLAR/omni}\end{minipage}} \\
+ \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{microphone-polar-patterns/omni}\end{minipage}} \\
                 & $1$          & $+$ & $0$                  & \\
                 & $0dB$        & $+$ & $-\infty$         & \\ %20*log10(g)
 & \\
 \hline
 subcardioide    & $0.75(x)$    & $+$ & $0.25(x\cos\theta)$  &
- \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{CAPITOLI/_TIKZ/POLAR/subcardioid}\end{minipage}} \\
+ \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{microphone-polar-patterns/subcardioid}\end{minipage}} \\
                 & $0.75$       & $+$ & $0.25$               & \\
                 & $-2.75dB$    & $+$ & $-12.05dB$           & \\
 & \\
 \hline
 cardioide       & $0.5(x)$     & $+$ & $0.5(x\cos\theta)$   &
- \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{CAPITOLI/_TIKZ/POLAR/cardioid}\end{minipage}} \\
+ \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{microphone-polar-patterns/cardioid}\end{minipage}} \\
                 & $0.5$        & $+$ & $0.5$                & \\
                 & $-6.02dB$    & $+$ & $-6.02dB$            & \\ %20*log10(g)
 & \\
 \hline
 supercardioide  & $0.37(x)$    & $+$ & $0.63(x\cos\theta)$  &
- \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{CAPITOLI/_TIKZ/POLAR/supercardioid}\end{minipage}} \\
+ \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{microphone-polar-patterns/supercardioid}\end{minipage}} \\
                 & $0.37$       & $+$ & $0.63$               & \\
                 & $-8.64dB$    & $+$ & $-4.01dB$            & \\ %20*log10(g)
 & \\
 \hline
 ipercardioide   & $0.25(x)$    & $+$ & $0.75(x\cos\theta)$  &
- \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{CAPITOLI/_TIKZ/POLAR/hypercardioid}\end{minipage}} \\
+ \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{microphone-polar-patterns/hypercardioid}\end{minipage}} \\
                 & $0.25$       & $+$ & $0.75$               & \\
                 & $-12.05dB$ & $+$ & $-2.75dB$              & \\ %20*log10(g)
 & \\
 \hline
 bidirezionale   &              &     & $1(x\cos\theta)$     &
- \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{CAPITOLI/_TIKZ/POLAR/fig8}\end{minipage}} \\
+ \multirow{4}{*}{\begin{minipage}{.25\textwidth}\includegraphics[width=\linewidth]{microphone-polar-patterns/fig8}\end{minipage}} \\
                 & $0$          & $+$ & $1$                  & \\
                 & $-\infty$    & $+$ & $0dB$            & \\ %20*log10(g)
 & \\
@@ -437,42 +437,42 @@ bidirezionale   &              &     & $1(x\cos\theta)$     &
     \centering
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{CAPITOLI/_TIKZ/POLAR/omni}
+        \includegraphics[height=6cm]{microphone-polar-patterns/omni}
         \caption{non-direzionale}% \\ Eq: $1(x)$}
         \label{pol:omni-p}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{CAPITOLI/_TIKZ/POLAR/subcardioid}
+        \includegraphics[height=6cm]{microphone-polar-patterns/subcardioid}
         \caption{subcardioide}% \\ Eq: $0.75(x)+0.25(x\cos\theta)$}
         \label{pol:sub-p}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{CAPITOLI/_TIKZ/POLAR/cardioid}
+        \includegraphics[height=6cm]{microphone-polar-patterns/cardioid}
         \caption{cardioide}% \\ Eq: $0.5(x)+0.5(x\cos\theta)$}
         \label{pol:cardio-p}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{CAPITOLI/_TIKZ/POLAR/supercardioid}
+        \includegraphics[height=6cm]{microphone-polar-patterns/supercardioid}
         \caption{supercardioide}% \\ Eq: $0.37(x)+0.63(x\cos\theta)$}
         \label{pol:super-p}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{CAPITOLI/_TIKZ/POLAR/hypercardioid}
+        \includegraphics[height=6cm]{microphone-polar-patterns/hypercardioid}
         \caption{ipercardioide}% \\ Eq: $0.25(x)+0.75(x\cos\theta)$}
         \label{pol:iper-p}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
-        \includegraphics[height=6cm]{CAPITOLI/_TIKZ/POLAR/fig8}
+        \includegraphics[height=6cm]{microphone-polar-patterns/fig8}
         \caption{figura-8}% \\ Eq: $1(x\cos\theta)$}
         \label{pol:fig8-p}
     \end{subfigure}
