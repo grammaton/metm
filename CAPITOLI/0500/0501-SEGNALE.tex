@@ -4,6 +4,13 @@
 
 \section{Segnale}
 
+Possiamo stilare una lista sconfinata di esempi comuni di segnali della vita
+quotidiana, dai quelli acustici di suonerie, cicalini di avvertimento, a quelli
+complessi provenienti da strumenti musicali. Segnali prodotti da macchine che
+rilevano variazioni di stato e che usiamo per tradurre campi fisici diversi:
+di questa lista il sismografo per esempio crea un debole segnale elettrico di cui
+abbiamo la chiara visione stampata su carta.
+
 Partendo dall'etimologia latina del termine \emph{signale}, sostantivo di
 \emph{signalis} derivato da \emph{signum}, \emph{segno}, definiamo genericamente
 un'indicazione sensoriale convenzionale, stabilita d'intesa, per dare una
@@ -12,24 +19,88 @@ comunicazione, un avvertimento, un ordine. Esempi ne sono le espressioni:
 indicazioni dei segnali stradali.
 
 Una comunicazione, quindi, di cui se ne condividano le modalità e se ne
-comprendano i contenuti.
+comprendano i contenuti: il segnale si fa \emph{portatore di una informazione}
+che giustifica l'esistenza e l'importanza del segnale stesso. Una lampadina ed un
+semaforo, pur appartenenti alla categoria dei segnali luminosi, assumono
+significati diversi.
 
-Oltre la portata sensoriale, direttamente percepita dai sensi, definiamo
-una comunicazione a distanza \emph{tele-comunicazione}, dall'etimologia greca
-del termine \emph{têle}, \emph{lontano}.
+Sulla base di queste considerazoni possiamo dire che un segnale \emph{è una
+qualunque grandezza fisica variabile cui è associata unna informazione.} In molti
+casi del segnale si sanno molte cose, in funzione di quanto siamo in grado di
+annotare o registrare, su carta, su nastro magnetico, dentro un file digitale.
+
+Oltre la portata sensoriale, ovvero direttamente percepita dai sensi, possiamo definire
+una comunicazione, attraverso segnali a distanza, come \emph{tele-comunicazione},
+dall'etimologia greca del termine \emph{têle}, \emph{lontano}. Da lontano
+trasmettiamo e riceviamo il segnale radio, un campo elettromagnetico variabile.
 
 Nelle telecomunicazioni definiamo segnale la variazione in funzione del tempo
 di una grandezza fisica utilizzata per convogliare informazioni o dello stato
 fisico di un sistema.
 
-Il segnale in questione può essere
+La funzione matematica di una o più variabili nel tempo diventa quindi lo
+strumento ottimale di descrizione, rappresentazione ed elaborazione del segnale.
+
+Prima di inoltrarsi nella descrizione delle tipologie di segnali, è necessario
+precisare che il segnale come rappresentazione, seppur estremamente dettagliato,
+veicolo di un'enormità di informazioni, è pur sempre una rappresentazione. Spesso
+ci troviamo in condizioni di lavorare su segnali che sono rappresentazioni di
+rappresentazioni. Un segnale acustico strumentale, uno squillo di tromba,
+nella sua rappresentazione elettrica cede delle informazioni. Lo stesso segnale
+elettrico può diventare a sua volta segnale digitale dello stesso fenomeno acustico,
+in una rappresentazione della rappresentazione. Questa perdita di informazioni
+deve costantemente rimanere sorvegliata e considerata parte delle nostre capacità
+di trattamento dei segnali, nel rispetto della significativa differenza tra
+l'informazione fisica ed una sua qualsiasi rappresentazione.
+
+Ci sono molti esempi di segnali di segnali a cui siamo abituati e che non analizziamo
+mai nell'ottica della perdita. Su un set cinematografico un'azione viene ripresa
+da una cinepresa IMAX con pellicola da 70mm. Sono dati inutili, di circostanza.
+Il meccanismo della ripresa in pellicola di un'azione filmica genera un segnale,
+quello stampato sulla pellicola, discreto, perché fatto di un numero finito di
+fotogrammi al secondo. Tra un fotogramma ed il successivo non ci sono informazioni.
+La visione al proiettore cinematografico di quella pellicola crea un flusso
+continuo ai nostri occhi, ed il segnale registrato acquisice movimento fluido su
+una decina di metri di schermo. La stessa azione, la possiamo vedere a casa,
+dopo qualche tempo, in un segnale discreto, di un discreto diverso da quello
+originale, in una rappresentazione domestica, della rappresentazione cinematografica,
+dell'azione iniziale.
+
+\subsection{Tipologie di segnali}
+
+Abbiamo descritto il segnale come veicolo di informazioni nel tempo. Le grandezze
+che misuriamo nel tempo descritte dal segnale possono essere distinte in due
+tipologie:
 
 \begin{description}
-  \item[segnale analogico], segnale a tempo continuo e ad ampiezza continua in
-       cui la grandezza caratteristica che trasporta
-       informazioni può assumere in ogni istante un qualsivoglia valore
-       all'interno di un intervallo continuo
-  \item[segnale digitale] segnale a tempo discreto e ad ampiezza quantizzata
+  \item[segnali a tempo continuo] in cui la grandezza variabile nel tempo può
+  assumere con continuità tutti i valori compresi entro un certo intervallo,
+  eventualmente illimitato. La variabile temporale assumerà il nome di $t$ mentre
+  il segnale sarà indicato con $x(t)$, $y(t)$.
+  \item[segnali a tempo discreto] sono delle successioni, delle sequenze $x[n]$,
+  $y[n]$ dove la variabile tempora $n$ è il numero intero rappresentante la posizione
+  all'innterno della successione.
+\end{description}
+
+Le variazioni delle grandezze misurate sul \emph{codominio} della della funzione
+che rappresenta il segnale può essere, secondo le due categorie sopra esposte, di
+altrettante tipologie:
+
+\begin{description}
+  \item[segnali ad ampiezza continua] che possono assumere con continuità tutti
+  i valori reali di un intervallo (anche illimitato) come nel caso di un segnale
+  acustico, o in generale nei segnali osservati nei sistemi naturali.
+  \item[segnali ad ampiezza discreta] aventi un numero finito di misurazioni,
+  quindi appartenenti ad un insieme numerabile, eventualmente illimitato.
+  Il comportamento della luce del semaforo, o in generale dei sistemi binari, può
+  assumere solo due stati, acceso spento.
+\end{description}
+
+Le caratteristiche dei segnali sopra descritti definiscono le due categorie
+
+\begin{description}
+  \item[segnale analogico] a tempo continuo e ad ampiezza continua
+  \item[segnale digitale] (o numerico) a tempo discreto e ad ampiezza quantizzata
 \end{description}
 
 Un segnale può anche essere periodico o non periodico, si dice periodico quando

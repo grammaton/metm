@@ -4,3 +4,6 @@
 [submodule "ambib"]
 	path = ambib
 	url = https://github.com/grammaton/ambib.git
+[submodule "microphone-polar-patterns"]
+	path = microphone-polar-patterns
+	url = https://github.com/grammaton/microphone-polar-patterns.git
