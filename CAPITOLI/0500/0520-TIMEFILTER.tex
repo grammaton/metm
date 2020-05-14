@@ -1,0 +1,76 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+%!TEX root = ../../metm.tex
+
+\section{Processi nel tempo}
+
+Molti processi applicati al suono contemplano ritardi, anche minimi, del segnale
+in transito. L'\emph{unità di ritardo}, o la \emph{linea di ritardo}, digitale
+prende una serie di campioni e la memorizza per un certo tempo prima di
+riprodurla in uscita. Sommare un suono con la sua versione ritardata nel tempo
+può causare una serie di effetti musicali che hanno caratterizzato la storia
+dell'elaborazione temporale dei suoni.
+
+Nel manuale utente della \emph{Infernal Machine} utilizzata dallo studio di
+Friburgo per i live electronics di Luigi Nono, nei paragrafi dedicati alle
+operazioni con il delay ci sono esempi di utilizzo per diverse situazioni di
+lavoro. Si spiega che si può usare il delay in fase di registrazione per
+allineare i microfoni in situazioni di microfonazione multipla, oppure per
+creare degli effetti in fase di mix. Si legge sul manuale:
+
+\begin{quote}
+  Sommando il suono originale con un lo stesso leggermente in ritardo si
+  ottiene un effetto di filtraggio denominato \emph{phasing}. La risposta in
+  frequenza in modalità \emph{phasing} si muove continuamente nello spettro
+  delle frequenze. Le impostazioni tipiche per questo tipo di effetto vanno dai
+  0,04 ai 10 millisecondi.
+\end{quote}
+
+Va considerato che il tempo minimo di ritardo dell'unità \emph{Infernal Machine}
+era di 0,04 millisecondi (40 microsecondi).
+
+\lstinputlisting{CAPITOLI/0500/CODES/immdt.dsp}
+
+
+
+\section{PROCESSI BASATI SU ALL-PASS}
+
+I Phaser sono essenzialmente filtri ladder modulati con LFO costruiti attorno ai
+filtri allpass anziché ai filtri passa basso. I flanger possono essere ottenuti
+dai phaser con una sostituzione allpass. Per questi motivi entrambi i tipi
+appartengono alla discussione sul filtro VA.
+
+\subsection{PHASER}
+
+Il phaser più semplice viene creato mescolando il segnale di input (dry) non
+modificato con un segnale filtrato allpass (wet) come nel caso in cui il cutoff
+del filtro allpass sia tipicamente modulato da un LFO. Il filtro allpass può
+essere piuttosto arbitrario, tranne per il fatto che deve essere un filtro
+differenziale.
+
+Nei punti in cui la risposta di fase del filtro allpass i segnali dry si
+annulleranno a vicenda, producendo una tacca. la risposta di fase del filtro
+allpass è 0◦ i segnali wet e dry si aumenteranno reciprocamente, producendo un
+picco (Fig. 6.2).
+
+La struttura del phaser in Fig. 6.1 non contiene feedback, quindi non vi è
+alcuna differenza tra implementazioni digitali ingenue e TPT (tranne per il
+fatto che i filtri allpass sottostanti dovrebbero essere costruiti meglio in un
+modo TPT).
+
+\subsection{Miscelazione a rapporti arbitrari}
+
+Invece di miscelare con il rapporto 50/50, possiamo miscelare con qualsiasi altro rapporto, dove la somma dei guadagni di miscelazione a secco e ad umido dovrebbe ammontare a unità. Ciò influenzerà la profondità delle tacche e l'altezza delle cime. Per il phaser in Fig. 6.1, il rapporto di miscelazione superiore a 50/50 (dove la quantità di segnale bagnato è superiore al 50%) ha poco senso.
+Invece di mescolare ydry e ywet con rapporti diversi potremmo semplicemente dissolvere il segnale di uscita tra x (t) e y (t), dove questi sono definiti come in Fig. 6.1. Questo secondo approccio diventerà anche molto più pratico del primo dopo aver introdotto il feedback come in Fig. 6.4.
+
+\subsection{Inversione del segnale bagnato}
+
+Invertendo il segnale bagnato, si scambiano i picchi e le tacche. Si noti che la risposta di fase degli allpass differenziali a ω = 0 può essere 0◦ o 180◦, lo stesso vale per la risposta di fase a ω = + ∞. Per questo motivo potrebbe essere utile la possibilità di scambiare picchi e tacche.
+
+\subsection{Spaziatura tacca}
+
+Nel caso più semplice si usa una serie di allpass identici a 1 polo all'interno di un phaser. Al fine di controllare la spaziatura della tacca in un modo semplice e piacevole, si dovrebbe piuttosto utilizzare una serie di allpass identici a 2 poli. Come accennato in precedenza, modificando la quantità di risonanza dei passaggi a 2 poli si controlla la pendenza di fase dei filtri. Ciò influisce sulla spaziatura delle tacche (Fig. 6.3).
+
+\subsection{Risposta}
+
+Possiamo anche introdurre feedback nel phaser. Analogamente al caso delle modalità filtro ladder, il segnale dry viene raccolto meglio dopo il punto di feedback (Fig. 6.4). Il feedback cambia la forma dei picchi e delle tacche (Fig. 6.5).

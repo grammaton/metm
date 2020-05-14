@@ -7,3 +7,6 @@
 [submodule "microphone-polar-patterns"]
 	path = microphone-polar-patterns
 	url = https://github.com/grammaton/microphone-polar-patterns.git
+[submodule "stereo-pairs-polar-patterns"]
+	path = stereo-pairs-polar-patterns
+	url = https://github.com/grammaton/stereo-pairs-polar-patterns.git
