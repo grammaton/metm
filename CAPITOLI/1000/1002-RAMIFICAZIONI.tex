@@ -124,25 +124,25 @@ trova?
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=8cm]{CAPITOLI/_TIKZ/PANNING/pan-frontal}
-        \caption{Sorgente con incidenza frontale.}
+        \caption[]{Sorgente con incidenza frontale.}
         \label{pan:frontal}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=8cm]{CAPITOLI/_TIKZ/PANNING/pan-left}
-        \caption{Sorgente con incidenza laterale sinistra di 30 gradi.}
+        \caption[]{Sorgente con incidenza laterale sinistra di 30 gradi.}
         \label{pan:left}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{0.9\textwidth}
         \centering
         \includegraphics[height=8cm]{CAPITOLI/_TIKZ/PANNING/pan-both}
-        \caption{Due sorgenti, una con incidenza laterale sinistra di 30 gradi,
+        \caption[]{Due sorgenti, una con incidenza laterale sinistra di 30 gradi,
         l'altra con incidenza laterale destra di 60 gradi.}
         \label{pan:both}
     \end{subfigure}
-    \caption{La rotazione del \emph{PanPot} esegue una modifica della condizione
+    \caption[]{La rotazione del \emph{PanPot} esegue una modifica della condizione
     di ascolto dell'ascoltatore, non un movimento della sorgente. Posizionando
     le singole sorgenti ci si pone in ascolto laterale, ruotati. Nella
     sovrapposizione di molteplici sorgenti il panorama risulta composto da
@@ -229,14 +229,14 @@ al microfono stesso.
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\columnwidth]{CAPITOLI/1000/IMG/4006A-ddicate-4006A-Omni-Microphone-polar-pattern.jpg}
-\caption{Risposta polare in frequenza del microfono \emph{DPA 4006A}.}% \url{https://www.dpamicrophones.com/pencil/4006-omnidirectional-microphone}.}
+\caption[]{Risposta polare in frequenza del microfono \emph{DPA 4006A}.}% \url{https://www.dpamicrophones.com/pencil/4006-omnidirectional-microphone}.}
 \label{pol:dpa4006}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.99\columnwidth]{microphone-polar-patterns/omni}
-\caption{Rappresentazione ideale del microfono a pressione mediante la sua
+\caption[]{Rappresentazione ideale del microfono a pressione mediante la sua
 equazione polare: $ndp = 1(x)$ (non-directional pressure). La figura polare
 descrive una risposta in fase lineare per ogni angolo di inncidenza.}
 \label{polar:omni}
@@ -298,14 +298,14 @@ microfono alla figura polare ideale non-direzionale, come mostrato in figura \re
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.99\columnwidth]{CAPITOLI/1000/IMG/4006A-ddicate-4006A-Omni-Microphone-polar-pattern-nose-cone-veritical.jpg}
-\caption{Risposta polare in frequenza del microfono \emph{DPA 4006A} con \emph{Nose Cone AU0777}, microfono con posizionamento verticale.}% \url{https://www.dpamicrophones.com/pencil/4006-omnidirectional-microphone}.}
+\caption[]{Risposta polare in frequenza del microfono \emph{DPA 4006A} con \emph{Nose Cone AU0777}, microfono con posizionamento verticale.}% \url{https://www.dpamicrophones.com/pencil/4006-omnidirectional-microphone}.}
 \label{pol:dpa4006nose}
 \end{figure}
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.99\columnwidth]{microphone-polar-patterns/fig8}
-\caption{Rappresentazione ideale del microfono bidirezionale a gradiente di
+\caption[]{Rappresentazione ideale del microfono bidirezionale a gradiente di
 pressione mediante la sua equazione polare: $bpg = x\cos\theta$
 (\emph{bidirectional pressure gradient}). La figura polare descrive una risposta
 in fase bipolare, positiva per angoli di incidenza frontali ($(-\pi/2,\pi/2)$),
@@ -316,7 +316,7 @@ negativa per angoli di incidenza posteriori ($[(-\pi,-\pi/2),(\pi/2,\pi)]$)}
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.99\columnwidth]{microphone-polar-patterns/cardioid}
-\caption{Rappresentazione ideale del microfono direzionale cardioide a gradiente
+\caption[]{Rappresentazione ideale del microfono direzionale cardioide a gradiente
 di pressione mediante la sua equazione polare: $cpg = 0.5(x) + 0.5(x\cos\theta)$
 (\emph{cardioid pressure gradient}). La figura polare descrive una risposta in
 fase positiva non lineare per diversi angoli di inncidenza.}
@@ -375,7 +375,7 @@ un proprio angolo di punatamento intorno a $2\pi$ radianti.
 \begin{figure}[hb]
 \centering
 \includegraphics[width=0.99\columnwidth]{CAPITOLI/1000/IMG/MAG-licking-G-web.jpg}
-\caption{Michael Gerzon}
+\caption[]{Michael Gerzon}
 \label{ph:mg1}
 \end{figure}
 
@@ -383,7 +383,7 @@ un proprio angolo di punatamento intorno a $2\pi$ radianti.
 
 \begin{table}[ht]
 %\scriptsize
-\caption{Coefficienti di pressione \emph{non-direzionale} e gradiente di pressione
+\caption[]{Coefficienti di pressione \emph{non-direzionale} e gradiente di pressione
 \emph{bidirezionale} per la descrizione dei modelli polari intermedi, del primo ordine.
 Dove $x$ è la variazione d'ampiezza del segnale relativa alla pressione in
 ingresso e $\theta$ l'angolo di incidenza}
@@ -438,45 +438,45 @@ bidirezionale   &              &     & $1(x\cos\theta)$     &
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[height=6cm]{microphone-polar-patterns/omni}
-        \caption{non-direzionale}% \\ Eq: $1(x)$}
+        \caption[]{non-direzionale}% \\ Eq: $1(x)$}
         \label{pol:omni-p}
     \end{subfigure}%
     ~
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[height=6cm]{microphone-polar-patterns/subcardioid}
-        \caption{subcardioide}% \\ Eq: $0.75(x)+0.25(x\cos\theta)$}
+        \caption[]{subcardioide}% \\ Eq: $0.75(x)+0.25(x\cos\theta)$}
         \label{pol:sub-p}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[height=6cm]{microphone-polar-patterns/cardioid}
-        \caption{cardioide}% \\ Eq: $0.5(x)+0.5(x\cos\theta)$}
+        \caption[]{cardioide}% \\ Eq: $0.5(x)+0.5(x\cos\theta)$}
         \label{pol:cardio-p}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[height=6cm]{microphone-polar-patterns/supercardioid}
-        \caption{supercardioide}% \\ Eq: $0.37(x)+0.63(x\cos\theta)$}
+        \caption[]{supercardioide}% \\ Eq: $0.37(x)+0.63(x\cos\theta)$}
         \label{pol:super-p}
     \end{subfigure}
     \\
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[height=6cm]{microphone-polar-patterns/hypercardioid}
-        \caption{ipercardioide}% \\ Eq: $0.25(x)+0.75(x\cos\theta)$}
+        \caption[]{ipercardioide}% \\ Eq: $0.25(x)+0.75(x\cos\theta)$}
         \label{pol:iper-p}
     \end{subfigure}
     ~
     \begin{subfigure}[t]{0.48\textwidth}
         \centering
         \includegraphics[height=6cm]{microphone-polar-patterns/fig8}
-        \caption{figura-8}% \\ Eq: $1(x\cos\theta)$}
+        \caption[]{figura-8}% \\ Eq: $1(x\cos\theta)$}
         \label{pol:fig8-p}
     \end{subfigure}
-    \caption{Le principali figure polari ottenute mediante la calibrazione dei
+    \caption[]{Le principali figure polari ottenute mediante la calibrazione dei
     coefficienti di ampiezza della componente non-direzionale (fig. \ref{pol:omni-p}) e
     e bidirezionale (fig.\ref{pol:fig8-p}).}
     \label{pol:princicpali}

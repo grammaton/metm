@@ -61,7 +61,7 @@
 	]{Andale Mono}
 \setmathfont[
 	Scale=MatchLowercase,
-	Scale=1.2
+	Scale=1.123
 	]{Libertinus Math}
 
 \newfontfamily\quotefont[
@@ -86,8 +86,8 @@
 	]{babel}
 
 \usepackage{imakeidx}
-\makeindex
-%\makeindex[name=things, title=Indice analitico]
+\makeindex[name=names, title=Indice dei nomi]
+\makeindex[name=things, title=Indice analitico]
 
 \usepackage{tabularx}
 \usepackage{array}
@@ -198,8 +198,10 @@
 % ----------------------------------------------------–––––––––– CUSTOM COMMANND
 \newcommand*\rfrac[2]{{}^{#1}\!/_{#2}}
 
-\newcommand{\rb}{\index{Rumore Bianco}\emph{rumore bianco}}
-\newcommand{\tz}{\index{Trasformata zeta}\emph{trasformata zeta}}
+\newcommand{\rb}{\index[things]{Rumore Bianco}\emph{rumore bianco}}
+\newcommand{\tz}{\index[things]{Trasformata zeta}\emph{trasformata zeta}}
+
+
 
 % ----------------------------------------------------
 % ----------------------------------------------------
@@ -266,6 +268,9 @@
 %\listofformulas
 
 \addcontentsline{toc}{chapter}{Indice dei nomi}
-\printindex
+\printindex[names]
+
+\addcontentsline{toc}{chapter}{Indice analitico}
+\printindex[things]
 
 \end{document}
