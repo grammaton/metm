@@ -1,0 +1,105 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% !TEX root = ../metm.tex
+
+% \chapter{MICROFONI}
+% \startcontents[chapters]
+% \printcontents[chapters]{}{1}{}
+
+\subsection{Microfoni}
+
+Le famiglie dei microfoni
+I microfoni possono essere utilizzati sia per la registrazione che per l’amplificazione, e si suddividono in diverse famiglie a seconda delle seguenti tipologie:
+1) Architettura e principio di funzionamento
+2) Curve polari
+1) Architettura e principio di funzionamento
+Esaminiamo più in dettaglio le diverse tipologie di microfoni relative alla loro architettura:
+Microfoni dinamici
+
+
+A tale famiglia appartengono microfoni, la cui architettura è schematizzata in fig. 1, il cui principio di funzionamento è basato su un diaframma circolare messo in vibrazione dalle onde sonore trasmesse nell’aria e solidale con un avvolgimento di filo di rame, ovverossia una bobina, libero di muoversi all’interno di un campo magnetico costituito da un magnete permanente. Le onde sonore, costituite da compressioni e rarefazioni
+
+dell’aria secondo una determinata frequenza (corrispondente all’altezza del suono), vengono perciò trasformate, attraverso tale trasduttore, in corrente elettrica, presente sui cavi di uscita alle estremità dell’avvolgimento di rame, con variazioni di ampiezza e frequenza corrispondenti a quelle delle onde acustiche. Questo principio di trasduzione, come vedremo in seguito, non è altro che il procedimento inverso a quello della maggior parte degli altoparlanti: in quel caso, una corrente elettrica proveniente dall’amplificatore si presenta ai poli estremi di una bobina mobile, anch’essa libera di muoversi all’interno di un campo magnetico, e genera una corrispondente vibrazione sul cono dell’altoparlante solidale alla bobina.
+È importante osservare come, a causa dell’elasticità e della massa del materiale vibrante, il gruppo diaframma-bobina abbia una sua frequenza di risonanza caratteristica. Al di sotto di tale frequenza il comportamento è dettato dal rapporto elasticità/rigidità, mentre al di sopra dipende dalla massa del complesso vibrante. Questo è uno dei motivi per cui i microfoni dinamici tendono a “colorare” il suono quando la sua altezza sia intorno alla frequenza di risonanza, e tendono ad avere una risposta non perfettamente estesa sulle alte frequenze, a causa dell’inerzia delle masse in movimento. C’è anche da considerare che, riducendo il numero di avvolgimenti della bobina, il vantaggio della riduzione delle masse vibranti è controbilanciato da un segnale di uscita inferiore, con conseguente diminuzione del rapporto segnale/rumore, per cui la soluzione risiede nel compromesso tra i valori ottimali di tutti questi parametri. Un progresso è stato fatto con l’introduzione di un nuovo materiale per i magneti, il neodymium, che, essendo un materiale ad alta coercitività1, consente l’utilizzo di bobine a massa ridotta, a tutto vantaggio della risposta alle alte frequenze.
+Le caratteristiche salienti di questo tipo di microfono sono l’estrema robustezza ed affidabilità, dovuta al semplice principio di funzionamento, ma anche un segnale di uscita molto basso.
+
+Microfoni a nastro
+In questo tipo di microfono, rappresentato in fig. 2, il principio di funzionamento è lo stesso del microfono dinamico, con la differenza che la parte vibrante, invece di essere costituita da un diaframma solidale ad una bobina mobile, è costituito da un sottilissimo foglio di alluminio corrugato, anch’esso libero di vibrare tra i poli di un magnete permanente, e alle estremità del quale si produce una tensione elettrica corrispondente alle onde sonore in entrata. In altre parole, in questo tipo di microfono le funzioni di vibrazione e di trasduzione sono svolte dallo stesso elemento fisico. Le caratteristiche timbriche del microfono a nastro sono: a) assenza di coloratura dovuta alla frequenza di risonanza situata molto più in basso rispetto ai microfoni dinamici (40 Hz); b) risposta estesa sulle alte frequenze a causa della ridotta massa del diaframma vibrante. Essendo il segnale d’uscita di livello estremamente basso, ed essendo bassa anche l’impedenza di uscita, viene interposto un trasformatore per elevarlo di intensità
+
+e fornire un’impedenza conforme allo standard. La sottigliezza del nastro vibrante è inoltre causa di fragilità del dispositivo, rendendolo inadatto alla microfonazione di segnali dotati di un’elevata pressione sonora. Caratteristica di questo tipo di microfono è la curva polare a figura-8, che sarà meglio descritta in seguito.
+
+Microfoni a condensatore
+
+Nel microfono a condensatore, schematizzato in fig. 3, il diaframma che entra in vibrazione all’arrivo delle onde sonore non è solidale con una bobina, ma è costituito da una lamina metallica distanziata da una seconda lamina fissa (backplate). Le due lamine hanno tra loro una differenza di potenziale in quanto viene applicata una tensione di polarizzazione in corrente continua ad una delle due. Secondo il principio di
+
+funzionamento del condensatore, la vibrazione fa quindi variare periodicamente la distanza tra le due lamine, generando una corrispondente variazione periodica del campo elettrico e la conseguente generazione di un’onda in uscita. Questa tecnica circuitale è nota come “polarizzazione in corrente continua” (DC-biased), ed è differente da un’altra tecnica, ossia la circuitazione RF (radiofrequenza). Quest’ultima prevede un’oscillatore ad alta frequenza (in funzione di portante), rispetto al quale il condensatore costituito dal corpo diaframma-backplate agisce in funzione modulante. Il segnale verrà successivamente demodulato in bassa frequenza restituendo il segnale elettrico originale. Il vantaggio di questo tipo di circuitazione consiste in una riduzione del rumore di fondo generato dal circuito di preamplificazione (inherent noise).
+A causa della presenza di una circuitazione attiva al suo interno, questo tipo di microfono, a differenza del microfono dinamico, necessita di una alimentazione, che può essere fornita o tramite batterie situate nel corpo del microfono, o tramite il mixer o un alimentatore esterno, secondo un sistema noto come alimentazione fantasma (phantom powering), che consiste nel far viaggiare sul cavo microfonico una determinata quantità di corrente continua (vedi Lezione 1). Tale alimentazione consente inoltre di installare, sempre all’interno del corpo microfono, un circuito di preamplificazione, indispensabile, dato il bassissimo voltaggio generato dalle lamine, a fornire un segnale d’uscita di livello adeguato.
+In virtù di queste caratteristiche, il microfono a condensatore, rispetto al microfono dinamico, offre un segnale d’uscita maggiore ed una migliore curva di risposta in frequenza, contro una robustezza inferiore ed un costo superiore.
+
+Microfoni a electret
+
+Una variante nel campo dei microfoni a condensatore è rappresentata dai microfoni “Electret” (ECM – Electret Condenser Microphone). La particolarità di questi microfoni è che tra il diaframma e il backplate è inserito un dielettrico di materiale isolante (electret) il quale ha la caratteristica di essere pre-polarizzato elettricamente, in modo simile ad un magnete permanente nel campo del magnetismo. In tal modo, il diaframma non necessita della tensione di polarizzazione, sebbene questi microfoni siano comunque dotati di un circuito di preamplificazione, tipicamente a FET, per cui possono essere alimentati dal phantom powering, o più spesso da una batteria incorporata. Sebbene questa tecnica, relativamente recente in quanto nata negli anni ’60, sia sorta con l’intento di abbassare i costi, e quindi sia stata implementata in prodotti economici rivolti più alle registrazioni amatoriali che a quelle professionali, i progressi effettuati la collocano ormai quasi alla pari con i migliori microfoni a condensatore. Tra i microfoni electret i migliori sono da considerarsi quelli dove il dielettrico è solidale con il backplate, che ne costituisce una delle superfici: essi prendono il nome di back- electret.
+
+Nella fig. 4 vediamo lo schema in sezione di un microfono electret, e possiamo notare come l’esiguità dei componenti lo rendano un dispositivo estremamente adatto alla miniaturizzazione, quindi adatto, ad es., ai microfoni a clip.
+
+Parametri elettrici
+A chiusura di questa panoramica sull’architettura dei microfoni occorre fornire qualche elemento sui parametri elettrici forniti a corredo dei microfoni. Oltre alle caratteristiche polari, di cui si parlerà di seguito, i valori più significativi per la valutazione di un microfono “sulla carta” sono:
+
+1) La sensibilità
+2) Il rumore
+3) L ’impedenza
+4) La risposta in frequenza
+La sensibilità indica il livello di segnale elettrico che il microfono può fornire a fronte di una determinata pressione acustica sonora. Questo parametro ci fornisce un’indicazione utile per determinare quanto il segnale che il microfono produce dovrà essere amplificato negli stadi successivi. Così ad es. un microfono dinamico può fornire la seguente indicazione di sensibilità:
+
+2 mV/Pa
+ossia 2 millivolt per una pressione acustica sonora di 1 Pascal2. Diamo di seguito, indicativamente, una tabella comparativa delle tipologie di microfoni presi in esame:
+
+Il parametro per valutare il rumore introdotto da un microfono è noto come “Equivalent Noise Level” (anche “self-noise level”, ossia il rumore inerente al microfono), e si riferisce ad un livello di pressione sonora che corrisponde al rumore interno del microfono, ossia al suono di livello minimo che è possibile registrare con un dato microfono. La scala di misurazione è quella del dBSPL , che sarà trattato in altra lezione, ed i metodi di misura sono generalmente di due tipi, in base alla curva di pesatura che viene applicata:
+1) la scala dB(A), complementare delle curve isofoniche di Fletcher-Munson, mediante la quale i valori ottimali per i microfoni sono quelli al di sotto di 15 dB;
+2) la scala CCIR 468-1, anche nota come ITU-R 468, che differisce dalla curva (A) per una maggiore enfasi nella zona da 5KHz a 8KHz, che fornisce valori ottimali al di sotto di 25-30 dB.
+In fig. 5 possiamo confrontare le due curve.
+
+L’impedenza del microfono (vedi fig. 6), di cui abbiamo già trattato, rappresenta quel valore resistivo che viene “visto” dall’apparecchio collegato in successione (preamplificatore, mixer, ecc.).
+
+Come si può osservare in tab. 2, il valore tipico dei microfoni professionali è di 200 Ohms, ma con oscillazioni che possono andare da 50 a 600 Ohms.
+
+Risposta in frequenza
+Vi sono diversi modi di rappresentare il comportamento di un microfono rispetto alle frequenze dei suoni in entrata e rispetto all’angolo d’incidenza degli stessi. Uno di questi, la curva di risposta in frequenza, rappresentato in fig. 7, è un grafico dove i parametri sono dati dall’ampiezza del suono (sull’asse verticale) e dalla sua frequenza (sull’asse orizzontale), e dove i diversi angoli, che rappresentano la quantificazione dello scostamento della provenienza del suono rispetto all’asse, sono rappresentati da una famiglia di curve, in cui ad ogni curva è associato un valore angolare.
+
+Curve polari
+Il diagramma polare (o curva polare) è invece un grafico a disegno circolare dove i parametri sono dati dall’ampiezza e dall’angolo d’incidenza, mentre le frequenze sono rappresentate da famiglie di curve. In presenza di un’unica curva, si intende che questa è riferita ad una frequenza di 1 KHz.
+Il disegno nella parte sinistra di fig. 8 rappresenta la struttura di un tipico microfono a pressione (pressure microphone) omnidirezionale, mentre nella parte destra è rappresentata la sua curva polare, dove vediamo che la direzionalità del suono inizia ad essere percepita dal microfono a partire da circa 5 KHz in su, mentre le frequenze gravi non sono indicate in quanto assimilabili a quella rilevata a 1 KHz, cioè con attenuazione zero per qualsiasi angolo di provenienza del suono.
+
+Per comprendere il principio di funzionamento di un microfono a pressione dobbiamo immaginare il diaframma di un microfono, sia esso dinamico o a condensatore, come la pelle di un tamburo tesa sopra un contenitore ermeticamente chiuso (backchamber, in figura) Avremo quindi un dispositivo che oscilla in presenza di variazioni di pressione provenienti esclusivamente dall’esterno, essendo la parte interna a pressione costante. Tale trasduttore è per questo motivo chiamato microfono a pressione, ed essendo le variazioni di pressione indipendenti dall’angolo di arrivo delle stesse, la caratteristica polare fa di questo dispositivo un microfono omnidirezionale.
+La possibilità di reagire in modo uniforme ad ogni direzione di provenienza del suono è in realtà teorica, come si può perfettamente osservare guardando la sua curva polare, in quanto per il principio della diffrazione acustica le frequenze della gamma alta tenderanno ad attenuarsi al crescere dell’angolo di incidenza a partire dall’asse del microfono, mentre tenderanno ad elevarsi al diminuire dello stesso angolo di incidenza, ossia man mano che l’angolo di arrivo va a coincidere con l’asse. Il fenomeno è dovuto
+
+alla presenza fisica del microfono stesso nel campo sonoro che interferisce con la propagazione delle onde sonore. Un microfono che, per la sua costruzione fisica, dovuta essenzialmente al ridotto diametro del diaframma, sia esente da questo fenomeno è detto microfono a campo libero (free-field microphone). Un microfono a pressione può lavorare come microfono a campo libero nel momento in cui gli venga applicata una correzione acustica e/o una equalizzazione (free-field correction) che rendano il suo comportamento lineare alle frequenze alte.
+La caratteristica di esaltazione delle frequenze alte in asse è stata, nel corso della storia, sfruttata al fine di ottenere la linearità che si perde naturalmente con la distanza per via della densità dell’aria, che tende a penalizzare proprio le frequenze alte. Nella fig. 9 vediamo un esempio di applicazione di sfruttamento del fenomeno col microfono Neumann M50, in cui il diaframma è incastonato in una forma sferica, con l’intento di interferire maggiormente col campo libero. Nella parte destra vediamo la sua curva caratteristica, che lo hanno reso una scelta preferita nelle riprese panoramiche di orchestre.
+
+Nella fig. 10 abbiamo la rappresentazione di una curva sensibilmente differente dalla prima, in quanto vediamo che l’attenuazione del segnale ha il suo punto massimo a 180° (alle spalle del microfono), ed è già significativa (circa 12 dB) a 500 Hz. Tale curva polare descrive il comportamento di un microfono direttivo noto come microfono cardioide. Il termine
+
+
+“cardioide” deriva dalla forma a “cuore rovesciato” che tende ad assumere la curva polare.
+
+E’ importante evidenziare che la direzionalità del microfono è ottenuta mediante l’apertura, alle spalle del diaframma, di fessure la cui funzione è di far pervenire parte del suono sul retro del diaframma, generando un’opposizione di fase in grado di agire sui suoni laterali e posteriori, come illustrato in fig. 11.
+In conseguenza del fatto che il diaframma è aperto nella zona retrostante, il microfono è detto microfono a gradiente di pressione (pressure gradient microphone), in quanto la sua risposta è generata dal rapporto della pressione frontale con quella posteriore.
+Dal momento che il percorso che compie il suono in entrata alle fessure laterali è un percorso finito, mentre i suoni possono avere frequenze diverse, l’opposizione di fase è “accordata” sulle frequenze medio-alte per evidenziare la direttività. A causa di ciò esiste un effetto collaterale derivante da questa tecnica, consistente nel fatto che, nel momento in cui il microfono direzionale è installato molto vicino alla fonte sonora, si genera un’esaltazione innaturale delle frequenze gravi, dovuta proprio alla presenza delle aperture laterali. Questo effetto, che può anche essere adoperato in modo appropriato per ottenere un suono particolarmente “caldo” ad es. nella voce, prende il nome di effetto di prossimità (proximity effect).
+
+Aumentando la lunghezza della zona del corpo microfono aperta da fessure, come nel microfono di fig. 12, si aumenta la caratteristica direzionale del microfono, la cui curva prende il nome di supercardioide. A causa della ridotta efficacia dell’accordatura laterale per i suoni a 180°, compare nella curva un lobo posteriore che sposta il punto di attenuazione massima dai 180° della curva cardioide a circa 135° (225° nel terzo quadrante). Nei microfoni a curva ipercardioide è ulteriormente ristretta l’angolazione frontale, mentre viene accentuata la caratteristica del lobo posteriore, rendendoli una soluzione intermedia tra la curva supercardioide e la curva a figura-8 di cui parleremo più avanti. Il punto di attenuazione massima è ora intorno a 110° (250° nel terzo quadrante), come illustrato in fig. 13.
+
+Tra i microfoni a gradiente di pressione, esistono infatti dei microfoni, detti a figura 8, la cui curva polare, illustrata in figura 14, presenta una simmetria avanti/dietro, dove i punti di attenuazione massima si vanno a situare a 90° e 270°. Tali microfoni hanno uguale sensibilità per i suoni provenienti dal fronte e dal retro, mentre tendono ad annullare i suoni di provenienza laterale. I microfoni a nastro di cui abbiamo parlato sono caratterizzati da tale curva.
+
+Per chiudere la panoramica delle curve polari è opportuno notare come esse possano venire espresse da funzioni trigonometriche, in modo da descrivere il valore punto per punto della curva partendo dall’angolo di incidenza del suono, come evidenziato in fig. 15.
+
+A completamento della panoramica sulle tecniche costruttive impiegate per ottenere la possibilità di variare la direzionalità del microfono è importante accennare ai microfoni a condensatore che si avvalgono di un doppio diaframma installato al loro interno. Nella fig. 16 notiamo come due diaframmi sono montati “spalla a spalla” (back-to back) con in mezzo il backplate. La combinazione di intensità e di fase delle due membrane può fornire una gamma di caratteristiche polari diverse, dalla omnidirezionale alla figura 8, fino alla cardioide e all’ipercardioide. Tale configurazione è nota anche come “Braunmühl/Weber” dai nomi dei suoi inventori (1937), e si avvale tipicamente di diaframmi a largo diametro, a differenza dei microfoni a pressione che per avere
+maggiore omnidirezionalità devono essere forniti di un diaframma di piccolo diametro.
+
+Per particolari situazioni in cui è richiesta poca intrusività visiva del dispositivo di ripresa sono adoperati dei microfoni, detti pressure zone microphones o anche boundary microphones, illustrati in fig. 17, la cui architettura consiste in una capsula omnidirezionale montata molto vicino ad una piastra piana, la quale a sua volta va utilizzata a
+contatto con una superficie (pavimento, muro, tavolo, ecc.). Il principio consiste nel fatto che, diversamente da quel che accade in un microfono tradizionale montato, ad es., su un’asta, il suono diretto dallo strumento non è degradato, per effetto di comb-filter, dalle riflessioni dell’ambiente circostante, ma, grazie a questo disegno, le onde sonore arrivano tutte egualmente riflesse dalla piastra verso la capsula, e quindi perfettamente in fase. In pratica la superficie d’appoggio agisce da barriera del suono, e il microfono è così in grado di captare il suono senza cancellazioni di fase dovute a riflessioni. La curva polare che tale microfono genera, in virtù del suo posizionamento su di una superficie, è così una curva emisferica, cioè una curva semi-omnidirezionale (half- omnidirectional) che si irradia “al di sopra” del microfono.
+
+
+Esistono infine dei microfoni, detti “parabolici”, schematizzati in fig. 18, che si avvalgono della proprietà acustica di una superficie paraboloide di concentrare per riflessione le onde sonore in un unico punto (fuoco della parabola) consentendo a dei normali microfoni di assumere delle caratteristiche di spiccata direttività, di molto superiore a quella fornita dai microfoni ipercardioidi. L ’utilizzo di tali microfoni è chiaramente limitato ad alcuni ambiti, come la ripresa a bordo campo di eventi sportivi, la cattura a grande distanza di suoni del mondo animale per scopi scientifici e documentari naturalistici, e le intercettazioni ambientali.
+
+Naturalmente, la risposta in frequenza di un tale dispositivo non potrà mai essere a banda piena, ma presenterà un’inevitabile carenza sulle basse frequenze, in quanto la parabola sarà in grado di
+riflettere solamente i suoni con lunghezza d’onda sensibilmente inferiore al valore del suo diametro.
+I vantaggi che può dare un tale dispositivo si possono verificare nella fig. 19: il microfono è tanto più efficiente quanto più largo è il diametro della parabola, fornendo un guadagno sul segnale che può arrivare a 30 dB a 8.000 Hz.
