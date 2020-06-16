@@ -1,0 +1,200 @@
+https://www.izotope.com/en/learn/are-you-listening-metering-in-mastering.html
+
+i due sistemi di analisi e misurazione di ampiezza più diffusi, che consideriamo
+con la maggior parte dei misuratori riguardano il livello di picco ed il livello
+RMS.
+
+Livello di picco
+
+Il livello di picco è il livello di segnale più alto raggiunto dal segnale audio.
+È importante prestare attenzione al livello di picco perché se supera il livello
+massimo consentito (0 dBFS nella maggior parte dei casi digitali o +24 dBu nel
+mondo analogico), il sistema non sarà in grado di riprodurre il segnale con
+questa ampiezza e audio taglierà e distorcerà.
+
+Il segnale audio può raggiunge il livello di picco durante i transitori di attacco.
+
+Livello RMS
+
+Tuttavia, il livello di picco in realtà non ci dice nulla sul volume percepito,
+perché il nostro cervello ha bisogno di un po' più di tempo per valutare
+l'intonazione o il volume. Questo è il motivo per cui misuriamo il livello
+RMS (radice quadrata media), che misura il volume medio su una finestra di circa
+300 millisecondi. Di conseguenza, il livello RMS mostrerà in generale quanto
+apparirà forte un brano rispetto ad altri. Questo corrisponde più da vicino al
+modo in cui il nostro cervello percepisce il volume.
+
+Il livello di picco sarà inevitabilmente più alto del livello RMS perché il
+segnale trascorre di solito solo una breve quantità di tempo a livello di picco.
+Il livello RMS fa una media di questi picchi con il resto dell'audio. Tra queste
+due misurazioni, puoi capire rapidamente la presenza e la persistenza dell'audio
+(RMS) e la sua relazione con la distorsione (picco).
+
+Fattore di cresta: la differenza tra il livello di picco e il livello RMS
+
+La differenza tra il livello di picco e il livello di RMS è chiamato fattore di
+cresta. Misurando la differenza tra il livello massimo e il livello medio,
+abbiamo una buona idea di quanto sia dinamica una traccia.
+
+LUFS / LKFS
+
+Il nostro cervello e le nostre orecchie non sono ugualmente sensibili in tutto
+lo spettro delle frequenze. Se dovessi riprodurre un tono di 1 kHz a -20 dBFS,
+e quindi riprodurre un tono di 50 Hz a -20 dBFS, noteresti che il tono di 1 kHz
+suonerebbe più forte di circa 10-12 dB. In entrambi i casi, tuttavia, il
+misuratore dovrebbe leggere -20 dBFS, il che non rispecchia realmente la nostra
+percezione dell'audio.
+
+Pertanto, utilizziamo spesso la misurazione LUFS (unità di volume a fondo scala)
+(a volte chiamata LKFS, ma sono essenzialmente intercambiabili). Questa
+misurazione prende in considerazione il fatto che prendiamo una misurazione media
+su circa 300 ms per registrare il volume e che siamo più sensibili a determinate
+frequenze. Di conseguenza, LUFS è un sistema utile per misurare il volume percepito.
+
+Puoi utilizzare LUFS per quantificare il motivo per cui alcune tracce suonano
+più forti di altre, anche se sono mixate allo stesso livello. Tuttavia, poiché
+il sistema LUFS tiene conto della percezione, non viene utilizzato per misurazioni
+di livello puramente tecniche, come nell'impostazione della soglia di un compressore.
+
+Tipi di misure LUFS
+
+Esistono tre diversi tipi di misurazioni LUFS. I primi due, a breve e breve
+termine, sono ragionevolmente simili nella definizione e nell'uso. Il terzo
+tipo si chiama integrato. Diamo un'occhiata a come interagiscono queste diverse
+misurazioni.
+
+Rumorosità momentanea
+
+Il volume momentaneo (misurato a destra in LUFS in Insight 2) è in media su
+circa 300 ms. Il volume a breve termine a sinistra viene misurato per un periodo di
+circa 3 secondi. Di conseguenza, i due misurano spesso abbastanza da vicino
+l'uno all'altro, ma il volume a breve termine misurerà un po 'più in basso
+perché è in media su una finestra più lunga.
+
+Questa finestra di tre secondi per il volume a breve termine ci dice qualcosa in
+più sulla persistenza del suono o su un'impressione più generale del volume di
+una traccia. Le misurazioni del volume sia temporanee che a breve termine sono
+modi perfettamente praticabili per misurare il volume medio in una traccia.
+
+Per capire il volume integrato, tuttavia, immergiamoci un po 'nella storia dietro di esso.
+
+Livello sonoro integrato
+
+Questa misura di livello in un programma completo è chiamata volume integrato.
+Se osservi il valore di volume integrato su Insight 2, cambia molto più lentamente.
+Questo perché sta calcolando la media dell'intera lunghezza della registrazione.
+Negli Stati Uniti, The Calm Act è stato messo in legge per fissare un volume
+integrato target per l'audio di trasmissione. Negli Stati Uniti, è -24 LKFS.
+Nell'UE, i legislatori hanno scelto di istituire specifiche e regolamentazione
+del settore con le specifiche EBU R128 con un volume target di -23 LUFS.
+Se un programma non è a questi livelli, il mix verrà alzato o abbassato per
+conformarsi.
+
+Quindi, perché dovremmo preoccuparci del volume integrato nella musica?
+La maggior parte dei servizi di streaming musicale ora implementa la
+normalizzazione del volume, in cui viene misurato il livello integrato e un brano
+è conforme a uno standard di riproduzione.
+
+Puoi utilizzare una misurazione LUFS integrata per misurare il tuo mix e capire
+come potrebbe essere influenzato su diversi servizi di streaming, a seconda dei
+loro standard di riproduzione.
+
+considerazioni
+
+Quando stai padroneggiando, LUFS integrato dovrebbe essere l'ultima cosa a cui
+stai pensando. È molto più importante mescolare e padroneggiare la musica in modo
+che suoni e si senta bene, non così che colpisca un bersaglio.
+
+Se desideri controllare il volume integrato della traccia, puoi utilizzare uno
+strumento come Insight 2 e riprodurre la traccia fino in fondo. Oppure potresti
+usare qualcosa come RX, che ha una finestra chiamata statistica della forma d'onda,
+che fornirà informazioni sul livello per una registrazione completa o una selezione
+di una registrazione. Ma di nuovo, questo è qualcosa di cui dovresti preoccuparti
+solo quando hai finito con il tuo padrone.
+
+Lavorare con un metro
+
+Durante la misurazione, generalmente lavorerai con il livello di picco e medio.
+Questo dà un'idea del margine rimanente e del volume generale della traccia. Se
+il volume medio non è abbastanza alto, puoi sperimentare cose come la limitazione
+per aumentare il livello medio.
+
+Il mix nelle schermate sottostanti non è ancora stato masterizzato. Puoi vedere
+che c'è un po 'di margine (il livello di picco non è al massimo) e quel livello
+medio è compreso tra -13 e -16 dB. Poiché la traccia qui è una traccia rock,
+avremo bisogno di qualche altro dB di volume per soddisfare gli standard di genere
+e l'artista.
+
+Aumentare il livello porterebbe i nostri picchi sopra 0 dB, quindi usiamo il
+modulo Maximizer di Ozone per ottenere questo volume extra. Possiamo vedere su
+Ozone che stiamo solo limitando un po 'i picchi (calcio e rullante), con solo
+un dB o due in riduzione del guadagno.
+Guarda i contatori di Insight in basso: il livello medio è ora salito. Questo
+sarà più vicino al volume che l'artista vuole dal genere (rock), e sappiamo che
+non stiamo distorcendo perché il nostro livello di picco è inferiore a 0 dB.
+
+Questo ovviamente non copre l'intera gamma delle decisioni di mastering, ma il
+rapporto picco-medio - fattore di cresta - è un aspetto davvero importante del
+processo di mastering.
+
+Altre visualizzazioni importanti per il mastering
+
+La maggior parte delle visualizzazioni che abbiamo discusso finora riguardano
+l'ampiezza, ma ci sono alcune visualizzazioni che ci aiutano a indirizzare la
+frequenza più direttamente.
+
+Misuratore del fattore di cresta del controllo del bilanciamento tonale
+
+Poiché siamo meno sensibili alle frequenze più basse, i bassi devono essere a un
+livello più alto in un mix, quindi spesso occupano più spazio rispetto a qualsiasi
+altra area dello spettro delle frequenze. Il contenuto di picco nella fascia bassa
+spesso appartiene al kick drum, mentre il basso guiderà più del livello medio di
+fascia bassa.
+
+Un forte drum kick consumerà molta headroom in un master e renderà difficile per
+noi ascoltare il basso, o per noi avere la headroom per spingere la traccia più
+forte senza distorcere. D'altra parte, se il kick drum è sepolto sotto il basso,
+perdiamo un senso di spinta che otteniamo dal basso transitorio del kick.
+
+Il misuratore del fattore di cresta nell'angolo in alto a sinistra del controllo
+del bilanciamento tonale mostra il fattore di cresta della fascia bassa per
+aiutarci a capire meglio questa relazione kick-bass. Nello screenshot qui sotto,
+noterai che abbiamo un fattore di cresta abbastanza alto. Questo ci dice che i
+picchi sono un po 'rumorosi rispetto al livello medio nei minimi, il che potrebbe
+significare che il calcio è un po' caldo. Potremmo voler trovare un modo per
+controllare il livello del kick drum, usando EQ, compressione o anche Low End
+Focus.
+
+spettrogrammi
+
+Possiamo anche usare uno strumento spettrogramma come quello in RX per vedere
+parti del segnale che non riusciamo a sentire molto bene. Vedi nello spettrogramma
+sotto che ci sono alcuni impulsi forti tra 10–20 Hz. Anche se potremmo non
+sentirlo molto bene, sta occupando spazio per la testa. Potremmo rotolare via un
+po 'di quell'inudibile fascia bassa per liberare lo spazio per la testa e
+permetterci di portare su tutta la pista, senza una notevole differenza nei minimi
+
+Potrebbe essere allettante utilizzare un filtro passa alto per eliminarlo, ma
+anche i filtri passa alto creano i propri problemi. Uno scaffale basso può essere
+uno strumento più delicato e meno problematico per l'audio dell'EQing. Possiamo
+anche utilizzare uno spettrogramma per studiare il contenuto ad alta frequenza,
+un altro posto in cui siamo meno sensibili. Questo è un ottimo modo per trovare
+rumore, clic, pop e altri artefatti che non possiamo ascoltare.
+
+Conclusione
+
+Le visualizzazioni corrette sono una grande protezione contro il nostro imperfetto
+senso di percezione soggettiva. Se non puoi fidarti delle tue orecchie tutto il tempo,
+puoi almeno fidarti dei tuoi misuratori e visualizzazioni per essere un controllo
+istintivo per l'ascolto. Sia che tu stia lavorando con il livello di picco, il
+livello di RMS, il fattore di cresta o uno dei tre tipi di misurazioni LUFS,
+conoscere il tuo modo di aggirare un metro e perché la misurazione può effettuare o
+interrompere una sessione di mastering ti preparerà per il successo con la prossima progetto.
+
+
+https://www.izotope.com/en/learn/psychoacoustics-how-perception-influences-music-production.html
+
+
+dBu
+
+The term dBu is used to describe the r.m.s. voltage of a signal relative to 0.775 V (r.m.s.). Thus 0 dBu = 0.775 V r.m.s. [ITU-R BS.645-2]
