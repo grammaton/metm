@@ -2,23 +2,32 @@
 % !TEX encoding = UTF-8 Unicode
 % !TEX root = ../../METM.tex
 
-\clearpage
-
 \begin{refsection}
 
 \section{Microfoni}
+\thispagestyle{empty}
 
-Il testo è basato sugli appunti didattici di Piero Schiavoni \autocite{ps:01}
-aggiornati ed espansi con i testi di riferimento in letteratura di John Eargle \autocite{Eargle_2005}
-e Ballou \autocite{Ballou_2009}.
+Questa sezione è basata sugli appunti didattici di Piero Schiavoni \autocite{ps:01}
+aggiornati ed espansi con i testi di riferimento in letteratura di John Eargle
+\autocite{Eargle_2005} e Ballou \autocite{Ballou_2009}. Il testo di Schiavoni
+presentava una prima classificazione dei microfoni per architettura, un primo
+passo che permette di presentare gli strumenti per quello che sono prima di
+affrontare ampiamente quello che possono fare e come lo fanno.
 
 Il microfono è uno strumento utilizzato per trasformare vibrazioni acustiche in
 tensioni o correnti elettriche variabili per la trasmissione del segnale acustico,
 la registrazione, l'elaborazione e la correlazione tra la
-misurazione di una grandezza acustica (es. la pressione sonora) a quella
-di una grandezza elettrica.
+misurazione di una grandezza acustica (es. la pressione sonora) e la relativa
+grandezza elettrica.
 
-La generalizzazione di un microfono consiste in un sistema meccanico mobile esposto
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\columnwidth]{CAPITOLI/0200/img/trasduzione.png}
+\caption[]{Generalizzazione di un sistema microfonico.}
+\label{mic:condensatore}
+\end{figure}
+
+La generalizzazione del un microfono consiste in un sistema meccanico mobile esposto
 all’onda sonora e destinato ad operare la \emph{trasduzione}\footnote{La
 trasformazione della natura di un segnale operata da un trasduttóre,
 derivato dall'inglese \emph{transducer} (che opera una trasduzione), dal latino
@@ -28,9 +37,9 @@ segnale di natura diversa. Si usa qualificare i t. con un aggettivo composto,
 di cui la prima parte precisa la natura del segnale applicata e la seconda
 parte quella del segnale d'uscita: t. acustoelettrico, che converte un suono in
 un segnale elettrico (per es., un microfono), t. elettroacustico, da segnale
-elettrico a suono (per es., un altoparlante). – Fonte: Enciclopedia Treccani}
-di una grandezza acustica, come la variazione di pressione, attraverso un'analogo
-movimento meccanico, lo spostamento della parte mobile del microfono, e da un sistema
+elettrico a suono (per es., un altoparlante). \\ – Fonte: Enciclopedia Treccani}
+di una grandezza acustica, come la variazione di pressione, attraverso l'analogo
+movimento meccanico rappresentato dallo spostamento della parte mobile del microfono, e da un sistema
 elettrico a esso collegato destinato a operare la \emph{trasduzione} della
 grandezza meccanica in una grandezza elettrica generando una una variazione di
 corrente.
@@ -50,30 +59,25 @@ felici di così solo con l'esperimento di collegare tra loro due bicchieri di ca
 uno spago per parlarsi, sottovoce, a breve distanza. È il suono mobile, nel tempo
 e nello spazio, il meccanismo del suono in viaggio, che ha reso tutto possibile.
 
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.99\columnwidth]{CAPITOLI/0200/img/telephone-patent-drawing-l.jpg}
+\caption[]{Alexander Graham Bell.\\ Telefono. Registro brevetti: 302052.}
+\label{agb:tel}
+\end{figure}
+
 Nel 1876, a Philadelphia, si teneva la \emph{Centennial Exhibition} per celebrare
 il centenario della nascita della nazione. Fu la prima fiera mondiale a tenersi
 negli Stati Uniti con lo scopo, tra gli altri, di annunciare a tutti che la nazione era
 ufficialmente una potenza industriale. All'interno degli edifici della fiera erano
 esposte le opere di due inventori: Alexander Graham Bell e Thomas Alva Edison.
 
-\begin{figure*}[t!]
-    \centering
-    \begin{subfigure}[t]{0.4\textwidth}
-        \centering
-        \includegraphics[height=7cm]{CAPITOLI/0200/img/telephone-patent-drawing-l.jpg}
-        \caption[]{Alexander Graham Bell.\\ Telefono. Registro brevetti: 302052.}
-        \label{agb:tel}
-    \end{subfigure}%
-    ~
-    \begin{subfigure}[t]{0.48\textwidth}
-        \centering
-        \includegraphics[height=7cm]{CAPITOLI/0200/img/light-patent-drawing-l.jpg}
-        \caption[]{Thomas Edison. \\ Lampada elettrica. Registro brevetti: 302053.}
-        \label{te:lamp}
-    \end{subfigure}
-    \caption[]{Disegni di brevetti n. 241.}
-    \label{pol:msmatrix}
-\end{figure*}
+\begin{figure}[th!]
+\centering
+\includegraphics[width=0.99\columnwidth]{CAPITOLI/0200/img/light-patent-drawing-l.png}
+\caption[]{Thomas Edison. \\ Lampada elettrica. Registro brevetti: 302053.}
+\label{te:lamp}
+\end{figure}
 
 Un passo intermedio nello sviluppo della modulazione senza contatto (in aria) della
 corrente continua è stato sviluppato nel 1878 da David Edward Hughes. In questa
@@ -297,7 +301,7 @@ due.
 \centering
 \includegraphics[width=0.99\columnwidth]{CAPITOLI/0200/img/US1333744-1b.jpg}
 \caption[]{Edward Christopher Wente. \\ Microfono a condensatore. Registro brevetti: 1333744.}
-\label{mic:condensatore}
+\label{mic:wentemic}
 \end{figure}
 
 Il condensatore è un elemento elettronico passivo pre-polarizzato, in grado di
@@ -351,6 +355,13 @@ materiale dielettrico permanentemente polarizzato, tra il diaframma mobile ed la
 piastra posteriore (back-plate). I primissimi materiali utilizzati persero
 sensibilità nel tempo, ma lo sviluppo di quella tecnologia ha portato risultati
 ora molto stabili e paragonabili a quelli dei tradizionali microfoni a condensatore.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.99\columnwidth]{CAPITOLI/0200/img/electret.png}
+\caption[]{Microfono a condensatore electret.}
+\label{mic:electret}
+\end{figure}
 
 Il microfono a condensatore di tipologia \emph{electret} è quindi a tutti gli effetti
 considerabile una variante nel campo dei microfoni a condensatore (\emph{ECM,

@@ -9,10 +9,10 @@
 
 \usepackage[
 	top=1in,
-	bottom=1in,
+	bottom=1.2in,
 	inner=1in,
 	%margin=1.23in,
-	textwidth=13cm,
+	textwidth=12cm,
 	%right=7cm,
 	%showframe
 	]{geometry}
@@ -34,10 +34,12 @@
 \usepackage[hang,flushmargin]{footmisc}
 
 \newcommand{\hsp}{\hspace{19pt}}
-\titleformat{\chapter}[hang]{\Huge\bfseries\sffamily}{\thechapter\hsp•\hsp}{0pt}{\Huge\bfseries\sffamily}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp•\hsp}{0pt}{\Huge\bfseries}
 
 \usepackage{listings}
 
+\usepackage{Alegreya}
+\linespread{1.2}
 \usepackage{
 	fontspec,
 	xltxtra,
@@ -50,27 +52,24 @@
 	}
 
 \defaultfontfeatures{Mapping=tex-text}
-\setromanfont[
-	Mapping=tex-text
-	]{Rubik Light}
-\setsansfont[
-	Scale=MatchLowercase,
-	Mapping=tex-text
-	]{Open Sans}
 \setmonofont[
 	Scale=MatchLowercase
 	]{Andale Mono}
 \setmathfont[
 	Scale=MatchLowercase,
-	Scale=1.123
+	Scale=1
 	]{Libertinus Math}
+\setsansfont[
+	Scale=MatchLowercase,
+	Mapping=tex-text
+	]{Alegreya Sans}
 
 \newfontfamily\quotefont[
-		Scale=MatchLowercase,
-		Mapping=tex-text,
-		LetterSpace=5.0,
-		%Scale=1.123,
-		]{Open Sans Light}%{Fira Sans Light}
+	Scale=MatchLowercase,
+	Mapping=tex-text,
+	LetterSpace=5.0,
+	%Scale=1.123,
+	]{Alegreya Sans}%{Open Sans Light}%{Fira Sans Light}
 
 \usepackage{etoolbox}
 \AtBeginEnvironment{quote}{\quotefont\small}
@@ -111,9 +110,11 @@
 \usepackage{pgfplots}
 
 \usepackage{wrapfig}
-\usepackage[font=footnotesize,
-  %labelfont=bf
-	]{caption}
+\usepackage[%
+  %font=footnotesize,
+  %labelfont=bf,
+	font=sf
+]{caption}
 \usepackage{subcaption}
 \usepackage{float}
 %\floatstyle{boxed}
@@ -219,7 +220,7 @@
 
 \tableofcontents
 
-\raggedright
+%\raggedright
 
 \input{CAPITOLI/0000-MANIFESTO}
 
