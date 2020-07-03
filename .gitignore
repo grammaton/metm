@@ -3,6 +3,7 @@
 # Edit at https://www.gitignore.io/?templates=tex,latex,linux,macos,windows
 
 METM.pdf
+_no-online/
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
