@@ -1,6 +1,7 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% SECTION FIVE
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mid-Side}
+
 Harvey Fletcher, fisico americano, nel 1934 firma uno degli articoli che
 compongono un testo cardine per la storia della tecnologia sonora
 “\emph{Symposium on Auditory Perspective}”, sulla percezione e la trasmissione
@@ -36,7 +37,7 @@ reprinting the Symposium, the fundamentals are restated. \cite{sap1964}
 
 Il testo di Fletcher \cite{hf34} è datato 1934, un anno dopo l'approvazione
 del brevetto Blumlein che descrive il concetto fondamentale di trasmissione e
-registrazione del suono Mid-Side. In quell'epoca gli interessi commerciali e
+registrazione del suono \emph{Mid-Side}. In quell'epoca gli interessi commerciali e
 quelli di ascolto erano intrecciati, in una forma \emph{stereo} solida.
 
 Parlando di orecchie e attività cerebrali per determinare la direzione di una
@@ -78,10 +79,11 @@ frequenze più alte.}.
 
 Sulla base della conoscenza dei meccanismi sopra esposti Blumlein ha formulato
 la maggior parte dei principi fondamentali impressi nella storia della stereofonia.
-L'approccio più semplice descritto permette di ottenere semplici differenze di livello
-nella riproduzione dagli altoparlanti, percepite come differenze di livello e di
-fase dalle orecchie. Per ottenere questo tipo di segnale sono necessari almeno due microfoni
-posizionati tra loro vicinissimi, allineati verticalmente, in modo da non avere alcun ritardo (orizzontale) tra i canali.
+L'approccio più semplice descritto permette di ottenere semplici differenze di
+livello nella riproduzione dagli altoparlanti, percepite come differenze di
+livello e di fase dalle orecchie. Per ottenere questo tipo di segnale sono
+necessari almeno due microfoni posizionati tra loro vicinissimi, allineati
+verticalmente, in modo da non avere alcun ritardo (orizzontale) tra i canali.
 Questa configurazione definita \emph{coincidente} è l'ideale per alimentare
 gli altoparlanti con differenze pure di ampiezza tra i canali. Una delle tipiche
 tecniche di ripresa stereofonica per coppia coincidente prende proprio il nome
@@ -89,17 +91,18 @@ da Blumlein: due microfoni bidirezionali, figura-8 quindi a gradiente di pressio
 angolati tra loro di $\pm45$ gradi, in modo da avere un angolo retto tra loro.
 
 Tuttavia, come esposto nel brevetto, i soli microfoni disponibili a Blumlein nei
-suoi primi esperimenti erano non-direzionali a pressione. Coppie stereofoniche coincidenti
-con microfoni di questo tipo non sono possibili, in quanto il loro allineamento verticale
-produrrebbe due segnali identici, che non descriverebbero stereofonia. È necessaria
-quindi una distanza tra i due microfoni. Due microfoni non-direzionali distanziati
-anche poco tra loro sono in grado di produrre segnali quasi identici in ampiezza
-ma diversi in fase. Blumlein quindi si concentra su una strategia per produrre
-anche una differenza di ampiezza tra i due microfoni, inserendo un blocco di legno
-tra i due microfoni e progettando una matrice elettrica che mettesse in
-relazione i due segnali in modo da produrre le giuste differenze di ampiezza
-nell'altoparlante. Il prodotto di tale ricerca fu la matrice di somma e differenza
-alla base della tecnologia Mid-Side.
+suoi primi esperimenti erano dinamici non-direzionali a pressione. Coppie
+stereofoniche coincidenti con microfoni di questo tipo non sono possibili, in
+quanto il loro allineamento verticale produrrebbe due segnali identici, che non
+descriverebbero stereofonia. È necessaria quindi una distanza tra i due microfoni.
+Due microfoni non-direzionali distanziati anche poco tra loro sono in grado di
+produrre segnali quasi identici in ampiezza ma diversi in fase. Blumlein quindi
+si concentra su una strategia per produrre anche una differenza di ampiezza tra
+i due microfoni, inserendo un blocco di legno tra i due microfoni e progettando
+una matrice elettrica che mettesse in relazione i due segnali in modo da
+produrre le giuste differenze di ampiezza nell'altoparlante. Il prodotto di tale
+ricerca fu la matrice di somma e differenza alla base della tecnologia
+\emph{Mid-Side}.
 
 \begin{quote}
 \ldots a system of sound transmission wherein the sound
@@ -131,13 +134,13 @@ of the difference respectively of the original \cite{ab58}
 \end{figure*}
 
 La matrice di Blumlein di somma e differenza tra i segnali è bidirezionale.
-Quando il canale sinistro e destro di una coppia stereofonica passa attraverso la
-matrice, la somma di entrambi i canali fornisce il segnale \emph{Mid} contenente solo le componenti in fase,
-mentre la differenza produce il segnale \emph{Side} laterale contenente solo
-componenti non in fase tra loro. Quando sono le componenti \emph{Mid-Side} a transitare
-attraverso la matrice, la somma di \emph{Mid} e \emph{Side} fornisce la
-correlazione tra fase sinistra e ampiezza, mentre la differenza produce la
-correlazione tra fase negativa a ampiezza.
+Quando il canale sinistro e destro di una coppia stereofonica passa attraverso
+la matrice, la somma di entrambi i canali fornisce il segnale \emph{Mid}
+contenente solo le componenti in fase, mentre la differenza produce il segnale
+\emph{Side} laterale contenente solo componenti non in fase tra loro. Quando
+sono le componenti \emph{Mid-Side} a transitare attraverso la matrice, la somma
+di \emph{Mid} e \emph{Side} fornisce la correlazione tra fase sinistra e ampiezza,
+mentre la differenza produce la correlazione tra fase negativa a ampiezza.
 
 Di seguito il codice \emph{Faust} per la matrice somma e differenza.
 
