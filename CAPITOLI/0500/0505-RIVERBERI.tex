@@ -1,22 +1,164 @@
 %!TEX TS-program = xelatex
 %!TEX encoding = UTF-8 Unicode
-% !TEX root = ../../metm.tex
+% !TEX root = ../../metp.tex
 
 \begin{refsection}
 
-\section{Riverberi Digitali}
+\section{RIVERBERI}
 \thispagestyle{empty}
 
-Nonostante l'acustica architettonica sia stata parte integrante della
-progettazione di strutture per millenni, la materia ha ottenuto una base
-scientifica solida solo ai primi del novecento per opera di Wallace Sabine.
+Nonostante l'acustica architettonica sia stata per millenni parte integrante
+della progettazione di strutture, la materia ha ottenuto una base
+scientifica solida solo ai primi del novecento per opera di \ws. \cite{ws:rev}
 La definizione del tempo di riverbero da parte di Sabine è il punto di partenza
 anche nella letteratura sulla modellazione digitale dell'effetto ad opera di
-Manfred Schroeder. Con Sabine il tempo di riverbero può essere descritto,
-misurato, previsto. Tutto quello che sappiamo fare oggi continua ad attingere
-alle sue ricerce.
+\ms. \cite{ms:rev62, ms:rev64} Dopo Sabine il tempo di riverbero può essere
+descritto, misurato, previsto. Tutto quello che sappiamo fare oggi continua ad
+attingere alle sue ricerce.
 
 \subsection{Sabine}
+
+\begin{quote}
+  The following investigation was not undertaken at first by choice, but devolved
+  on the writer in 1895, through instructionns from the Corporation of Harvard
+  University to propose changes from remedying the acoustical difficulties in
+  the lecture-room o the Fogg Art Museum, a building that had just been completed.
+  About two years were spent in experimenting on this room, and permanet changes
+  where then made. Almost immediately afterward it become certain that a new
+  Boston Music Hall would be erected, and the questions arising in the
+  consideration of its plans forced a not unwelcome continuance of the general
+  investigation. \cite{ws:rev}
+\end{quote}
+
+Trovo significativo che una ricerca così approfondita e miliare possa essere
+scaturita da una semplice problematica come quella di dover analizzare e
+correggere l'acustica di una sala universitaria. Sulla base di un vuoto letterario,
+nulla di organico sul fenomeno del riverbero se non per cenni sparsi provenienti
+dalla storia della fisica, \ms~ ha costruito una ricerca organica, con seri
+problemi da risolvere, anche di diversa natura, come per esempio la scelta del
+cronografo (1985) per misurare il tempo
+
+\begin{quote}
+  \ldots perfect noiselessnness, portability, and capacity to measure intervals
+  of time from a half of second to ten seconds with considerable accuracy. \cite{ws:rev}
+\end{quote}
+
+Sono proprio queste parole a rivelare che non poteva essereci un momento diverso
+nella storia dell'uomo in cui la convergenza di esigenze e possibilità tecniche
+avrebbe portato alla soluzione di problematiche irrisolte per secoli.
+
+\begin{quote}
+  In order that hearing may be good in any auditorium, it is necessary that the
+  sound should be sufficiently loud; that the simultaneous components of a
+  complex sound should maintain their proper relative intensities;
+  and that the successive sounds in rapidly moving articulation, either of speech
+  or music, should be clear and distinct, free from each other and from extraneous
+  noises. Thesethree are the necessary, as they are the entirely sufficient,
+  conditions for good hearing. \cite{ws:rev}
+\end{quote}
+
+Una tripletta di problemi minimi da comprendere e risolvere per rendere accettabile
+il riverbero acustico di un ambiente.
+
+\subsubsection{Loudness}
+
+Illustrando una condizione semplice di auditorium in forma di spazio piano,
+con un oratore ed un ascoltatore, \ws~ introduce il concetto di propagazione
+del suono in forma emisferica, che si riduce di intensità all'aumentare della
+sua dimensione (distanza dall'origine) proporzionalmente. Aumenta il pubblico,
+il suono perde intensità più rapidamente, assorbito. La parte superiore della
+propagazione si muove libera, non affetta da assorbimenti. I primi accorgimenti:
+elevare l'oratore ed alzare da terra le file posteriori: il teatro Greco. Un tetto
+su questa struttura incrementerebbe l'intensità media, soprattutto dei suoni
+sostenuti nel tempo, e ne bilancerebbe la resa tra fronte e fondo sala.
+
+\begin{quote}
+  The problem of calculating the loudness at different parts of such an
+  auditorium is, obviously, complex, but it is perfectly determinate, and as
+  soon as the reflecting and absorbing power of the audience and of the various
+  wall-surfaces are known it can be solved approximately. \cite{ws:rev}
+\end{quote}
+
+Ne ricaviamo la prima ufficiale considerazione: non si può parlare di Riverbero,
+al singolare, ma di Riverberi di un luogo. Perfettamente determinati, calcolabili,
+ma molti per ogni ambiente che descriviamo.
+
+\subsubsection{Distortion of Complex Sounds: Interference and Resonance}
+
+In termini di \emph{loudness}, i suoni diretti ed i suoni riflessi si rinforzano
+l'un laltro quando viaggiano insieme. Possono però trovarsi nella condizione di
+cancellarsi a vicenda. Nella descrizione del ronte d'onda che si muove per
+successioni di stati opposti, compressioni e rarefazioni, si possono avere
+condizioni in cui il suono riflesso da pareti distinte produca nello spazio della
+sala una zona di incontro di queste riflessioni, in cui entrambe le compressioni e
+le rarefazioni si trovino rinforzate, in fase. Ma si può avere l'occorrenza opposta,
+un punto di incontro in cui le compressioni e le rarefazioni non si succedono ma
+si sovrappongono, annullandosi. Tutto questo accade in relazione al suono emesso,
+alla sua altezza, che variando, varia l'intero stato di equilibrio, l'inntero stato
+di interferenza.
+
+C'è un altro fenomeno che occorre in queste circostanze, in relazione con
+l'intererenza, ovvero la risonanza.
+
+\begin{quote}
+  The word \emph{resonance} has been used loosely as synonymous with
+  \emph{reverberation}, and even with \emph{echo}, and is so given in some of
+  the more voluminous but less exact popular dictionaries. In scientific
+  literature the term has received a very definite and precise application to
+  the phenomenon, wherever it may occur, of the growth of a vibratory motion of
+  an elastic body under periodic force stimed to its natural rates of vibration.
+  A word having this significance is necessary; and it is very desirable that
+  the term should not, even popularly, by meaning many things, cease to mean
+  anything exactly. \cite{ws:rev}
+\end{quote}
+
+Gli uomini che chiedono rispetto per le parole, meritano rispetto, perché
+rispettano gli uomini. Anche questa è risonanza.
+
+\subsubsection{Confusion: Reverberation, Echo and Extraneus Sounds}
+
+Si entra così nel cuore della ricerca di \ws, l'atto pratico di comprendere il
+malfunzionamento acustico del luogo speciico, cinque secondi ed oltre di riverbero
+tale da rendere impossibile comprendere la propria voce in una semplice discussione.
+Il fenomeno definito \rev~ il processo delle rilessioni multiple,
+tra superfici, pareti, soffitto e pavimento, dapprima da una e poi da un'altra e
+poi da molte superici, cambiando (o perdendo) un poco ad ogni rilessione, fino
+a diventare inudibile. Questo il fenomeno \rev, che include il caso
+speciale denominato \eco. Il \rev~ consiste inoltre in una massa
+di suono che riempie uno spazio della quale è impossibile cogliere ed analizzare
+la singola riflessione. Il termine \eco~ è riservato al caso specifico di
+riflessione pulita, singola, generata da una singola superficie ed a volte ripetuta,
+nel caso di più superfici riflettenti. Nel \rev~ ci concentriamo a definirne il
+tasso di decadimento del suono nel tempo, nel caso dell'\eco~ l'intensità è un
+afttore secondario, mentre risulta un fattore discriminante l'intervallo temporale
+tra il suono originario ed il tempo di arrivo della riflessione all'ascoltatore.
+
+La misurazione temporale diventa quindi fondamentale, oggi piuttosto scontata
+per misurazioni fisiche di ordine infinitamente piccole, ma per \ws~ non era proprio
+così.
+
+Il percorso di misurazione del tempo di decadimento del \emph{suono residuo} (il
+suono che resta in aria dopo che la fonte sonora ha cessato di produrlo) evidenzia
+a \ws~che ci sono due e due variabili soltanto di un luogo  ad influire sul
+risultato cronometrico: la forma della stanza, inclusa la dimensione; i materiali,
+incluso l'arredamento.
+
+\subsection{Gli insegnamenti di Sabine}
+
+Ci sono innumerevoli spunti di riflessione tra le pagine dei testi di \ws~\cite{ws:rev},
+dai quali, agli scopi di una corretta implementazione digitale del riverbero e
+soprattutto agli scopi di un corretto utilizzo musicale, possiamo ricavare:
+
+\begin{compactitem}
+  \item La durata del suono residuo ascoltabile in un ambiente è approssimativamente
+  uguale in ogni punto dello spazio.
+  \item La durata del suono residuo ascoltabile in un ambiente è approssimativamente
+  indipendente dalla posizione della sorgente.
+\end{compactitem}
+
+Sono questi due presupposti fondamentali, sui quali cercheremo di costruire un
+pensiero musicale prima ancora che uno strumento musicale, quale il riverbero
+digitale può essere.
 
 \subsection{Natural Sounding Artificial Reverberation}
 
@@ -30,14 +172,14 @@ alle sue ricerce.
 % set(gca,'XTick',0:1:10);
 % print -dpng dfl.png
 
-Come per Sabine, Schroeder rende possibile un avanzamento scientifico legato
+Come per Sabine, \ms~ rende possibile un avanzamento scientifico legato
 al riverbero approcciando alla soluzione di alcuni problemi di stabilità e
-linearità inn requenza dei riverberi disponibili all'epoca. È consapevole delle
-necessità, che mette in chiaro fin dal principio: diffusione di un riverbero
-necessita di un numero minimo di $1000$ echi per secondo per non esprimere fastidiose
-fluttuazioni. Inoltre questa diffusione deve avvenire senza distruggere il
-contributo timbrico della sorgente, cosa che accadeva spesso con i riverberi
-elettronici dell'epoca.
+linearità in frequenza in relazione ai riverberi elettronici disponibili all'epoca.
+È consapevole delle necessità, che mette in chiaro fin dal principio: la diffusione
+di un riverbero necessita di un numero minimo di $1000$ echi per secondo per non
+esprimere fastidiose fluttuazioni. Inoltre questa diffusione deve avvenire senza
+distruggere il contributo timbrico della sorgente, cosa che accadeva con i
+riverberi dell'epoca.
 
 \begin{figure}[hb]
   \centering
@@ -46,11 +188,12 @@ elettronici dell'epoca.
   \label{schroeder:dfl}
 \end{figure}
 
-Il percorso di costruzione di questo sistema di riverberazione parte dalla
-più semplice delle strutture ricorsive di filtraggio: il
-\emph{filtro passa basso IIR} al quale non si da un solo campione di ritardo,
-ma un ritardo variabile, che ne cambia il comportamento temporale e quindi
-spettrale.
+Il percorso di costruzione di un sistema di riverberazione in grado di dare
+densità alle riflessioni e risposta timbrica a magnitudine lineare parte,per
+\ms~dal più semplice filtro a struttura ricorsive \emph{IIR}. Il
+cuore attorno a cui ruota la linea di retroazione è un ritardo variabile, che
+cambia il comportamento temporale e quindi spettrale del filtro in funzione
+dell'unità di ritardo.
 
 \begin{figure}[t!]
   \centering
@@ -59,19 +202,17 @@ spettrale.
   \label{faust:dfl}
 \end{figure}
 
-Il primo oggetto che Schroeder descrive è quindi una linea di ritardo
-alimentata da un circuito di retroazione controllato dal coefficiente $g < 1$.
+La linea di ritardo alimentata da un circuito di retroazione controllato dal
+coefficiente $g < 1$.  Il filtro prevede un valore di ritardo $t >= 1$ applicato a
+tutti i campioni in entrata, situazione che può avere diversi significati,
+come cercherò di spiegare in seguito.
 
-Il filtro prevede un valore di ritardo $t$ applicato a tutti i campioni in
-entrata, situazione che può avere diversi significati, come cercherò di spiegare
-in seguito.
-
-Il codice Faust per la realizzazione di tale oggetto è il seguente.
+Diagramma a blocchi sotto gli occhi (fig. \ref{schroeder:dfl}), il codice \faust
+per la realizzazione di tale oggetto è il seguente.
 
 \lstinputlisting{CAPITOLI/0500/CODES/REV/dfl.dsp}
 
-Il codice di descrizione della funzione è presente tutto in riga tre, la quale
-può essere smontata in più parti per comprenderne la sintassi.
+Il codice può essere smontato e descritto in più parti per comprenderne la sintassi.
 
 Il blocco di ritardo \texttt{delay} deve essere inizializzato con l'allocazione
 di memoria massima in campioni. L'impostazione inserita \texttt{SR/2} permette
@@ -229,6 +370,13 @@ esponenziale dell'energia, lo stesso comportamento che si presenta nelle buone
 situazioni acustiche.
 
 \lstinputlisting{CAPITOLI/0500/CODES/REV/apf.dsp}
+
+\subsection{Synthetic Stereo Reverberation}
+
+Nel 1971 \mg~pubblica per \emph{Studio Sound} \ref{} 
+
+
+
 
 \printbibliography
 \end{refsection}

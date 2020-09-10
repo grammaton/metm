@@ -1,0 +1,38 @@
+%-------------------------------------------------------------
+%---------------------------------------------- COPERTINA BG -
+%-------------------------------------------------------------
+
+\makeatletter
+%\frameattext{<backgroundcolor>}{linecolor}{<linewidth>}
+\newdimen\extraxsep
+\newdimen\extraysep
+\extraxsep=20mm
+\extraysep=20mm
+\newcommand\frameattext[3]{%
+  \linethickness{#3}%
+  \AddToShipoutPicture*{%
+    \AtTextLowerLeft{%text-boder
+       \put(\LenToUnit{-,5\extraxsep},\LenToUnit{-0.5\extraysep}){\color{#1}%
+             \rule{\dimexpr\textwidth+\extraxsep\relax}{\dimexpr\textheight+\extraysep\relax}}%
+       \put(\LenToUnit{-,5\extraxsep},\LenToUnit{-0.5\extraysep}){\color{#2}%
+       \framebox(\LenToUnit{\dimexpr\textwidth+\extraxsep\relax},%
+                 \LenToUnit{\dimexpr\textheight+\extraysep\relax}){}
+       }
+    }%
+  }%
+}
+%\frameatpage{<backgroundcolor>}{linecolor}{<linewidth>}
+\newcommand\frameatpage[3]{%
+  \linethickness{#3}%
+  \AddToShipoutPicture*{%
+    \AtPageLowerLeft{%page-border
+      \put(0,0){\color{#1}\rule{\paperwidth}{\paperheight}}%
+      \put(\LenToUnit{\@wholewidth},\LenToUnit{\@wholewidth}){%
+       \color{#2}\framebox(\LenToUnit{\dimexpr\paperwidth-2\@wholewidth\relax},%
+                  \LenToUnit{\dimexpr\paperheight-2\@wholewidth\relax}){}%
+      }%
+    }%
+  }%
+}
+
+\makeatother

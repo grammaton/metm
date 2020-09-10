@@ -1,0 +1,271 @@
+\documentclass[a3paper]{article}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+\usepackage[pdftex]{graphicx}
+\usepackage{cmap}
+\usepackage{hyperxmp}
+\usepackage[landscape,left=0.1cm, right=.1cm, top=0.1cm, bottom=.1cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{ccicons}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+
+%% PDF meta-data
+\hypersetup{%
+pdftitle={Cosmologia dell'ascolto},
+pdfauthor={Giuseppe Silvi},
+pdfcopyright={This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 Unported License},
+pdfsubject={Cosmologia dell'ascolto},
+pdfkeywords={composers,tikz,lifespan,timeline},
+pdflicenseurl={http://creativecommons.org/licenses/by-sa/3.0/},
+pdfcaptionwriter={Giuseppe Silvi},
+pdfcontactcity={Rome},
+pdfcontactcountry={Italy},
+pdfcontactemail={me@giuseppesilvi.com},
+}
+
+%% To put hyperlinks into the nodes (whole area, not only texts)
+%% Taken from: http://tex.stackexchange.com/questions/36109/making-tikz-nodes-hyperlinkable
+\tikzset{
+   hyperlink node/.style={
+       alias=sourcenode,
+       append after command={
+           let     \p1 = (sourcenode.north west),
+               \p2=(sourcenode.south east),
+               \n1={\x2-\x1},
+               \n2={\y1-\y2} in
+           node [inner sep=0pt, outer sep=0pt,anchor=north west,at=(\p1)] {\href{#1}{\phantom{\rule{\n1}{\n2}}}}
+       }
+   }
+}
+
+%% Puts new lifespan with description to the diagram
+%% Arguments:
+%% Arg1: Start year
+%% Arg2: End year
+%% Arg3: Description
+%% Arg4: Color
+%% Arg5: URL
+%% Optional argument: node parameters (e.g., anchor)
+\newcommand{\putLifeSpanDesc}[6][]{%
+%% Starting position for the lifespan
+\pgfmathsetlengthmacro{\startPos}{(((#2>\constStartYear) ? #2 : \constStartYear) - \constStartYear)*\constMminYear}
+%% End position of the lifespan
+\pgfmathsetlengthmacro{\endPos}{(((#3<\constStopYear) ? #3 : \constStopYear) - \constStartYear)*\constMminYear}
+%% Center position of the lifespan - to put the label there
+\pgfmathsetlengthmacro{\centerPos}{(\endPos + \startPos)/2}
+%% Width of the lifespan
+\pgfmathsetlengthmacro{\spanWidth}{\endPos-\startPos}
+% Put the node instead of teh plain rectangle in order to be able to utilize hyperlink node style and make the whole life span clickable
+\node[rectangle,rounded corners,fill=#5,inner sep=0pt,minimum height=\constLifeSpanHeight, minimum width=\spanWidth, anchor=south west,hyperlink node={#6}] at (\startPos, 0) {};
+%\draw[rounded corners,fill=#5] at (\startPos, 0) rectangle (\endPos, \constLifeSpanHeight);
+\node[#1] at (\centerPos, \constLifeSpanHeight + 2mm) {\href{#6}{#4}};
+}
+
+%% Puts new lifespan to the diagram
+%% Arguments:
+%% Arg1: Start year
+%% Arg2: End year
+%% Arg3: Description
+%% Arg4: Color
+%% Arg5: URL
+%% Optional argument: node parameters (e.g., anchor)
+\newcommand{\putLifeSpan}[6][]{%
+\putLifeSpanDesc[#1]{#2}{#3}{#4 (#2 -- #3)}{#5}{#6}
+}
+\newcommand{\putLifeSpanl}[6][]{%
+\putLifeSpanDesc[#1]{#2}{#3}{#4 (#2 -- )}{#5}{#6}
+}
+
+%% Draws vertical tics for the timeline
+%% Arg1: Year
+\newcommand{\drawVertTics}[1]{%
+%% X pos
+\pgfmathsetlengthmacro{\pos}{(#1 - \constStartYear)*\constMminYear}
+\draw[ultra thin,densely dotted] (\pos, 1cm) -- (\pos, .9\textheight);
+\node at (\pos, 0) {#1};
+}
+
+%% Musicians
+\colorlet{lifespancolormu}{Purple}
+%% Musicians
+\colorlet{lifespancolorce}{Red}
+
+%% Philosophers
+\colorlet{lifespancolorph}{MidnightBlue}
+%% Painters
+\colorlet{lifespancolorpa}{ForestGreen}
+%% Writers and poets
+\colorlet{lifespancolorwr}{Yellow}
+%% All others (default)
+\colorlet{lifespancolor}{Gray}
+
+
+
+%% Updates shift
+\newcommand{\updateshift}{\pgfmathsetlengthmacro{\myshift}{\myshift + 1cm}}
+
+\newcommand{\colsign}[1]{\colorbox{#1}{\hspace*{1cm}}}
+\newsavebox{\thinkers}
+\savebox{\thinkers}{\Large\itshape\parbox{7cm}{%
+\begin{itemize}
+\item[\colsign{lifespancolormu}] Musicians
+\item[\colsign{lifespancolorce}] Music Facilities
+\item[\colsign{lifespancolorph}] Philosophers
+\item[\colsign{lifespancolorpa}] Painters
+\item[\colsign{lifespancolorwr}] Poets and Prose Writers
+\item[\colsign{lifespancolor}] Others
+\end{itemize}}}
+
+\noindent\begin{tikzpicture}[x=1mm,y=1mm]
+\pgfmathsetlengthmacro{\constLifeSpanHeight}{3mm}
+\pgfmathsetmacro{\constStartYear}{1700}%
+\pgfmathsetmacro{\constStopYear}{2017}%
+\pgfmathsetlengthmacro{\myshift}{1cm}%
+%% Scale: points in one year
+\pgfmathsetlengthmacro{\constMminYear}{.9\textwidth/(\constStopYear-\constStartYear)}
+%% Grid
+\foreach \i in {1700,1710,...,2017} {
+\drawVertTics{\i}
+}
+%% Lifespans
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1724}{1804}{Immanuel Kant}{lifespancolorph}{http://en.wikipedia.org/wiki/Immanuel_Kant}
+\putLifeSpan{1818}{1883}{Karl Heinrich Marx}{lifespancolorph}{http://en.wikipedia.org/wiki/Marx}
+\putLifeSpan{1912}{1992}{John Cage}{lifespancolormu}{https://en.wikipedia.org/wiki/John_Cage}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1749}{1832}{Johann Wolfgang von Goethe}{lifespancolorwr}{https://en.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe}
+\putLifeSpan{1844}{1900}{Friedrich Wilhelm Nietzsche}{lifespancolorph}{http://en.wikipedia.org/wiki/Friedrich_Nietzsche}
+\putLifeSpan{1928}{2007}{Karlheinz Stockhausen}{lifespancolormu}{https://en.wikipedia.org/wiki/Karlheinz_Stockhausen}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1756}{1791}{Johann Chrysostom Wolfgang Amadeus Mozart}{lifespancolormu}{}
+\putLifeSpan{1830}{1903}{Camille Pissarro}{lifespancolorpa}{http://en.wikipedia.org/wiki/Camille_Pissarro}
+\putLifeSpan{1926}{1980}{Franco Evangelisti}{lifespancolormu}{https://en.wikipedia.org/wiki/Franco_Evangelisti_(composer)}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1906}{1975}{Hannah Arendt}{lifespancolorph}{https://en.wikipedia.org/wiki/Hannah_Arendt}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1856}{1939}{Sigmund Freud}{lifespancolor}{https://en.wikipedia.org/wiki/Sigmund_Freud}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1817}{1862}{Henry David Thoreau}{lifespancolorph}{https://en.wikipedia.org/wiki/Henry_David_Thoreau}
+\putLifeSpan{1889}{1951}{Ludwig Wittgenstein}{lifespancolorph}{http://en.wikipedia.org/wiki/Ludwig_Wittgenstein}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1903}{1969}{Theodor W. Adorno}{lifespancolorph}{http://en.wikipedia.org/wiki/Adorno}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1878}{1953}{Joseph Stalin}{lifespancolor}{https://en.wikipedia.org/wiki/Joseph_Stalin}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1926}{1984}{Michel Foucault}{lifespancolorph}{http://en.wikipedia.org/wiki/Michel_Foucault}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1923}{1978}{Angelo Maria Ripellino}{lifespancolorwr}{https://it.wikipedia.org/wiki/Angelo_Maria_Ripellino}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpanl{1953}{2017}{Michelangelo Lupone}{lifespancolormu}{}
+\putLifeSpan{1883}{1945}{Anton Friedrich Wilhelm (von) Webern}{lifespancolormu}{https://en.wikipedia.org/wiki/Anton_Webern}
+\end{scope}
+\updateshift	
+\begin{scope}[yshift=\myshift]
+\putLifeSpanl{1949}{2017}{Alvise Vidolin}{lifespancolormu}{}
+\putLifeSpan{1885}{1935}{Alban Maria Johannes Berg}{lifespancolormu}{https://en.wikipedia.org/wiki/Alban_Berg}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1821}{1880}{Gustave Flaubert}{lifespancolorwr}{http://en.wikipedia.org/wiki/Flaubert}
+\putLifeSpan{1882}{1941}{Virginia Woolf}{lifespancolorwr}{http://en.wikipedia.org/wiki/Virginia_Woolf}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1924}{1990}{Luigi Nono}{lifespancolormu}{https://en.wikipedia.org/wiki/Luigi_Nono}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1926}{1996}{David Tudor}{lifespancolormu}{https://en.wikipedia.org/wiki/David_Tudor}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1925}{2016}{Pierre Boulez}{lifespancolormu}{https://en.wikipedia.org/wiki/Pierre_Boulez}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1890}{1960}{Boris Leonidovich Pasternak}{lifespancolorwr}{https://en.wikipedia.org/wiki/Boris_Pasternak}
+\putLifeSpanl{1977}{2017}{IRCAM}{lifespancolorce}{https://en.wikipedia.org/wiki/Centre_Georges_Pompidou}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1946}{1970}{Internationale Ferienkurse f\"ur Neue Musik, Darmstadt}{lifespancolorce}{https://en.wikipedia.org/wiki/Darmstadt_School}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1819}{1877}{Gustave Courbet}{lifespancolorpa}{http://en.wikipedia.org/wiki/Gustave_Courbet}
+\putLifeSpan{1881}{1973}{Pablo Picasso}{lifespancolorpa}{http://en.wikipedia.org/wiki/Picasso}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1821}{1867}{Charles Baudelaire}{lifespancolorwr}{http://en.wikipedia.org/wiki/Charles_Baudelaire}
+\putLifeSpan{1873}{1958}{George Edward Moore}{lifespancolorph}{http://en.wikipedia.org/wiki/George_Edward_Moore}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpanl{1931}{2017}{Alvin Lucier}{lifespancolormu}{https://en.wikipedia.org/wiki/Alvin_Lucier}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1893}{1930}{Vladimir Vladimirovich Mayakovsky}{lifespancolorwr}{https://en.wikipedia.org/wiki/Vladimir_Mayakovsky}
+\putLifeSpanl{1945}{2017}{Giorgio Nottoli}{lifespancolormu}{https://en.wikipedia.org/wiki/Giorgio_Nottoli}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpanl{1956}{2017}{Nicola Bernardini}{lifespancolormu}{}
+\putLifeSpan{1874}{1951}{Arnold Franz Walter Schoenberg}{lifespancolormu}{https://en.wikipedia.org/wiki/Arnold_Schoenberg}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1839}{1906}{Paul C\'ezanne}{lifespancolorpa}{http://en.wikipedia.org/wiki/Cezanne}
+\putLifeSpan{1912}{1956}{Jackson Pollock}{lifespancolorpa}{http://en.wikipedia.org/wiki/Jackson_Pollock}
+\putLifeSpanl{1962}{2017}{Agostino Di Scipio}{lifespancolormu}{}
+\end{scope}
+\updateshift
+\begin{scope}[yshift=\myshift]
+\putLifeSpan{1809}{1882}{Charles Darwin}{lifespancolor}{http://en.wikipedia.org/wiki/Charles_Darwin}
+\putLifeSpan{1887}{1968}{Marcel Duchamp}{lifespancolorpa}{http://en.wikipedia.org/wiki/Marcel_Duchamp}
+\end{scope}
+
+%---------------
+%\putLifeSpan{1872}{1970}{Bertrand Russell}{lifespancolorph}{http://en.wikipedia.org/wiki/Bertrand_Russell}
+%\putLifeSpan{1724}{1804}{Immanuel Kant}{lifespancolorph}{http://en.wikipedia.org/wiki/Immanuel_Kant}
+%\putLifeSpan{1770}{1831}{Georg Wilhelm Friedrich Hegel}{lifespancolorph}{http://en.wikipedia.org/wiki/Hegel}
+%\putLifeSpan{1832}{1883}{Édouard Manet}{lifespancolorpa}{http://en.wikipedia.org/wiki/\%C3\%89douard_Manet}
+%\putLifeSpan{1856}{1939}{Sigmund Freud}{lifespancolor}{https://en.wikipedia.org/wiki/Sigmund_Freud}
+%\putLifeSpan{1889}{1951}{Ludwig Wittgenstein}{lifespancolorph}{http://en.wikipedia.org/wiki/Ludwig_Wittgenstein}
+%\putLifeSpan{1903}{1969}{Theodor W. Adorno}{lifespancolorph}{http://en.wikipedia.org/wiki/Adorno}
+
+\node at (50,150) { \usebox{\thinkers} };
+\node[font=\Huge\scshape\bfseries] at (40, 185) {1700 -- 2017};
+\end{tikzpicture}
+
+\bigskip
+
+\centerline{\ccbysa\ \href{http://www.giuseppesilvi.com}{Giuseppe Silvi}, 2017. Conservatorio di Musica S. Cecilia di Roma.}
+
+\end{document}

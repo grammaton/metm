@@ -1,16 +1,16 @@
 TEX = xelatex
 BIB = biber
-src = METM.tex
-bcf = METM.bcf
-PDF = METM.pdf
+src = METP.tex
+bcf = METP.bcf
+PDF = METP.pdf
 
-buildclean :
+publish :
 	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src) && $(TEX) $(src) && rm *.aux *.log *.toc *.run.xml *.bbl *.blg *.bcf *.fdb_latexmk *.fls *.idx *.ilg *.ind && open $(PDF)
 
 build :
-	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src) && $(TEX) $(src) 
+	$(TEX) $(src) && $(BIB) $(bcf) && $(TEX) $(src) && $(TEX) $(src)
 
-rebuild :
+step :
 	$(TEX) $(src)
 
 .PHONY: clean
