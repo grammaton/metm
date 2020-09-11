@@ -1,3 +1,6 @@
+# PROGETTO TRASERITO SU GITLAB
+https://gitlab.com/giuseppesilvi/metp
+
 # Musica Elettronica Tecnologia Musicale 
 
 ## Appunti didattici
